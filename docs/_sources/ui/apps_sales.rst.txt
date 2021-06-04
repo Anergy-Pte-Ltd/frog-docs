@@ -1,0 +1,12 @@
+.. include:: /shared/common.rst
+
+
+
+Sales & Marketing
+=================
+
+.. toctree::
+
+|crm| Customer Relationship Management
+--------------------------------------
+

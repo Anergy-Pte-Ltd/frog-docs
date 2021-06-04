@@ -1,0 +1,35 @@
+.. include:: /shared/common.rst
+
+
+
+
+
+Strategic Management Apps
+==========================
+
+.. toctree::
+
+|scorecard| Scorecard
+--------------------------
+
+.. note::
+    This is intended to be a 'read-only' app for all but a very few who get involved with setting and finalising the
+    scorecard for each period.
+
+Will need a nice title but intended to contain a strategic view of the business. The scorecard will not necessarily
+show live information but information curated and then published. The preparation will access live data then enabling
+the publisher to snapshot the data and provide any additional wording around the data.
+
+
+|board| Board
+----------------
+
+.. warning::
+    Extremely important that any content relating to this site be kept secure
+
+Site for publishing and minuting information required in the governance of the Group. Particularly this will require
+information be published and be authorised / signed-off by various parties (as necessary) in order to create the
+necessary trail of information. Effectively a glorified CMS.
+
+
+

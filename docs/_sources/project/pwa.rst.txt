@@ -1,0 +1,30 @@
+.. include:: ../shared/common.rst
+
+====================================================
+Progressive Web App
+====================================================
+
+This is a journal of turning the docs project into a full `Progressive Web App <https://en.wikipedia.org/wiki/Progressive_web_application>`_.
+The target is the resource (which is this docs project, built and stored) located in a Google Storage Bucket attached
+to the ``hypno-frog`` project.
+
+
+Web Resources to do this
+------------------------
+
+- `<https://www.pwabuilder.com/>`_
+- `<https://web.dev/progressive-web-apps/>`_
+- `<https://www.freecodecamp.org/news/build-a-pwa-from-scratch-with-html-css-and-javascript/>`_
+
+Icon Making
+-----------
+
+This is a good reference for making the necessary icons. Notice however that the shadows from this package are
+mirrored to the normal method.
+
+`Android Asset Studio <https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=menu_book&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96%2C%20125%2C%20139%2C%200)&backColor=rgb(166%2C%20206%2C%2057)&crop=0&backgroundShape=circle&effects=shadow&name=turbo_frog_docs>`_
+
+The icon to be used is:
+
+.. image:: /img/logo/logo_96.png
+    :width: 96px

@@ -1,0 +1,24 @@
+.. include:: ../../shared/common.rst
+
+Return to |tfbreakdown|
+
+A - Project Management & Administration
+===================================================
+
+All works relating to the management and administration that cannot be attributed to other sections.
+
+:A01 Project Manager:
+    | *Works completed by the Project Manager function*
+    | A01-01	Project Management Plan
+    | A01-02	Project Reporting
+    | A01-03	Project Bulletins
+
+:A02 Project Controls:
+    | *Works completed to control the project for time, cost and scope.*
+    | A02-01	WBS Development
+    | A02-02	Task Board Development
+    | A02-03	Schedule Development
+    | A02-04	Cost and Schedule Reviews
+    | A03-01	Financial Changeover Plan
+
+Return to |tfbreakdown|

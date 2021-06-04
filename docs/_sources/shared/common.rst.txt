@@ -1,0 +1,70 @@
+..  Common substitutions being used by all files
+
+.. |rest| replace:: *reStructuredText*
+.. |rst| replace:: |rest|
+.. |odoo| replace:: *Odoo*
+.. |turbo| replace:: **TURBO**
+.. |anergy| replace:: **Anergy**
+.. |tf| replace:: *TURBO-FROG*
+.. |turbo_frog| replace:: |tf|
+.. |turbo-frog| replace:: |tf|
+.. |tfbreakdown| replace::
+        :doc:`/project/breakdown`
+
+..  Common images being used by all files
+
+.. |tflogo| image:: /img/logo/logo_48.png
+    :width: 48px
+.. |logo| image:: /img/logo/logo_192.png
+    :width: 192px
+
+
+.. |accounts| image:: /img/icons/accounts.png
+    :width: 32px
+.. |admin| image:: /img/icons/admin.png
+    :width: 32px
+.. |analytics| image:: /img/icons/analytics.png
+    :width: 32px
+.. |consolidation| image:: /img/icons/consolidation.png
+    :width: 32px
+.. |contacts| image:: /img/icons/contacts.png
+    :width: 32px
+.. |crm| image:: /img/icons/crm.png
+    :width: 32px
+.. |scorecard| image:: /img/icons/scorecard.png
+    :width: 32px
+.. |design_guide| image:: /img/icons/design_guide.png
+    :width: 32px
+.. |hr| image:: /img/icons/hr.png
+    :width: 32px
+.. |payroll| image:: /img/icons/payroll.png
+    :width: 32px
+.. |plm| image:: /img/icons/plm.png
+    :width: 32px
+.. |recruitment| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |reports| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |safety| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |handbook| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |project_manager| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |tasks| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |projects| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |training| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |cost_centers| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |board| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |forecasting| image:: /img/icons/recruitment.png
+    :width: 32px
+.. |works| image:: /img/icons/recruitment.png
+    :width: 32px
+
+
+

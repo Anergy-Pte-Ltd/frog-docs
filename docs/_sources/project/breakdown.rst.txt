@@ -1,0 +1,30 @@
+.. include:: ../shared/common.rst
+
+#############################
+|tf| Work Breakdown Structure
+#############################
+
+The |tf| project has been broken into an |anergy| standard format for WorkID's but using specialised DIVISIONS to
+describe the works.
+
+It is important to understand that a WBS describes the "how" of work breakdown and not necessarily the "what" will be
+delivered. :doc:`/ui/applications` covers the details regarding the delivery from the perspective of the user.
+However this fails to cover how a project will be managed, administered and what steps may necessarily need to be
+taken to get there. This is what a WBS here describes.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Divisions:
+
+   wbs/A
+   wbs/B
+   wbs/C
+   wbs/D
+   wbs/F
+   wbs/G
+   wbs/H
+   wbs/J
+   wbs/M
+
+Note that K and L are reserved for Manufacturing and Operations respectively.
+

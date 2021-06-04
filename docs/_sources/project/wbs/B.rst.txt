@@ -1,0 +1,105 @@
+.. include:: ../../shared/common.rst
+
+Return to |tfbreakdown|
+
+B - Platforms & Functions
+============================
+
+:B01 Standards, Code and Resources:
+    | *Create the rules, standards and resources required to develop and maintain coding.*
+    | B01-01	Turbo Code Administration
+    | B01-02	Maintenance of odoo.sh Instance
+    | B01-03	Development and Coding Rules
+    | B01-04	Deployment Rules
+    | B01-05	Templating Rules
+
+:B02 Odoo Extensions:
+    | *Special extensions to odoo*
+    | B02-01	Identifier Fields
+    | B02-02	Datasheet Fields
+
+    .. note::  This is a work in progress
+
+:B03 User Interface:
+    | *Specific works to improve, modify or rewrite base |odoo| for |turbo|*
+    | B03-01	Theme and Style
+    | B03-02	Landing
+    | B03-03	User App Layout
+    | B03-04	General Screen Layout
+    | B03-05	Gestures
+    | B03-06	Navigation / Menus
+    | B03-07	Search Bar
+    | B03-08	Sidebars
+    | B03-09	Action Indicators
+    | B03-10	User Profiles
+    | B03-11	Login Screen
+    | B03-12	Manuals / Help Screens
+    | B03-13	Business Selector
+    | B03-14	WBS Explorer
+    | B03-15	Job Explorer
+    | B03-16	Part Explorer
+
+:B04 Widgets:
+    | *Specialised components which need to be added or made available in |turbo|*
+    | B04-01	Icons
+    | B04-02	Buttons
+    | B04-03	Spreadsheet
+    | B04-04	Datasheet
+    | B04-05	Engineering Calculator
+    | B04-06	Barcoding
+    | B04-07	Geolocation Coding
+
+:B05 Google Integration:
+    | *Integration with Google Platorm with |turbo|*
+    | B05-01	Integration with Google Directory
+    | B05-02	Chat bot for Turbo
+    | B05-03	Sidebar app for Turbo
+    | B05-04	Google sheets library functions
+    | B05-05	Google drive Librarian
+    | B05-06	Notify by Gmail Integration
+    | B05-07	Copy Gmail to Turbo Integration
+    | B05-08	Google Contacts Integration
+    | B05-09	Google Admin - Onboarding
+    | B05-10	Google Admin - Deprovisioning
+    | B05-11	Google Photos Integration
+    | B05-12	Google Calendar Integration
+
+:B06 Mobile Functionality:
+    | *Ensuring that mobile functionality is available for |turbo|*
+    | B06-01	Mobile Function Requirements
+    | B06-02	Native App Android Development
+    | B06-03	Native App iOS Development
+    | B06-04	Mobile Style Guide
+
+    .. note::
+        It appears already that B06-01 through 04 can be replaced by implementing B06-05 A Progressive Web App
+        version of |turbo|.
+
+:B07 Security:
+    | *Whilst most of this is completed, still need to develop a maintainable model for how security groups will be formed and maintained*
+    | B07-01	Turbo Authentication
+    | B07-02	Turbo Authorisation
+    | B07-03	Security Maintenance
+
+:B08 Identifier Definitions:
+    | *Specifically tackling the business identifiers required - see also B02-01*
+    | B08-01	Job Number Identifiers
+    | B08-02	Work Identifiers
+    | B08-03	Task Identifiers
+    | B08-04	Resource Identifiers
+
+    .. note::
+        This is still a work in progress in how to identify and ensure correct identification of business resources.
+
+:B09 Workflow:
+    | B09-01	-- To be added --
+
+    .. note::
+        Work in Progress only
+
+:B10 API:
+    | *Whilst |odoo| comes with RPC API, this section is about making sure necessary write-up and checks are done*
+    | B10-01	RPC API Commissioning
+    | B10-02	REST API Development
+
+Return to |tfbreakdown|

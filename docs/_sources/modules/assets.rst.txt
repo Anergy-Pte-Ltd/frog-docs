@@ -1,0 +1,242 @@
+.. include:: ../shared/common.rst
+
+###########
+Works Model
+###########
+
+Overview
+********
+
+**Plant** is the physical manifestation/deliverable to be performed/provided/operated/maintained in a contract/job.
+
+**Plant** only contain *Assets*. These are the logical and physically separable parts.
+
+**Assets** may contain *sub-assets* and most likely have *connections* to other assets.
+
+
+
+**Assets** are an abstract class only. Of particular note, **Equipment** is
+the set of **Assets** which are part of the *equipment* category, **Instruments** are the set of **Assets** which are
+part of the *instrument* category.
+
+Asset
+*****
+
+**Assets** are an abstract model that require subclassing.
+
+An **Asset**:
+
+- *belongs* to another **Asset** or is actually a **Plant** instance (which is a subclass of asset)
+- must be instantiated as a subclass which in turn will define the *class* of the **Asset**
+- through this subclass will have a **tag** (see individual subclasses)
+- *is* a *type* which is one of **Asset Types**
+- *has* a *status* which is one of:
+    - NEW (default) | IN PROGRESS | COMPLETE | ON HOLD | DELETED
+- *has* a *reason* for *status* when status is either ON HOLD or DELETED
+- *has* a *created* timestamp - set on creation of task - cannot be changed
+- *has* a *started* timestamp
+    - set when task *status* is made not NEW
+    - can also be manually changed
+    - must be before a task in *completed*
+- *has* **asset properties**
+- *may have* one or more **notes**
+- *could be* a *template* meaning that the **Asset** *cannot* be allocated to
+
+Asset Properties
+================
+
+**Asset Properties** are unstructured data. That is it is not possible to define each and every property and it is
+possible for these to be able to be
+
+.. note::
+
+    Suggested here that the asset properties be designed to be similar to JSON.
+
+..  note::
+
+    Asset properties will be actually dynamic and computable as well as addressable. To do this, the Python package
+    ``pint`` will be used to allow the property to be parsed and a quantity. For example, you can call upon design
+    criteria information and use that in the calculation of a value at equipment level.
+
+Asset Template
+==============
+
+**Asset Template** is
+
+
+Asset Types
+===========
+
+The following is a list of **Asset Types** however this can be extended. Note that the list is String only at this
+stage.
+
+Type Name               Hint
+======================= ==============================================================================================
+Equipment               Mechanical equipment
+Structure               Structural elements including concrete and steelwork
+Infrastructure          Earthworks, buried services and buildings
+Electrical Equipment    Electrical equipment generally panels
+Instrumentation         Instruments used within the process (in the field)
+Piping                  Pipe lines and associated works
+Control Software
+Document
+
+
+- Equipment
+- Structure
+- Infrastructure
+
+**Asset Types** contain:
+
+- title of the type; and
+- a description/hint of the type (for use within help)
+
+Plant
+*****
+
+A **Plant**:
+
+- *belongs* to a **Site**
+- *has* a **Geolocation**
+- *has* a *title*
+- *has* a *description*
+- *has* a *design timestamp*
+- *has* a *commission timestamp*
+- *has* a *decommission timestamp*
+- *has* many *assets*
+- is *linked* to one or more *contracts* or *proposals*
+- *has* a *plant status* which is one of:
+    - FUTURE | IN CONSTRUCTION | IN PRODUCTION | IN EXTENSION | IN CARE & MAINTENANCE | DECOMMISSIONED
+- *has* a list of **areas** for the plant
+- *has* schemas for:
+    - **Document Numbers**
+    - **Equipment Tags**
+    - **Instrument Tags**
+    - **Structural Element Tags**
+    - **Pipe Line Numbers**
+    - **Valve Numbers**
+    - **Electrical Equipment Tags**
+    - **Electrical Cable Tags**
+
+
+Plant Area
+==========
+
+An **Area** is generally deemed to be a geographical zone of the Plant though in some cases it is possible that it
+could be assumed to be functional during early stages of design. It is possible that assets will change areas based
+on the actual layout through the design process.
+
+An **Area**:
+
+- *belongs* to a **Plant**
+- *has* a *number* for display purposes
+- *has* a *number* for tag usage purposes
+- *has* a *title*
+- *has* a *status* which is as per the **plant status**
+
+**Areas** are ordered by their display numbers.
+
+
+Plant Status
+============
+
+Defintion of *plant status* is as follows:
+
+:FUTURE:                No commitment yet made but a possibility
+
+:IN CONSTRUCTION:       Commitment made and going through realisation including design, procurement and construction
+
+:IN PRODUCTION:         Completed works and no contracts pending
+
+:IN EXTENSION:          Completed works with contracts pending to modify/expand/extend existing/adjacent facility
+
+:IN CARE & MAINTENANCE: No work either in capital or operation taking place but facility in tact
+
+:DECOMMISSIONED:        Facility no longer able to be used to produce
+
+Equipment
+*********
+
+An **Equipment** (which sounds better if we say "Item of Equipment" or "Equipment Item" given that Equipment is a
+plural):
+
+- is an **Asset**
+- *has* a *tag* which is an **Equipment Tag** (see below)
+- *has* a set of **asset properties**
+
+
+
+
+Equipment Tags
+==============
+
+These are a type of **Business Identifier** for which the schema is configured with each Plant. There are multiple
+existing schemas for this identifier but in general they follow the following pattern:
+
+    EE-AN[d]
+
+Where:
+
+    EE = Two letter description of the equipment type. This is in accordance with a standard list
+    A = Area Number
+    N = Sequential Number typically starting from 0 to 9
+    d = Optional letter suffix when the equipment is part of a set which is otherwise identical.
+
+See the testing below for references to examples.
+
+Instrument
+==========
+
+
+Instrument Tags
+---------------
+
+These are a type of **Business Identifier** for which the schema is configured with each Plant. The schema follows
+the ISA 5.1 numbering scheme for instruments adapted for each project. This will be the following pattern.
+
+Document
+========
+
+A document is an asset to be produced ie a deliverable. Some documents may or may not require actual delivery to
+customers.
+
+A **document**:
+
+- *has* a **document number** which must be a document number (as given below)
+- *
+
+
+
+Structure
+=========
+
+Electrical Equipment
+====================
+
+Cable
+=====
+
+Lines (Piping)
+==============
+
+
+
+
+Testing
+*******
+
+The following projects each are of a plant design performed by Anergy. The data model shall be able to accomodate the
+plant information from each of these. This can be done initially as a thought experiment (simple check without
+application). Those marked with an asterisk shall require data uploading during the alpha phase testing.
+
+- K488 Weschar
+- T1555 Hazelmere*
+- T1969 Elan*
+- T1984 Sulfachar*
+- ARD03 CPL Immingham
+- T1918 Tineo*
+- T2141 NOR
+- T2004 Genk*
+- T2005 Boscabel*
+
+

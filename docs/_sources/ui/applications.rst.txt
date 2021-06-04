@@ -1,0 +1,64 @@
+.. include:: /shared/common.rst
+
+
+Proposed |turbo| Applications
+*****************************
+
+
+:Purpose:   The specification has been created to to provide a high level detail for the user application interface
+            for |turbo|.
+:Author:    Matthew Martella
+:Date:      13/02/2021
+:Revision:  A
+:topic:     Sepcification for Project |tf| for the implementation of the highest level menu in |turbo|
+
+
+Goto `Apps Collection`_ or :ref:`apps_collection` or :ref:`admin_app`
+
+Introduction
+============
+
+|turbo| being an implementation of the |odoo| platform relies upon the notion of 'apps'. In the technical
+implementation they are like a level 0 menu item. The level 1 menu items are then the ones you see across the top of
+the screen, level 2 in their dropdowns, level 3 in side pop-outs etc.
+
+This document provides a framework for what the intended apps at this level shall be. This should be updated in
+accordance with any changes made.
+
+.. _`apps_collection`:
+
+Apps Collection
+===============
+
+===================== ================================== =========================== =====================
+|1|                   |forecasting| Forecasting          |analytics| Analytics       |admin| Admin
+|2|                   |consolidation| Consolidation      |cost_centers| Cost Manager |contacts| Contacts
+|3|                   |design_guide| Tech Guide          |recruitment| Recruitment
+|training| Training   |projects| Project Assistant       |plm| Design Center
+|board| Board         |project_manager| Project Manager                              |handbook| Handbook
+===================== ================================== =========================== =====================
+
+.. |1|
+    replace:: |accounts| Accounts
+.. |2|
+    replace:: |payroll| Payroll
+.. |3|
+    replace:: |reports| Reports
+
+
+
+
+
+Applcations
+===========
+
+.. toctree::
+    :maxdepth: 2
+
+    admin/apps
+    finance/apps
+    projects/apps
+    apps_sales
+    apps_hr
+    apps_strategy
+

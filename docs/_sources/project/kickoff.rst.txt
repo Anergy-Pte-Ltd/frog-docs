@@ -1,0 +1,54 @@
+.. include:: ../shared/common.rst
+
+==================
+|tf| Kickoff
+==================
+
+.. note::
+
+    :Date:          29th January 2021
+    :Present:       | Matthew Martella
+                    | Michael Martella
+                    | Jimmy Quek
+                    | Tim O'Byrne
+                    | Tony Chen
+                    | Freddi Hamonangan
+                    | Samuel Sibarani
+                    | Adam Wray
+                    | Guan Aik Soh
+                    | Helen Martella
+                    | Raja Santhanagopalan
+    :By:            Across Google Meet
+
+    The concept of |tf| was put to the entire team. Effectively it draws together the development works through 2020 and
+    looking ahead to what is required through this year.
+
+
+Strategic Model for Understanding Our Systems
+---------------------------------------------
+
+
+
+.. figure:: ../img/house-overview.png
+
+    Model of How |anergy| Systems Come Together
+
+
+
+Targets for Q53
+---------------
+
+These are the targets for this quarter (before 31-March-2021).
+
+
+
+.. figure:: ../img/Q53-targets.png
+
+    Targets with relation to the Model
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+.. include:: /shared/common.rst
+
+Administration and General Apps
+=================================
+
+.. toctree::
+
+
+|admin|
+
+.. _`admin_app`:
+
+Admin
+---------------
+
+:|tf| WorkID:       | ``D03`` - Timesheets
+                    | ``D04`` - Attendance
+                    | ``D05`` - Leave
+                    | ``D08`` - Expenses
+:|odoo| Modules:    Various
+:Custom Modules:    Considerable to get working right
+:Custom Python:     Required to interface with Google Maps API (Attendance)
+:Custom Javascript: Required for geolocation work (Attendance)
+
+General administration for each employee. Currently |odoo| has these as multiple apps. However this is not seen as
+potentially efficient given the number of additional apps in the whole suite. Therefore these items have been rolled
+in together. Employees will be expected to check in with this at least several times a week.
+
+Includes:
+
+- Timesheet entry
+- Attendance 'clock'
+- Leave applications
+- Expense entry and submission
+
+.. note::
+    This will be open and compulsory to all employees
+
+.. note::
+    Tim OByrne would like to incorporate a dashboard landing ... would this be the place? Or would it be best to create
+    a new app call say ``home`` which would specifically be the landing page.
+
+
+|contacts| Contacts
+------------------------
+
+:|tf| WorkID:       ``Not allocated`` - Contacts
+:|odoo| Modules:    Considerable ... not listed here
+:Custom Modules:    Limited requirements
+
+Accounts are for multiple companies. The accounts will only deal with **one** company at a time. This will need to be
+selected at entry(?) to the app. It also needs to be prominent on the machine.
+
+.. warning::
+    This will be a normally closed app open to only workers in this area and
+
+|reports| Reports
+---------------------
+
+:|tf| WorkID:       ``H05`` - Progress Reporting
+:|odoo| Modules:    ``website_cms`` (?) or other
+:Custom Modules:    Uncertain but could be reasonable
+
+This is a weekly/monthly reporting cycle area. An individual writes their summary and then has 'attached' various
+links to reports in various modules.
+
+Possibly needs to be then a review/marking/feedback function to individuals.
+
+|safety| Safety
+---------------------------------------
+
+:|tf| WorkID:       ``H13`` - Safety
+:|odoo| Modules:    nil
+:Custom Modules:    Required
+
+Safety module will include:
+
+- Managing safety incidents and safety contacts
+- Displaying safety policies (for locations)
+- Developing safety management plans and systems around these
+- Incident reporting
+- Incident investigation
+- JSA development
+- Method statement development
+- Take 5 implementation
+- Safety CMS for information regarding safe work
+
+..  note::
+    It is hard to say whether this app is genuinely necessary or not at this level.

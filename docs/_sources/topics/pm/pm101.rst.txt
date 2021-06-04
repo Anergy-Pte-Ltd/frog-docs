@@ -1,0 +1,101 @@
+.. include:: /shared/common.rst
+
+
+|anergy| Project Management
+*****************************
+
+Introduction
+============
+
+**Project Management** is in an of itself a complex and very large topic. It covers many facets and in the end tends to
+be very situational ... that is *one size does not fit all*.
+
+This series of documents is therefore not aimed at trying to create a definitive tome with regards to best practises
+in the field of Project Management. It is intended for |anergy| and |turbo| users to be able create a common
+understanding of the principles underpinning the method of Project Management adopted as the Company standard.
+
+The Project Management Triangle
+-------------------------------
+
+Before going any further it is important to raise the ever important triangle of project management.
+
+.. graphviz::
+    :align: center
+
+    digraph g {
+        size="8,6";
+        node[fontsize=18,fontname="roboto",shape=plaintext];
+        scope[label="SCOPE"];
+        { rank = same; time[label="TIME"]; cost[label="COST"]; }
+        scope -> time -> cost;
+        cost -> time -> scope;
+        cost -> scope -> cost;
+    }
+
+There will be constant and ever present tension between the time, cost, scope forces in a Project. So much so that
+the common phrase is *"you can have it fast, cheap or complete but you can't have all three"*. In essence, the
+**goal** of **project management** is actually to achieve just that - on time, on budget and complete!
+
+Meeting the Goal
+----------------
+
+OK - we've formulated our goal. Now how are we going to get into meeting this? This is where there are many, many
+answers. These are situational ... what works best in one situation does not work the best in another. Two typical
+tools are well known to many:
+
+- The budget; and
+- The schedule
+
+Budget for certain will tell us if have our costs under control and of course the schedule will magically inform us
+when the project will be complete.
+
+Neither tool however works without fundamentally understanding the scope of a Project. Too often it is stated that
+well it's just a repeat of XYZ with a couple of changes. But what was XYZ? How was XYZ achieved? What are the changes
+- the delta - between XYZ and what we are doing? This is a vague approach which does not provide control.
+
+Going back to the **budget** and the **schedule** and using the above `she'll be right` approach - what happens when
+one of the three parameters goes out of whack? Time is looking not so good. Costs seem to be endless. Wait, we didn't
+actually have to do that (or oh s%$# we forgot to do that).
+
+We need a far better understanding of the scope of a project. At this point the need is to examine the anatomy of a
+project.
+
+Anatomy of a Project
+--------------------
+
+A project itself is made up of many parts. The simplest and most intuitive breakdown looks at it from the point of
+view of *who* performs the works. For the building of Fixed Plant, this means the tendancy to look at it from the
+following perspective:
+
+.. graphviz::
+    :align: center
+
+    digraph project_steps {
+        size="8,6";
+        node[fontsize=18,fontname="roboto",shape=box];
+        subgraph pm {
+            node [style=filled, color=white];
+            style=filled;
+            color=lightgrey;
+            Design -> Procurement -> Construction -> Commissioning;
+            label="Project Management";
+        }
+    }
+
+The problem however here is that the **object** of what needs to be produced needs to be transferred to each
+**subject**. By this, let's take an example of a pump. A pump needs to be first defined, then specified and designed,
+procured, installed and finally commissioned as a part of the entire system. But this will only be one of many, many
+objects. In fact, the initial design will consider a system, say cooling water. As part of the design process, it is
+decided a pump is required. Along of course with pipes, a cooling tower and heat exchangers. We can't define the
+piping however until the cooling tower is selected. But wait ... isn't this procurement? Does that mean our above
+pattern no longer works?
+
+Whilst the above pattern creates a genuine series of steps inside the project, it cannot form a basis behind a
+genuine anatomy. We'll end up with more exceptions than rules!
+
+
+Work Breakdown Structure
+------------------------
+
+At this point, a concept - familiar to some but unfamiliar to others - of work breakdown needs to be introduced. The
+**work breakdown structure** (or WBS for short) takes the scope and breaks it into constituent parts. 

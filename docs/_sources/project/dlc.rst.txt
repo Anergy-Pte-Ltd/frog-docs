@@ -1,0 +1,108 @@
+.. include:: /shared/common.rst
+
+|tf| Development Lifecycle
+==========================
+
+Each |tf| wbs work scope follows a typical development life cycle. This document explains the methodology that will be
+used in developing through deployment and maintenance of |turbo| modules.
+
+The following diagram summarises the development process.
+
+        DESIGN
+
+        IMPLEMENT
+
+        ALPHA TEST
+
+        BETA TEST
+
+        PRODUCTION
+
+All tasks are assigned to a Work ID of the :doc:`Project WBS<breakdown>` and to one of the above phases.
+
+Design
+------
+
+A specification is to be written for a module or even a group of modules. The specification should take note of the
+following:
+
+:Title:
+    Title of the specification / module / group of modules.
+
+:Aim:
+    A brief description of what is expected to be achieved by the module / group of module
+
+:References:
+    | WorkID's to which the work belongs (typically should be one)
+    | Any existing |turbo| or |odoo| modules which will achieve this outcome or need to be inherited
+    | Any third party or other works that are potentially affected
+    | Any predecessors for the work
+
+:Models:
+    | Prose description of what information is to be used
+    | Include references to other models from other works if needed
+    | Definitions of any terms used in the specification as well
+
+:User Interface:
+    | Any notes regarding the user interface
+    | Will typically be brief comments only
+
+:Alpha Testing:
+    | Either What tests need to be done or How the tests will be developed
+
+:Deployment:
+    | Any specific requirements for deployment and the deployment plan
+
+:Issues:
+    | Any further notes regarding problems that may be faced in the process
+
+The specification should be confirmed by stakeholders including (but not necessarily limited to) the developers, the
+target users and the respective management of that group.
+
+Implementation
+--------------
+
+To enter this phase, a plan should be prepared prior to commencement. A plan will list:
+
+:Repo:
+    Where the code/information will be stored
+
+:Tasks:
+    What tasks are involved
+
+:Unit Tests:
+    Any unit tests or other works required at the development stage
+
+:Special Requirements:
+    Any special requirements for the work at hand
+
+Tasks will have a Work Id, a description of the task, the phase for the tasks and the expected time to complete the
+tasks.
+
+
+Alpha Testing
+-------------
+
+Alpha testing shall be conducting a qualitative series of tests (defined typically in a checksheet) and having these
+conducted by someone other than the developer. For the alpha phase to be completed, all tests must be checked off.
+Any actions as a result of the testing should be marked as tasks as per the implementation tasks but instead assigned
+to the "Alpha Testing" Phase.
+
+All testing shall be conducted on the development server.
+
+
+Beta Testing
+------------
+
+Once alpha testing is complete and approval is given by the Project Manager, the deployment plan will be implemented.
+If needs be, access shall only be given to specific Beta testers.
+
+During the Beta testing phase, any issues raised will need to be converted to tasks (as "Beta" tasks) and completed.
+The issue raising process shall be the same as given under Production below.
+
+
+Production
+----------
+
+
+

@@ -1,0 +1,151 @@
+.. include:: ../../shared/common.rst
+
+Return to |tfbreakdown|
+
+C - Financial Systems
+==========================
+
+:C01 Legacy Financial Systems:
+    | C01-01	Xero Interface Development
+    | C01-02	Xero Data collection and importing Phase I
+    | C01-03	Xero Phase I Validation
+    | C01-04	Xero Data collection and importing Phase II
+    | C01-05	Xero Phase II Validation
+    | C01-10	MYOB Interface Development
+    | C01-11	MYOB Data colletion and importing
+
+:C02 Accounts Configuration:
+    | C02-01	Chart of Accounts
+    | C02-02	Bank Accounts and Feeds
+    | C02-03	HMRC Data Submission for UK VAT Return
+    | C02-04	ATO Data Submission for Aus BAS Return
+    | C02-05	EOM Procedures
+    | C02-06	Taxation (Consumption) Setup
+    | C02-07	Invoice Branding Setup
+    | C02-08	Project Accounting Setup
+    | C02-09	Payment Accounts Setup
+    | C02-10	Payment Terms Setup including Follow-ups
+    | C02-11	Fixed Assets Setup
+    | C02-12	Currency Setup
+    | C02-13	Products Setup - Initial work
+    | C02-14	Products Setup - Integration with Parts
+    | C02-15	Fixed Asset Setup
+
+:C03	UK Accounts:
+    | C03-01	UK Bank Reconciliation
+    | C03-02	UK Customer and Integration with Contacts
+    | C03-03	UK Customer Invoices
+    | C03-04	UK Customer Credit Notes
+    | C03-05	UK Customer Receipts & Payments
+    | C03-06	UK Vendors and Integration with Contacts
+    | C03-07	UK Vendor Bills
+    | C03-08	UK Vendor Refunds
+    | C03-09	UK Vendor Receipts & Payments
+    | C03-10	UK Trial Balance
+    | C03-11	UK Fixed Asset Addition
+    | C03-12	UK Fixed Asset Depreciation
+    | C03-13	UK Fixed Asset Disposal
+    | C03-14	UK Recurring Transactions
+    | C03-15	UK Aged Receivables
+    | C03-16	UK Aged Payables
+    | C03-17	UK P&L and Balance Sheet
+    | C03-18	UK VAT Reporting
+
+:C04	AAPL Accounts:
+    | C04-01	AAPL Bank Reconciliation
+    | C04-02	AAPL Customer and Integration with Contacts
+    | C04-03	AAPL Customer Invoices
+    | C04-04	AAPL Customer Credit Notes
+    | C04-05	AAPL Customer Receipts & Payments
+    | C04-06	AAPL Vendors and Integration with Contacts
+    | C04-07	AAPL Vendor Bills
+    | C04-08	AAPL Vendor Refunds
+    | C04-09	AAPL Vendor Receipts & Payments
+    | C04-10	AAPL Trial Balance
+    | C04-11	AAPL Fixed Asset Addition
+    | C04-12	AAPL Fixed Asset Depreciation
+    | C04-13	AAPL Fixed Asset Disposal
+    | C04-14	AAPL Recurring Transactions
+    | C04-15	AAPL Aged Receivables
+    | C04-16	AAPL Aged Payables
+    | C04-17	AAPL P&L and Balance Sheet
+    | C04-18	AAPL BAS Reporting
+
+:C05	Anergy (SIN) Accounts Implementation:
+    | C05-01	Anergy (SIN) Bank Reconciliation
+    | C05-02	Anergy (SIN) Customer and Integration with Contacts
+    | C05-03	Anergy (SIN) Customer Invoices
+    | C05-04	Anergy (SIN) Customer Credit Notes
+    | C05-05	Anergy (SIN) Customer Receipts & Payments
+    | C05-06	Anergy (SIN) Vendors and Integration with Contacts
+    | C05-07	Anergy (SIN) Vendor Bills
+    | C05-08	Anergy (SIN) Vendor Refunds
+    | C05-09	Anergy (SIN) Vendor Receipts & Payments
+    | C05-10	Anergy (SIN) Trial Balance
+    | C05-11	Anergy (SIN) Fixed Asset Addition
+    | C05-12	Anergy (SIN) Fixed Asset Depreciation
+    | C05-13	Anergy (SIN) Fixed Asset Disposal
+    | C05-14	Anergy (SIN) Recurring Transactions
+    | C05-15	Anergy (SIN) Aged Receivables
+    | C05-16	Anergy (SIN) Aged Payables
+    | C05-17	Anergy (SIN) P&L and Balance Sheet
+    | C05-18	Anergy (SIN) Statutory Reporting
+
+:C06	AEPL Accounts:
+    | C06-01	AEPL Bank Reconciliation
+    | C06-02	AEPL Customer and Integration with Contacts
+    | C06-03	AEPL Customer Invoices
+    | C06-04	AEPL Customer Credit Notes
+    | C06-05	AEPL Customer Receipts & Payments
+    | C06-06	AEPL Vendors and Integration with Contacts
+    | C06-07	AEPL Vendor Bills
+    | C06-08	AEPL Vendor Refunds
+    | C06-09	AEPL Vendor Receipts & Payments
+    | C06-10	AEPL Trial Balance
+    | C06-11	AEPL Fixed Asset Addition
+    | C06-12	AEPL Fixed Asset Depreciation
+    | C06-13	AEPL Fixed Asset Disposal
+    | C06-14	AEPL Recurring Transactions
+    | C06-15	AEPL Aged Receivables
+    | C06-16	AEPL Aged Payables
+    | C06-17	AEPL P&L and Balance Sheet
+    | C06-18	AEPL Statutory Reporting
+
+:C07	Actinon Accounts:
+    | C07-01	Actinon Bank Reconciliation
+    | C07-02	Actinon Customer and Integration with Contacts
+    | C07-03	Actinon Customer Invoices
+    | C07-04	Actinon Customer Credit Notes
+    | C07-05	Actinon Customer Receipts & Payments
+    | C07-06	Actinon Vendors and Integration with Contacts
+    | C07-07	Actinon Vendor Bills
+    | C07-08	Actinon Vendor Refunds
+    | C07-09	Actinon Vendor Receipts & Payments
+    | C07-10	Actinon Trial Balance
+    | C07-11	Actinon Fixed Asset Addition
+    | C07-12	Actinon Fixed Asset Depreciation
+    | C07-13	Actinon Fixed Asset Disposal
+    | C07-14	Actinon Recurring Transactions
+    | C07-15	Actinon Aged Receivables
+    | C07-16	Actinon Aged Payables
+    | C07-17	Actinon P&L and Balance Sheet
+    | C07-18	Actinon Statutory Reporting
+
+:C08	Group Accounts:
+    | C08-01	Consolidated Group Reporting (Anergy)
+    | C08-02	Consolidated Group Reporting (Anval)
+    | C08-03	Consolidated Group Reporting (Actinon)
+    | C08-04	Intercompany Transaction Procedures
+    | C08-05	Intercompany EOM Procedures
+    | C08-06	Intercompany EOY Procedures
+
+:C09	Cash Flow:
+
+:C10	Payroll:
+    | C10-01	UK Payroll
+    | C10-02	Australian Payroll
+    | C10-03	Indian Payroll
+    | C10-04	Consolidated Payroll Reporting
+    | C10-05	EOM Payroll Disbursement Procedures
+
+Return to |tfbreakdown|

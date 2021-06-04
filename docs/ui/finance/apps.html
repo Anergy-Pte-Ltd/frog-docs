@@ -1,0 +1,466 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Project Apps" href="../projects/apps.html" /><link rel="prev" title="Administration and General Apps" href="../admin/apps.html" />
+
+    <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
+        <title>Financial Apps - Turbo-Frog Documentation</title>
+      <link rel="stylesheet" href="../../_static/styles/furo.css?digest=33d2fc4f3f180ec1ffc6524e273e21d7d58cbe49">
+    <link rel="stylesheet" href="../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b">
+  
+  <link rel="manifest" href="manifest.json">
+</head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Turbo-Frog Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Turbo-Frog Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Contents test:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Welcome to turbo-frog-doc’s documentation!</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../project/index.html"><em>TURBO-FROG</em> Admin</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../project/kickoff.html"><em>TURBO-FROG</em> Kickoff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/setup.html"><strong>TURBO</strong> Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/setup.html#access-to-the-project-docs">Access to the Project Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/setup.html#getting-involved">Getting Involved</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../project/breakdown.html"><em>TURBO-FROG</em> Work Breakdown Structure</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/A.html">A - Project Management &amp; Administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/B.html">B - Platforms &amp; Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/C.html">C - Financial Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/D.html">D - HR, OHSE &amp; Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/F.html">F - Supply Chain Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/G.html">G - Marketing &amp; Sales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/H.html">H - Project Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/J.html">J - Technical Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/wbs/M.html">M - Strategic Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/pwa.html">Progressive Web App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/dlc.html"><em>TURBO-FROG</em> Development Lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html"><em>TURBO-FROG</em> User Interface</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../applications.html">Proposed <strong>TURBO</strong> Applications</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../admin/apps.html">Administration and General Apps</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">Financial Apps</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../projects/apps.html">Project Apps</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../apps_sales.html">Sales &amp; Marketing</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../apps_hr.html">HR Apps</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../apps_strategy.html">Strategic Management Apps</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules/index.html"><em>TURBO-FROG</em> Modules Index</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/business_ids.html">Business Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/assets.html">Works Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/taskboard.html">App Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/wbs.html">Work Breakdown Structure Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/parts.html">Parts Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/project_context.html">Project Context Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics/pm/pm101.html"><strong>Anergy</strong> Project Management</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../topics/reST/index.html">Help on <em>reStructuredText</em></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/quickstart.html">A ReStructuredText Primer</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../topics/reST/cheatsheet.html">Restructured Text (reST) and Sphinx CheatSheet</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/directives.html">reStructuredText Directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/text_roles.html">reStructuredText Interpreted Text Roles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="financial-apps">
+<h1>Financial Apps<a class="headerlink" href="#financial-apps" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<a class="reference internal image-reference" href="../../_images/accounts.png"><img alt="../../_images/accounts.png" class="align-right" src="../../_images/accounts.png" style="width: 48px;"/></a>
+<div class="section" id="accounts">
+<h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C02</span></code> - Accounts Configuration</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C03</span></code> - A_L Accounts (United Kingdom)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C04</span></code> - AAPL Accounts (Australia)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C05</span></code> - Anergy Accounts (Singapore)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C06</span></code> - AEPL Accounts (India)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C07</span></code> - Actinon Accounts (Singapore)</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p>Considerable … not listed here</p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>Limited requirements</p>
+</dd>
+</dl>
+<p>Accounts are for multiple companies. The accounts will only deal with <strong>one</strong> company at a time. This will need to be
+selected at entry(?) to the app. It also needs to be prominent on the machine.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will be a normally closed app open to only workers in this area and</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/payroll.png"><img alt="../../_images/payroll.png" class="align-right" src="../../_images/payroll.png" style="width: 48px;"/></a>
+</div>
+<div class="section" id="payroll">
+<h2>Payroll<a class="headerlink" href="#payroll" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C10</span></code> - Payroll</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">D04</span></code> - Attendance</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">D05</span></code> - Leave</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">D08</span></code> - Expenses</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p>A few … need to list</p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>Nil at this stahe … require some work arounds</p>
+</dd>
+</dl>
+<p>Accounts are for multiple companies. The accounts will only deal with <strong>one</strong> company at a time. This will need to be
+selected at entry(?) to the app. It also needs to be prominent on the machine.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will be a strictly closed app open to only specific payroll workers and senior managers</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/unknown.png"><img alt="../../_images/unknown.png" class="align-right" src="../../_images/unknown.png" style="width: 48px;"/></a>
+</div>
+<div class="section" id="forecasting">
+<h2>Forecasting<a class="headerlink" href="#forecasting" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C09</span></code> - Cash Flow</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p>Not known</p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>Nil at this stahe … require some work arounds</p>
+</dd>
+<dt class="field-even">Custom Python</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">cash</span> <span class="pre">cast</span></code> and other type software required</p>
+</dd>
+</dl>
+<p>The forecasting module is to present a three-way forecast of the business using expected sales, expected works and
+credit arrangements to provide balance sheet, profit and loss and cash flow analysis. It’s also expected that the
+module will be able to perform this at a project by project level. It is also expected that most of this work will be
+on a proprietary basis using standard accounting principles.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will be a strictly closed app open to senior managers <strong>only</strong> _except_ for projects.</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/consolidation.png"><img alt="../../_images/consolidation.png" class="align-right" src="../../_images/consolidation.png" style="width: 48px;"/></a>
+</div>
+<div class="section" id="consolidation">
+<h2>Consolidation<a class="headerlink" href="#consolidation" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">C08</span></code> - Group Accounts</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">consolidation</span></code></p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>Allowance for Intercompany procedures</p>
+</dd>
+</dl>
+<p>Create a consolidated group report of the financials using this app. Should be a case of configuring only the
+original <em>Odoo</em> module. Not 100% certain if the intercompany procedures needs to end up going into here or elsewhere.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only available to those involved with Group-wide Accounting.</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/analytics.png"><img alt="../../_images/analytics.png" class="align-right" src="../../_images/analytics.png" style="width: 48px;"/></a>
+</div>
+<div class="section" id="analytics">
+<h2>Analytics<a class="headerlink" href="#analytics" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;TBA&gt;</span></code> - Unknown</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p>–unknown–</p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>–unknown–</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This app will need to be secured with authority only as delegated to an individuals position.</p>
+</div>
+<p>Makes available data from all (at least as limited by the app) models for analysis. Includes:</p>
+<ul class="simple">
+<li><p>pivot table generation</p></li>
+<li><p>data graphing / visualisation etc.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/unknown.png"><img alt="../../_images/unknown.png" class="align-right" src="../../_images/unknown.png" style="width: 48px;"/></a>
+</div>
+<div class="section" id="cost-manager">
+<h2>Cost Manager<a class="headerlink" href="#cost-manager" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd"><em>TURBO-FROG</em> WorkID</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;TBA&gt;</span></code> - Unknown</div>
+</div>
+</dd>
+<dt class="field-even"><em>Odoo</em> Modules</dt>
+<dd class="field-even"><p>–unknown–</p>
+</dd>
+<dt class="field-odd">Custom Modules</dt>
+<dd class="field-odd"><p>–unknown–</p>
+</dd>
+</dl>
+<p>Activities and tasks which are performed inside the organisation which can not be attributed directly or not in any
+practical way indirectly must go to a cost center. This app is for those managing these centers, identifying their
+budgets and approving any costs. Cost centers are hierarchical in nature therefore cost centers can actually be
+further broken down including delegated to individuals.</p>
+<p>Includes:</p>
+<ul class="simple">
+<li><p>Budget setting</p></li>
+<li><p>Timesheet approvals</p></li>
+<li><p>Timesheet analysis</p></li>
+<li><p>Cost analysis</p></li>
+<li><p>Purchase order approval(?)</p></li>
+<li><p>Employee expense approval</p></li>
+<li><p>Dashboard / Report for cost center</p></li>
+<li><p>Cost breakdown management (similar to WBS but within a specific cost code)</p></li>
+</ul>
+<p>It is expected that this will leverage much of the work that will be in the companion
+<span class="xref std std-ref">/ui/projects/apps:Project_Manager</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each cost breakdown point actually can become it’s own cost center with a delegate thereafter.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Limited access to those who own or are delegated authority to examine a cost center. Cost centers are any permanent
+internal codes.</p>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../projects/apps.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Project Apps</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../admin/apps.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Administration and General Apps</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Anergy
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../_sources/ui/finance/apps.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Financial Apps</a><ul>
+<li><a class="reference internal" href="#accounts">Accounts</a></li>
+<li><a class="reference internal" href="#payroll">Payroll</a></li>
+<li><a class="reference internal" href="#forecasting">Forecasting</a></li>
+<li><a class="reference internal" href="#consolidation">Consolidation</a></li>
+<li><a class="reference internal" href="#analytics">Analytics</a></li>
+<li><a class="reference internal" href="#cost-manager">Cost Manager</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+  <script src="_static/app.js"></script>
+<script src="../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

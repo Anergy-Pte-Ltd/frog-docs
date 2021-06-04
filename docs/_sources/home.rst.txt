@@ -1,0 +1,50 @@
+.. include:: ./shared/common.rst
+
+|tflogo|
+
+Welcome to turbo-frog-doc's documentation!
+==========================================
+
+|turbo| is the |anergy| implementation of the |odoo| platform. This platform includes a community edition
+(or the
+base components) and an enterprise edition (proprietary extra features and services).
+
+- :doc:`index`
+
+:Application Information:
+    This project covers details with regards to applications and how they are supposed to operate. This is primarily a
+    User Interface and User Experience oriented specification. Each application is proposed and how the user interface is
+    to actually work.
+
+- :doc:`ui/applications`
+
+:Module Information:
+    Modules themselves are covered separately. In the various pages here, models and interrelationships between these are
+    specified. The information here is intended to be more technical in nature and oriented to the development side.
+
+- `taskboard <modules/taskboard>`_
+- `wbs <modules/wbs>`_
+
+:|tf| Project:
+    |turbo-frog| of course is a project in it's own right. As such, documents are kept with regards to how the project is
+    to operate and the various rules/requirements on project team members, communications, meetings etc.
+
+- `Setup Project <project/access_setup>`_
+
+:How to use reStructuredtext:
+    All of the information is written using |rst|. In short, |rst| is a text file that is parsed by a ``builder`` and
+    converted into a series of HTML pages, suitable as a web interface. The ``build`` could just as easily convert the
+    material into ``pdf`` or ``latex`` formats make the file format very flexible. All files can be natively integrated
+    into the |turbo| CMS. The index provides links to useful information in how to write |rst| and use the Sphinx
+    ``builder``.
+
+- `Index <reST/index>`_
+- `Quickstart <reST/quickstart>`_
+- `Cheatsheet <reST/cheatsheet>`_
+- `Directives <reST/directives>`_
+
+
+
+
+
+

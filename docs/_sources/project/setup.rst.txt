@@ -1,0 +1,75 @@
+.. include:: /shared/common.rst
+
+|turbo| Documentation
+==========================================
+
+The writing of documentation for |turbo| involves two separate projects:
+
+1. |turbo| User Docs
+2. |turbo-frog| Project Docs (to which this belongs)
+
+All documentation is being written in ReStructured Text or RST. The Python package Sphinx is used to build the
+documentation into one of several forms. Firstly is the
+
+Access to the Project Docs
+=============================
+
+.. note::
+    This is not developed. Need a means of accessing the docs online. Docs need to be limited to the ``anergy.com``
+    google domain. Need to be able to upload these easily (maybe a python script) so that can be run as a simple command
+    from the command line on completion. Would also be good to have auto revision updating and notification of those in
+    need.
+
+* `<https://thomas-cokelaer.info/tutorials/sphinx/_sources/rest_syntax.txt>`_
+
+
+
+Getting Involved
+================
+
+It will be important to have multiple people writing documentation in the implementation and ongoing works of |turbo|
+. This section provides information about how to install the relevant project locally so that it is possible to get
+involved. Also provided is a primer on how rst works.
+
+Setting up the |turbo|-docs Project
+-----------------------------------
+
+.. note::
+    Yet to be developed. This will most likely be using ``Notepad++`` method as outlined for Spencer on Friday. Note
+    that the sharing of these docs currently will be through ``Google Drive`` and note ``git``/``gitHub``. Of benefit is
+    that project members can be non-technical. Negatively, it reduces the flexibility in automating/improving work flow
+    in developing documentation.
+
+Setting up the |turbo-frog|-docs Project
+----------------------------------------
+
+
+
+This relies upon the ``gsutil`` being installation. Instructions can be found at
+`<https://cloud.google.com/storage/docs/gsutil>`_. With ``gsutil`` command:
+
+.. code-block:: shell
+
+    $ cd turbo-frog-doc\_build
+    $ gsutil rsync -r -m html gs://working-frog/turbo-frog-docs
+
+Primer on reStructured Text
+---------------------------
+
+.. note::
+    Set up a series of links and information sources to assist in finding relevant sources of assistance on creating
+    and editing resturctured text. Also need links to Sphinx and perhaps even Latex (for pdf development).
+
+
+
+Further information on RST
+-------------------------------------
+
+* Cheatsheet
+
+
+Additional Further Reading
+---------------------------
+
+* `Creating a Custom Landing Page <https://ofosos.org/2018/12/28/landing-page-template/>`_
+* `Primer on reStructured Text`_

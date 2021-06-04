@@ -1,0 +1,151 @@
+.. include:: /shared/common.rst
+
+
+Financial Apps
+==============
+
+.. toctree::
+    :maxdepth: 2
+
+
+.. image:: /img/icons/accounts.png
+    :width: 48px
+    :align: right
+
+Accounts
+-------------------
+
+:|tf| WorkID:       | ``C02`` - Accounts Configuration
+                    | ``C03`` - A_L Accounts (United Kingdom)
+                    | ``C04`` - AAPL Accounts (Australia)
+                    | ``C05`` - Anergy Accounts (Singapore)
+                    | ``C06`` - AEPL Accounts (India)
+                    | ``C07`` - Actinon Accounts (Singapore)
+:|odoo| Modules:    Considerable ... not listed here
+:Custom Modules:    Limited requirements
+
+Accounts are for multiple companies. The accounts will only deal with **one** company at a time. This will need to be
+selected at entry(?) to the app. It also needs to be prominent on the machine.
+
+.. warning::
+    This will be a normally closed app open to only workers in this area and
+
+
+.. image:: /img/icons/payroll.png
+    :width: 48px
+    :align: right
+
+Payroll
+-----------------
+
+:|tf| WorkID:       | ``C10`` - Payroll
+                    | ``D04`` - Attendance
+                    | ``D05`` - Leave
+                    | ``D08`` - Expenses
+:|odoo| Modules:    A few ... need to list
+:Custom Modules:    Nil at this stahe ... require some work arounds
+
+Accounts are for multiple companies. The accounts will only deal with **one** company at a time. This will need to be
+selected at entry(?) to the app. It also needs to be prominent on the machine.
+
+.. warning::
+    This will be a strictly closed app open to only specific payroll workers and senior managers
+
+
+.. image:: /img/icons/unknown.png
+    :width: 48px
+    :align: right
+
+Forecasting
+----------------------------
+
+:|tf| WorkID:       | ``C09`` - Cash Flow
+:|odoo| Modules:    Not known
+:Custom Modules:    Nil at this stahe ... require some work arounds
+:Custom Python:     ``cash cast`` and other type software required
+
+The forecasting module is to present a three-way forecast of the business using expected sales, expected works and
+credit arrangements to provide balance sheet, profit and loss and cash flow analysis. It's also expected that the
+module will be able to perform this at a project by project level. It is also expected that most of this work will be
+on a proprietary basis using standard accounting principles.
+
+.. warning::
+    This will be a strictly closed app open to senior managers **only** _except_ for projects.
+
+
+.. image:: /img/icons/consolidation.png
+    :width: 48px
+    :align: right
+
+Consolidation
+---------------------------------------
+
+:|tf| WorkID:       | ``C08`` - Group Accounts
+:|odoo| Modules:    ``consolidation``
+:Custom Modules:    Allowance for Intercompany procedures
+
+Create a consolidated group report of the financials using this app. Should be a case of configuring only the
+original |odoo| module. Not 100% certain if the intercompany procedures needs to end up going into here or elsewhere.
+
+.. warning::
+    Only available to those involved with Group-wide Accounting.
+
+
+
+.. image:: /img/icons/analytics.png
+    :width: 48px
+    :align: right
+
+Analytics
+---------------------------
+
+:|tf| WorkID:       | ``<TBA>`` - Unknown
+:|odoo| Modules:    --unknown--
+:Custom Modules:    --unknown--
+
+.. warning::
+    This app will need to be secured with authority only as delegated to an individuals position.
+
+Makes available data from all (at least as limited by the app) models for analysis. Includes:
+
+- pivot table generation
+- data graphing / visualisation etc.
+
+
+.. image:: /img/icons/unknown.png
+    :width: 48px
+    :align: right
+
+Cost Manager
+---------------------------------------------------------
+
+:|tf| WorkID:       | ``<TBA>`` - Unknown
+:|odoo| Modules:    --unknown--
+:Custom Modules:    --unknown--
+
+Activities and tasks which are performed inside the organisation which can not be attributed directly or not in any
+practical way indirectly must go to a cost center. This app is for those managing these centers, identifying their
+budgets and approving any costs. Cost centers are hierarchical in nature therefore cost centers can actually be
+further broken down including delegated to individuals.
+
+Includes:
+
+- Budget setting
+- Timesheet approvals
+- Timesheet analysis
+- Cost analysis
+- Purchase order approval(?)
+- Employee expense approval
+- Dashboard / Report for cost center
+- Cost breakdown management (similar to WBS but within a specific cost code)
+
+It is expected that this will leverage much of the work that will be in the companion
+:ref:`/ui/projects/apps:Project_Manager`.
+
+.. note::
+    Each cost breakdown point actually can become it's own cost center with a delegate thereafter.
+
+.. warning::
+    Limited access to those who own or are delegated authority to examine a cost center. Cost centers are any permanent
+    internal codes.
+

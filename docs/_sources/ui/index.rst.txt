@@ -1,0 +1,24 @@
+.. include:: /shared/common.rst
+
+|tf| User Interface
+===================
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+    applications
+
+
+Understanding the perspective from the User is the ultimate requirement of |turbo| and the highest priority of |tf|.
+This section provides information regarding what |turbo| looks like from the perspective of the User. This starts
+with the detailing of Applications available, what problems each Application will solve, and goes all the way to
+discussing any of the interface issues.
+
+.. note::
+    Applications here is is using the |odoo| definition. The app appears at the Level 0 menu, can be made 'installable'
+    and is supported by one or more modules. Typically one |odoo| module will lead the app and then several modules will
+    extend the app to cover all necessary features.
+
+
+

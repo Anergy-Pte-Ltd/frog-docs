@@ -1,0 +1,96 @@
+.. include:: /shared/common.rst
+
+HR Apps
+===============
+
+.. toctree::
+
+|handbook| Handbook
+------------------------
+
+:|tf| WorkID:       | ``D01`` - Employee Directory and History
+                    | ``D02`` - Organisation Chart
+                    | ``D06`` - Contracts
+                    | ``D07`` - Handbook
+                    | ``D09`` - Reviews & Appraisals
+                    | ``D11`` - Onboarding & Induction
+                    | ``D12`` - Performance Management
+                    | ``D13`` - Disputes & Grievances
+:|odoo| Modules:    Considerable ... not listed here
+:Custom Modules:    Limited requirements
+
+The purpose of the handbook is to provide information not regularly required by an employee but just as necessary for
+them to be able to have on hand.
+
+Includes:
+
+- Organisation Chart view
+- Information regarding induction and onboarding
+- Access company wide Directory
+- Access to an individuals HR Contract and records
+- Access to company Policies and Procedures
+- Ability to lodge disputes and grievences
+- Participating or any information with regards to company approved events
+
+.. note::
+    The handbook will be accessibly 'openly' to all employees. However the perspective is strictly theirs! The
+    handbook will be the **first** app that an employee will be introduced to!
+
+|hr| HR
+------------
+
+:|tf| WorkID:       | ``D01`` - Employee Directory and History
+                    | ``D02`` - Organisation Chart
+                    | ``D06`` - Contracts
+                    | ``D07`` - Handbook
+                    | ``D09`` - Reviews & Appraisals
+                    | ``D11`` - Onboarding & Induction
+                    | ``D12`` - Performance Management
+                    | ``D13`` - Disputes & Grievances
+:|odoo| Modules:    Considerable ... not listed here
+:Custom Modules:    Limited requirements
+
+Where Handbook is about readling with oneself, HR is about working on your reports. Many of the features within
+Handbook are views created from the HR app.
+
+Includes:
+
+- Access to employee contracts and records
+- Diarise/notations against employee (is this in Appraisals)
+- Appraisals - setting reviews etc
+- Managing position descriptions
+- Defining the organisation chart
+- Managing / rewriting policies and procedures
+- Approving leave
+- Creating company approved events
+
+.. warning::
+    This app will be limited access only and required special security scutiny. Specifically those having access will
+    have direct reports.
+
+
+|recruitment| Recruitment
+--------------------------
+
+:|tf| WorkID:       | ``D10`` - Recruitment
+                    | ``D11`` - Onboarding & Induction
+:|odoo| Modules:    Yes
+:Custom Modules:    Extension only
+
+A separate module to include:
+
+- Proposed job descriptions
+- Proposed selection criterias
+- Proposed advertsing
+- Proposed onboarding / induction
+- Submission for approval
+- Approvals of recruitment
+- Logging of resumes / interviews / actions
+- Preparation of information for recruit / company
+
+.. warning::
+    Limited access to those inside the organisation chart who can recruit and to which recruits are involved.
+    Sensitive due to privacy requirements.
+
+|training| Training
+------------------------

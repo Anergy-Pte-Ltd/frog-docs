@@ -1,0 +1,100 @@
+.. include:: ../shared/common.rst
+
+Work Breakdown Structure Module
+===============================
+
+The following definitions are provided for clarification of intent.
+<dl>
+
+<dt>WBS</dt>
+<dd>WBS stands for <span style="color:palegoldenrod">Work Breakdown Structure</span>. There is ambiguity here. Some will
+consider that the WBS is the code to which each item is attributed to, but more technically it encapsulates the
+<u>ENTIRE</u> list. The Work Breakdown Structure Identifier (otherwise the WBSId or WID) is the actual code used. A
+single WBS exists for a single job.</dd>
+
+<dt>WBS Identifier / WID</dt>
+<dd>The Work Breakdown (Structure) Identifier (WID) is a unique identifier for every element in a WBS. Each identifier
+must be consistent with the WBS Schema (WBSS). Each identifier will be human and machine readable and will be used
+to identify a particular element of work.</dd>
+
+<dt>Work Element</dt>
+<dd>Elements are identified in the WBS using a WID. All information pertaining to a job/project that requires work
+by the organisation shall reference a work element using the WID. Elements come together in a hierarchy. The
+Standard WBS Schema defines three levels to this hierarchy defined as follows:
+<dl>
+<dt>Division</dt>
+<dd>The division element is a sweeping group of sections. Whilst divisions can be relatively arbitrary, experience
+shows divisions work best when they group sections and scopes on the basis of commonality of resources to be used
+and the timephase of the project.
+</dd>
+<dt>Section</dt>
+<dd>...</dd>
+<dt>Scope</dt>
+<dd>... All tasks belong to Scope elements only. Given that a Timesheet is supposed to represent the task to which
+someone is working on, Timesheet codes must be to a Job and WID combination which points to a scope element.</dd>
+</dl>
+</dd>
+
+<dt>WBS Schema</dt>
+<dd>The WBS Schema is a coding schema for the WBS Identifier (WID). The schema identifies the method by which the
+code implies the Division, Section and or Scope of the work item identified.</dd>
+
+<dt>WBS Templates</dt>
+<dd>This is a template which is should be used during the initiation of a job. This is based on standard means</dd>
+
+</dl>
+
+
+## Standard Project WBS Schema
+
+The standard code format is:
+<pre style="color:palegoldenrod">
+A40-40 : Example code
+| |  |
+| |  └--> Scope part
+| └-----> Section part
+└-------> Division part
+</pre>
+
+A code is valid having a length of 0 (empty or root work element of a job), 1 (a division element), 3 (a section
+element) or 6 (a scope element).
+
+The division is predefined and is one of:
+
+* `A - Project Management & Administration` - Includes all work required for the project management and administration
+  functions.
+* `D - Design & Engineering` - Includes work to be performed by the design and engineering teams but generally limited
+  any works before Construction and Commissioning. As Built and further documentation is included instead under
+  Commissioning & Completion.
+* `M - Material Supply` - ...
+* `S - Site Construction` - ...
+* `C - Commissioning & Completion` - ...
+
+
+## Standard Spares WBS Schema
+A spares schema assumes that there is only one Division and one Section - These are therefore silent. As such
+the code format is as follows:
+<pre style="color:palegoldenrod">
+01 : Example code
+|
+└--> Scope part
+     Section part assumed to be Blank
+     Division part assumed to be Blank
+</pre>
+Note that older subs used in the ANET system actually comply with this schema.
+
+Other historical schemas include:
+
+* EMRC (T1555) - considerably more sections
+* Elan (T1969) - very similar to Standard schema
+
+## Templates for Major Projects
+
+### Template Sections for `A - Project Management & Administration`
+
+### Template Sections for `A - Project Management & Administration`
+
+### Template Sections for `A - Project Management & Administration`
+
+### Template Sections for `A - Project Management & Administration`
+

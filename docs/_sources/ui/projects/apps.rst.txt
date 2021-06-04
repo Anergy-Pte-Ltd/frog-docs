@@ -1,0 +1,57 @@
+.. include:: /shared/common.rst
+
+
+Project Apps
+============
+
+.. toctree::
+
+|projects| Project Assistant
+---------------------------------------------------
+
+
+
+..note::
+    Discussion required about the security within this segment of |turbo|. Would suggest that
+
+
+
+|tasks| Tasks
+---------------
+
+Tasks for
+
+|project_manager|
+
+.. _project_manager:
+
+Project Manager
+---------------
+
+|works| Works
+----------------
+
+
+|plm| Design Center
+---------------------
+
+..warning::
+    Limited read/write access to be set based more on the nature of the design files and their lifecycle point than
+    any other singular feature.
+
+..note::
+    This app requires significant integration to CAD software to get the most functionality!
+
+|design_guide| Tech Guide
+-------------------------
+
+A migration from the existing 'sites' design-guide with ... well quite a few tweaks. The features in here and to be
+aids/assitants to getting the design done. The Design Center tackles more specifically all
+manadatory or specific tasks relating to design.
+
+Will include:
+
+- Technical CMS
+- Technical Q&A site
+- Calculators
+- Product Design Manager (core product requirements / details)
