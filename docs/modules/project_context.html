@@ -204,10 +204,11 @@
         </label>
         <div class="section" id="project-context-specification">
 <h1>Project Context Specification<a class="headerlink" href="#project-context-specification" title="Permalink to this headline">¶</a></h1>
-<p>The purpose of this specification is to outline the aims and outcomes of the project and to define milestones appropriately so they can be tracked. The outcomes of a successfully executed project wil be further detailed below. The broad aims are to improve the UI and give more project context information in an effective manner.</p>
-<p>The Job module is disjointed and isn’t effective at transferring relevant information to the user in most cases. The development of the module will include simplified portals and dashboards that will allow the user to quickly obtain information from the Turbo server about the required job. The project will also pave the way for future developments in Turbo to be implemented that will increase efficiency of the organisation.</p>
-<div class="section" id="my-job-portal">
-<h2>My Job Portal<a class="headerlink" href="#my-job-portal" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this specification is to outline the aims and outcomes of the project and to define milestones appropriately so they can be tracked and then tested. The aim is to give more project sensitive context to the user in an effective manner.</p>
+<p>Currently the Job module is disjointed and isn’t effective at transferring relevant information to the user in many cases. The development of the module will include simplified portals and dashboards that will allow the user to quickly obtain information from the Turbo server about the required job. The project will also pave the way for future developments in Turbo to be implemented that will increase efficiency of the organisation.</p>
+<p><a class="reference internal" href="../_images/job_diagram.png"><img alt="job_diagram" src="../_images/job_diagram.png" style="width: 1800px;"/></a></p>
+<div class="section" id="project-centre">
+<h2>Project Centre<a class="headerlink" href="#project-centre" title="Permalink to this headline">¶</a></h2>
 <p>One component of the project contextualisation is the implementation of a user portal. The user will have access to a “My Job Portal” which will act as a gateway to access specific job contextualisation portals. The idea behind this portal is to create a unique user-modified dashboard which will display data selected by the user. By implementing the similar tile-card system already being used in Turbo, cards can be added and removed as user preferred.</p>
 <p>The portal shall contain options to display information on these cards such as,</p>
 <blockquote>
@@ -222,8 +223,8 @@
 <div class="section" id="specific-job-portal">
 <h2>Specific Job Portal<a class="headerlink" href="#specific-job-portal" title="Permalink to this headline">¶</a></h2>
 <p>From the “My Job Portal”, the user is able to select a job specific card which will take the user to the specific job portal. This portal will act as the HUB for project specific works. The front page of this portal will display information selected by the user specific for the job. This portal will also integrate with the previous Turbo Transmittal project by allowing users to access documents, transmittal’s and collections related to the job through the portal. By integrating this functionality through the portal, the concept of “All Documents, Transmittal’s &amp; Collection’s” will be eliminated, now being job specific.</p>
-<div class="section" id="portal-implementation-for-project-members">
-<h3>Portal Implementation for Project Members<a class="headerlink" href="#portal-implementation-for-project-members" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Project Centre<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Project Members such as Engineers require different information from the system than Project Managers do, so a tailored and customisable platform that distinguishes their use cases is preferred. Members should have access to information such as,</p>
 <blockquote>
 <div><ul class="simple">
@@ -234,8 +235,8 @@
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="portal-implementation-for-project-managers">
-<h3>Portal Implementation for Project Managers<a class="headerlink" href="#portal-implementation-for-project-managers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="project-assistant">
+<h3>Project Assistant<a class="headerlink" href="#project-assistant" title="Permalink to this headline">¶</a></h3>
 <p>Project Managers have a different need for the Job module in many cases. They will primarily be concerned with financial information and time management tasks while overseeing a project. Managers should have access to information such as,</p>
 <blockquote>
 <div><ul class="simple">
@@ -255,6 +256,10 @@
 <li><p>Job specific portals which will contain the job specific documents, collections and documentation. Further downstream with future Turbo projects, capability of additional content (WBS, Tasks, etc) can be added to these portals. Job specific portals shall also include different views for project users and project managers.</p></li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>At the end of the Alpha phase there will be testing to discover any bugs found in the software. Once the Alpha testing has been accepted by the development team there will be a transition to Beta testing with real use from within the organisation. Beta testing will verify that all specified features are functional or close to being functional before the platform can be released for production. The system can then be released following an acceptance of a successfully executed Beta testing procedure.</p>
 </div>
 </div>
 
@@ -313,13 +318,14 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Project Context Specification</a><ul>
-<li><a class="reference internal" href="#my-job-portal">My Job Portal</a></li>
+<li><a class="reference internal" href="#project-centre">Project Centre</a></li>
 <li><a class="reference internal" href="#specific-job-portal">Specific Job Portal</a><ul>
-<li><a class="reference internal" href="#portal-implementation-for-project-members">Portal Implementation for Project Members</a></li>
-<li><a class="reference internal" href="#portal-implementation-for-project-managers">Portal Implementation for Project Managers</a></li>
+<li><a class="reference internal" href="#id1">Project Centre</a></li>
+<li><a class="reference internal" href="#project-assistant">Project Assistant</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#design-requirements">Design Requirements</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
 </ul>
