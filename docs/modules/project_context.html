@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Special Topics" href="../topics/index.html" /><link rel="prev" title="Parts Model" href="parts.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Project Centre Dashboard" href="megadesk/projectcentre.html" /><link rel="prev" title="Parts Model" href="parts.html" />
 
     <meta name="generator" content="sphinx-3.5.1, furo 2021.02.21.beta25"/>
         <title>Project Context Specification - Turbo-Frog Documentation</title>
@@ -172,14 +172,17 @@
 <li class="toctree-l2"><a class="reference internal" href="taskboard.html">App Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wbs.html">Work Breakdown Structure Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parts.html">Parts Model</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Project Context Specification</a></li>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Project Context Specification</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="megadesk/projectcentre.html">Project Centre Dashboard</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../topics/pm/pm101.html"><strong>Anergy</strong> Project Management</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../topics/reST/index.html">Help on <em>reStructuredText</em></a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../topics/reST/index.html">Help on <em>reStructuredText</em></a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../topics/reST/quickstart.html">A ReStructuredText Primer</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../topics/reST/cheatsheet.html">Restructured Text (reST) and Sphinx CheatSheet</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../topics/reST/cheatsheet.html">Restructured Text (reST) and Sphinx CheatSheet</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../topics/reST/directives.html">reStructuredText Directives</a></li>
@@ -206,10 +209,10 @@
 <h1>Project Context Specification<a class="headerlink" href="#project-context-specification" title="Permalink to this headline">¶</a></h1>
 <p>The purpose of this specification is to outline the aims and outcomes of the project and to define milestones appropriately so they can be tracked and then tested. The aim is to give more project sensitive context to the user in an effective manner.</p>
 <p>Currently the Job module is disjointed and isn’t effective at transferring relevant information to the user in many cases. The development of the module will include simplified portals and dashboards that will allow the user to quickly obtain information from the Turbo server about the required job. The project will also pave the way for future developments in Turbo to be implemented that will increase efficiency of the organisation.</p>
-<p><a class="reference internal" href="../_images/job_diagram.png"><img alt="job_diagram" src="../_images/job_diagram.png" style="width: 1800px;"/></a></p>
+<p><a class="reference internal" href="../_images/context.png"><img alt="Context" src="../_images/context.png" style="width: 1800px;"/></a></p>
 <div class="section" id="project-centre">
 <h2>Project Centre<a class="headerlink" href="#project-centre" title="Permalink to this headline">¶</a></h2>
-<p>One component of the project contextualisation is the implementation of a user portal. The user will have access to a “My Job Portal” which will act as a gateway to access specific job contextualisation portals. The idea behind this portal is to create a unique user-modified dashboard which will display data selected by the user. By implementing the similar tile-card system already being used in Turbo, cards can be added and removed as user preferred.</p>
+<p>One component of the project contextualisation is the implementation of a user portal. The user will have access to a Project Centre Portal which will act as a gateway to access specific job  portals. The idea behind this portal is to create a unique user-modified dashboard which will display data selected by the user. By implementing the similar tile-card system already being used in Turbo, cards can be added and removed as user preferred.</p>
 <p>The portal shall contain options to display information on these cards such as,</p>
 <blockquote>
 <div><ul class="simple">
@@ -245,21 +248,17 @@
 <li><p>Contract Value;</p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="design-requirements">
-<h2>Design Requirements<a class="headerlink" href="#design-requirements" title="Permalink to this headline">¶</a></h2>
-<p>The following design shall be implemented as part of the project context module,</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>The “My Job Portal” shall be a dashboard acting as a gateway to the specific project portals;</p></li>
-<li><p>Job specific portals which will contain the job specific documents, collections and documentation. Further downstream with future Turbo projects, capability of additional content (WBS, Tasks, etc) can be added to these portals. Job specific portals shall also include different views for project users and project managers.</p></li>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Design Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="megadesk/projectcentre.html">Project Centre Dashboard</a></li>
 </ul>
-</div></blockquote>
+</div>
+</div>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p>At the end of the Alpha phase there will be testing to discover any bugs found in the software. Once the Alpha testing has been accepted by the development team there will be a transition to Beta testing with real use from within the organisation. Beta testing will verify that all specified features are functional or close to being functional before the platform can be released for production. The system can then be released following an acceptance of a successfully executed Beta testing procedure.</p>
+<p>At the end of the Alpha  phase there should be testing to discover any bugs found in the software. Once the Alpha testing has been accepted by the development team there will be a transition to Beta testing with real use from within the organisation. Beta testing will verify that all specified features are functional or close to being functional before the platform can be released for production.</p>
 </div>
 </div>
 
@@ -267,12 +266,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../topics/index.html">
+          <a class="next-page" href="megadesk/projectcentre.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Special Topics</div>
+                <div class="title">Project Centre Dashboard</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -324,7 +323,6 @@
 <li><a class="reference internal" href="#project-assistant">Project Assistant</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#design-requirements">Design Requirements</a></li>
 <li><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
