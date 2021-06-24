@@ -1,0 +1,49 @@
+.. include:: ../../shared/common.rst
+.. |homescreen| image:: /img/homescreen.png
+    :width: 1600px
+
+Project Centre Dashboard
+========================
+
+Objective
+---------
+The primary goal of the Project Specific Portal is to is to act as a workspace for each project, giving all users relevant data specific to each job. Inside the portal there should be differing views depending on the status of the user; either a Project Manager or a Project User (Member).  The Project Specific Portal will expand upon the information provided on the Project Centre Dashboard as more room is created by only displaying information related to one project at a time.
+
+Modules Affected
+----------------
+The following modules will be affected as a result of the implementation of the Project Specific Portal,
+
+    * Document/Transmittal Module;and
+    * Current Jobs Module.
+
+The modules may need to be altered in their features so as to not allow scope creep/overlapping of features.
+
+Views & Actions
+---------------
+Each Job should have an image as its thumbnail that will allow users to easily identify each job. The Job Specific portal should have tiles which show the following information to both Project Members and Project Managers:
+
+    * Job Specific Document Reviews/Approvals pending for each user
+    * Outstanding Tasks (Future)
+    * Members of each Job
+    * Collections for each job
+    * Transmissions Sent
+    * Document Count for each Job
+
+Further to this information being shown on the System for all users, those with Project Manager rights will also have other sensitive information available to them.
+
+This should include;
+    * Budgetary information
+    * Invoices to be received/paid (Future)
+    * Hours spent on the project for time frames such as 'past week', 'past month' etc
+    * A display of current budget balance (Future)
+    * Non-Conformance Reports (NCR's) & Technical Queries (TQs) register
+    
+
+
+
+
+
+
+
+
+
