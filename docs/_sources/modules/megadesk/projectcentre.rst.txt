@@ -61,7 +61,6 @@ The following actions are available from this view,
 =================================================== ===============================================================================================================
 Action                                              Description
 =================================================== ===============================================================================================================
-Selecting Project Centre on Side Menu               Clicking "Project Centre" shall take the user to the home page of the dashboard. No further action is required.
 Selecting Job Title on Job Card                     Selecting the Job card will direct the user to the project specific portal for that job. (See project specific portal for more information).
 Selecting Transmission Icon on Job Card             This will redirect the user to the list of Transmissions awaiting approval and completed transmissions for that particular job.
 Selecting Document Icon on Job Card                 This will redirect the user to the Documents that have been uploaded to Turbo, sensitive to the job code it was uploaded with.

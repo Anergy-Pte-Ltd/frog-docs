@@ -1,13 +1,13 @@
 .. include:: ../../shared/common.rst
-.. |homescreen| image:: /img/homescreen.png
-    :width: 1600px
+.. |projectdashboard| image:: /img/projectdashboard.png
+    :width: 2500px
 
-Project Centre Dashboard
-========================
+Project Dashboard
+=================
 
 Objective
 ---------
-The primary goal of the Project Specific Portal is to is to act as a workspace for each project, giving all users relevant data specific to each job. Inside the portal there should be differing views depending on the status of the user; either a Project Manager or a Project User (Member).  The Project Specific Portal will expand upon the information provided on the Project Centre Dashboard as more room is created by only displaying information related to one project at a time.
+The primary goal of the Project Context Dashboard is to is to act as a workspace for each project, giving all users relevant data specific to each job. Inside the portal there should be differing views depending on the status of the user; either a Project Manager or a Project User (Member).  The Project Specific Portal will expand upon the information provided on the Project Centre Dashboard as more room is created by only displaying information related to one project at a time.
 
 Modules Affected
 ----------------
@@ -16,27 +16,44 @@ The following modules will be affected as a result of the implementation of the 
     * Document/Transmittal Module;and
     * Current Jobs Module.
 
-The modules may need to be altered in their features so as to not allow scope creep/overlapping of features.
-
 Views & Actions
 ---------------
-Each Job should have an image as its thumbnail that will allow users to easily identify each job. The Job Specific portal should have tiles which show the following information to both Project Members and Project Managers:
+The following concept views shall be implemented to the Project Centre module:
 
-    * Job Specific Document Reviews/Approvals pending for each user
-    * Outstanding Tasks (Future)
-    * Members of each Job
-    * Collections for each job
-    * Transmissions Sent
-    * Document Count for each Job
+**Project Centre Dashboard**
 
-Further to this information being shown on the System for all users, those with Project Manager rights will also have other sensitive information available to them.
+|projectdashboard|
 
-This should include;
-    * Budgetary information
-    * Invoices to be received/paid (Future)
-    * Hours spent on the project for time frames such as 'past week', 'past month' etc
-    * A display of current budget balance (Future)
-    * Non-Conformance Reports (NCR's) & Technical Queries (TQs) register
+Once a user has selected a job from the Project Centre Dashboard, the user will see the view above showing the Project Context Dashboard. In this view, everything has been contextualised to the job number whilst also showing information unique to the user for that job. Menu Button boxes will be implemented will direct the user to pages already filtered to the job number. Note that the blue menu button boxes shall be available to all users while project managers shall have access to both the yellow and blue boxes. Some of these menu button boxes shall be implemented further down the Turbo implementation timeline.
+
+Job Tiles have been included to show tasks, document approvals/reviews and other information relevant to the specific job for the user. This will allow users to access tasks that have been assigned to the user quickly. Room has also been made on the view to allow for future module implementation into the dashboard.
+
+*Actions*
+
+The following actions are available from this view,
+
+=================================================== ===============================================================================================================
+Action                                              Description
+=================================================== ===============================================================================================================
+Selecting Documents on Menu Button Box              Selecting the Documents button box will redirect the user to the Documents page already filtered with the documents specific to that job number.
+Selecting Collections on Menu Button Box            Selecting the Collection button box will redirect the user to the Collections page with the filter applied for that job number.
+Selecting Transmissions on Menu Button Box          Selecting the Transmittals button box will redirect the user to the list of Transmissions page with the filter applied for that job number.
+Selecting WBS on Menu Button Box                    Selecting the WBS button box will redirect the user to the WBS list page with the filter applied for that job number.
+Selecting Document Number on Document A/R Tile      By selecting the document number, this shall take the user to the relevant document waiting for their review/approval.
+Selecting Task on Tasks Tile (Future)               By selecting the document number, this shall take the user to the relevant document waiting for their review/approval.
+Filtering through Search Bar                        The user shall have access to a drop down menu which will help to filter the search within that Job number (Transmittal, Document,etc.)
+Search Bar                                          The user is able to type a relevant search topic in the search bar.
+Selecting Search                                    By selecting search, the user is able to look for items by the filtered option
+=================================================== ===============================================================================================================
+
+*Security*
+
+Users will be able to access job tiles only if they have been added to the job by the Project Management Team. All data shown in the analytics side menu shall only be user context sensitive and not show information related to other users.
+
+*Testing*
+
+.. note::
+    This has not been developed and is a work in progress. Will be implemented at a later stage.
     
 
 

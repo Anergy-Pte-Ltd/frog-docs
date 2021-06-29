@@ -49,6 +49,7 @@ Project Managers have a different need for the Job module in many cases. They wi
    :caption: Design Modules
 
    megadesk/projectcentre
+   megadesk/project_dashboard
 
 Testing
 -------
