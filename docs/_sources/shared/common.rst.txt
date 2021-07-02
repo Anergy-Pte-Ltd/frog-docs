@@ -1,4 +1,4 @@
-..  Common substitutions being used by all files
+ff..  Common substitutions being used by all files
 
 .. |rest| replace:: *reStructuredText*
 .. |rst| replace:: |rest|

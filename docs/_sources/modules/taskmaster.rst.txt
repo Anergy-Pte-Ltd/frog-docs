@@ -1,0 +1,386 @@
+.. include:: ../shared/common.rst
+.. |odoo| replace:: *Odoo*
+.. |turbo| replace:: **TURBO**
+
+*********************
+Project TaskMaster
+*********************
+
+Purpose
+=======
+
+The purpose of the **TaskMaster** SubProject is to emulate then extend the manual spreadsheet management processes for
+Engineering task management.
+
+More specifically the objectives include:
+- Fix all definitions of Work, WorkID, WID, WBS, Job, Project, Task, SubTask, Division, Section, Scope etc to be consistent
+- Improve the WBS interface to full CRUD and particularly fix hierarchy
+- Implement CheckOut/CheckIn processes for bulk editing of tasks and Work
+- Fix the WBS system so that it aligns with business needs (extensibility may be elected to be a sub-project)
+- CRUD of tasks and sub-tasks
+- Correct new job numbers methodology
+- Improve job and WBS search order
+- Present information to enable online task management meetings with team (as currently being conducted)
+
+Additional sub-Projects that may need to be completed separately:
+- Create a User Context to enable looking at own tasks (further sub-project)
+- Create Team Context (Engineering) to enable to examine department tasks
+- Diagramming showing network of work and tasks
+
+Current Situation
+=================
+
+Jobs are implemented but new job numbering has not been
+
+WBS is implemented but the hierarchy is inconsistent, terms are inconsistent and no editing capacity exists. Also WBS
+needs to be set up from job to job given that they historically change and may well change again in the future.
+
+Tasks have never gone to production though some code does exist including models
+
+**MegaDesk** Project will be finishing which should create a far more intuitive context sensitive platform for **Projects**.
+
+Proposed Methodology
+====================
+
+#. Review existing **Project** model (formerly **Job**) and align with Turbo Terminology
+
+#. Review existing **Work** model and align
+
+#. Implement revised **Job ID** method
+
+#. Implement **Work** context alongside **Project** Context
+
+#. Design and implement **Task** and **SubTask** Models
+
+#. Design and implement **Task** and **SubTask** Views
+
+#. Design and implement **LinkSheet** main class
+
+#. Design and implement **LinkSheet** for **Tasks**
+
+#. Design and implement **LinkSheet** for **Work**
+
+#. Design and implement **LinkSheet** views
+
+|Turbo| Terminology
+===================
+
+The following terminology and definitions are to be used and aligned throughout this Project and |Turbo| in general
+
+At the code level it is permissible to use other nomenclature or terms however it is essential that Users have one set
+of terms to provide a consistent experience.
+
+Context
+    With regards to |turbo|, the *Context* is the perspective from which the data is being displayed or edited.
+
+    - Project Context
+        All information being displayed is from the perspective of a preselected *Project*. It is also implied to be
+        from the perspective of ALL *Work* under that *Project* or in other words the root node of the *Work*.
+
+    - Work Context
+        This context is from everything that sits under a *Work* record including all *Work* which is a child of that
+        *Work* record. This implies at the same time a *Project Context* for the *Project* which owns the *Work* record.
+
+    - User Context
+        Any information from the perspective of the current User.
+
+    - Team Context
+        From the perspective of the pre-selected Team.
+
+Division
+    Any *Work* record which is a direct child of a *Project*
+
+Job
+    Now referred to as a **Project**. Note that in the context of the default |odoo| setup, the *Job* app is far more
+    suited to *Work* which is at the Scope level rather than *Job* as referred to traditionally by the Company.
+
+Job Number
+    Old version of how to describe a **Project Number**
+
+Plant
+    Or "Industrial Plant" is the combination of Mechanical and Electrical equipment including the necessary structure
+    around them to perform Processing or Manufacturing goal(s). Anergy Plant more specifically is Plant that has been
+    designed, manufactured or constructed by Anergy.
+
+Project
+    Defined as a cohesive programme of work to achieve a Project Goal. In the past, one Client PO was defined as one
+    job. This has major shortcomings particularly for singular Sites wanting multiple items. The revised definition
+    instead allows multiple PO's so long as they work towards an outcome. The
+
+Project Goal
+    This will be one of the following:
+
+    - **PRE-EXECUTION**: Includes studies, testwork etc working towards a Plant Execution
+
+    - **EXECUTION**: Execution of the construction of Plant in one or more phases on a Site
+
+    - **SUPPORT**: Activities including spares, service and engineering on a Plant at a Site
+
+    - **OPERATIONS**: Activities which include operations and maintenance on a periodical basis on a Plant at a Site
+
+Project Number
+    The unique identifier given to a Project which is human readable. This follows the *Project Number Schema*.
+
+Project Number Schema
+    A pattern used to create *WID*'s that provides any Metadata regarding the Project Number as well as the mechanism
+    for determining order and next in sequence.
+
+RASCI Roles
+    Method used to dissect the roles Teams or Team Members play in completing *Work*, *Task*s and *SubTasks*s. The
+    roles are Responsible (R), Accountable/Authority (A), Support (S), Consultant (C) and Informed (I). Both the
+    Responsible and Accountable roles are mandatory and be allocated to one person only. The other roles can have
+    multiple people to each one.
+
+Scope
+    Any *Work* record which has no other *Work* elements as children
+
+Section
+    Any *Work* record for which
+
+Site
+    The Site is the property including supporting Works (such as offices, maintenance or warehousing facilities or other
+    civil works) in which the Plant is contained.
+
+Site Identifier
+    FUTURE - This will be a three letter 'airport' code for each and every location in which a Plant is built or
+    installed.
+
+SubTask
+    *SubTask* must be named in the same way as the parent *Task* element. All *SubTasks* of a *Task* should define the
+    whole of the *Task*.
+
+Task
+    A *Task* is a clearly defined step in completing the *Work* to which it is defined. Naming should begin with a verb
+    and apply SMART (Specific, Measured, Achievable, Realistic, Timed) principles. *Task*s are assigned to a *Team*
+    and are broken into *SubTasks*s.
+
+Work
+    Part of the *Project* or subpart of another *Work* element which defines part of the Work. Naming of *Work* should
+    describe the object of work and not begin with a verb. eg "Process Design" as opposed to "Design the Process"
+
+Work Breakdown Structure or WBS
+    The hierarchical breakdown of *Work* into smaller and smaller elements thereby providing essential definition of a
+    Project. Several rules exist for a WBS. All sub-parts must add up to the whole. All *Work* elements are
+    identifiable by a unique human readable and logical identifier. The identifier of all sub-parts starts with and
+    extends the parent's identifier.
+
+Work ID *or* WID
+    The human readable unique identifier of a *Work* record within a *Project* that conforms with the WID Schema for
+    that Project.
+
+Work Level
+    The level is the position the *WID* or the *Work* holds in the *WBS*. The *Project* record is at Level 0. Typically
+    *Division* is at Level 1, *Section* at Level 2 and *Scope* at Level 3.
+
+WID Schema
+    A pattern used to create *WID*'s that logically defines a human readable identifier. The schema determines the sort
+    order and must meet the criteria of a properly formed Work Breakdown Structure. There can only be one *WID Schema*
+    per Project but it is not necessary that all are the same. For the purposes of |turbo| WID Schema should not be
+    more than three levels. The schema will also determine if the *WID* is a *Division*, *Section* or a *Scope* level.
+
+
+Models
+=======
+
+All models
+----------
+
+All models assumed to have:
+- **ID:**	Primary Key, Unique, Immutable - generally a UUID type
+- *Foreign Keys:*	As appropriate but translatable to "English" ID's
+
+Project
+-------
+
+This model is existing as **Jobs**. In many ways, the **Jobs** module/model is more aligned with **Work** which is a
+Scope. This is not a full definition but relates to the needs of this Module.
+
+-ID
+    Primary Key, Unique, Immutable
+
+- Project Number
+    Project Number Identifier Type
+
+- Description
+    Description of the Project
+
+- WID Schema
+    Name or reference to the Schema used for Work ID's
+
+Work
+----
+
+**Work** represents a part of the total project in terms of actions, tasks, activities to be undertaken or materials to
+be provided.
+
+- ID
+    Primary Key, Unique, Immutable
+
+- Project Number
+    Whilst the database will store the Project ID, the Project Number will be available to the **Work** Model
+
+- WID
+    "English" ID using pattern required by Project and conforming to the Project's WID Schema. Must be mutable and will
+    update in all areas but must be unique for this project.
+
+- Title
+    Title for the Work
+
+- Description
+    Further description of the Work
+
+- Requires
+    FUTURE - but will be a list of references to other *Work* records or *Task* records where the *Task* does not
+    reference this *Work* record
+
+- ParentWID
+    The WID of the Parent or Nil if the Work is a Division as determined by the Project's WID Schema
+
+- ParentWork
+    Reference to the *Work* record of the *ParentWID* - *null* when *Work*.IsDivision == True
+
+- ChildWork
+    References to all *Work* records which start with the WID of this *Work* record
+
+- Deliverables
+    List of all Document Numbers that are attached to this *Work* record. Note this list can include strings where
+    the document does not exist or references where the document does exist. Care needs to be taken as this will
+    be a Many2Many relationship.
+
+- Tasks
+    References to all child tasks of this *Work*
+
+Calculated Fields
+`````````````````
+
+- IsDivision (boolean)
+    *True* if the Project's WID Schema determines the WID's pattern is a division
+
+- IsSection (boolean)
+    *True* if the Project's WID Schema determines the WID's pattern is a section
+
+- IsScope (boolean)
+    *True* if WID conforms to pattern which is a scope
+
+- TaskStatus (string)
+    Calculated based on the current conditions of the Tasks referencing this *Work*
+
+    - **EMPTY**: There are no Tasks associated with this *Work*
+
+    - **UNDERWAY**: Any Task is marked as UNDERWAY
+
+    - **STANDBY**: No Task is UNDERWAY but any are STANDBY
+
+    - **ON HOLD**: No Task is UNDERWAY or STANDBY but any are ON HOLD
+
+    - **FUTURE**: No Task is either UNDERWAY or STANDBY or ON HOLD but any are FUTURE
+
+    - **COMPLETE**: No Task is either UNDERWAY or STANDBY or ON HOLD or FUTURE (must all be COMPLETE or REDUNDANT)
+
+- TasksOnHold (int)
+    Sum of the SubTasks referenced by Tasks referencing this *Work* with an *ON HOLD* status
+
+- TaskCount (int)
+    Sum of (the SubTaskCount if greater than 0 else 1) of Tasks referencing this *Work*
+
+- TaskCompleteCount (int)
+    Sum of (the SubTaskCompleteCount if greater than 0 else 1) of Tasks referencing this *Work*
+
+- DeliverablesStatus (string)
+    Calculated based on the current conditions of all of the Documents referenced by this *Work*
+
+- DeliverablesCount (int)
+    Sum of documents listed
+
+- DeliverablesCreated (int)
+    Sum of documents listed which actually have been uploaded at Rev A or later
+
+- DeliverablesFinalised (int)
+    Sum of documents listed which actually have been uploaded at Rev 0 or later
+
+Task
+----
+
+SubTask
+-------
+
+LinkSheets
+----------
+
+- ID
+
+-
+
+
+Views
+=====
+
+Work View
+---------
+
+Work View (Tasks Tab)
+`````````````````````
+
+Work Edit
+---------
+
+Task View
+---------
+
+Task Entry
+----------
+
+SubTask View
+------------
+
+SubTask Edit
+------------
+
+Task Analytics View
+-------------------
+
+
+Actions
+=======
+
+Task Actions
+------------
+
+CommenceTask
+    Sets the task in questions StartDate to current date (start of day)
+
+CompleteTask
+    Sets the task in questions FinishDate to current date (End of day)
+
+MoveTask
+    Will move a task (and any relevant subtasks) to another Work record (in same project only)
+
+CopyTask
+    Will allow a task (and any relevant subtasks) to be copied to any other Work record (including different projects)
+    but will only copy the title, description and effort.
+
+CheckoutTasks
+    Assuming there is NOT a **LinkSheet** already available, will create a **LinkSheet** including all tasks and subtasks
+    of only a specific WID of a specific Project. If the **LinkSheet** already exists will perform the *GoToTasksSheet*
+    action.
+
+GotToTaskSheet
+    Provides a link (or even navigates) to the **LinkSheet** (assuming it exists)
+
+CancelTasksCheckout
+    After confirmation will delete the **LinkSheet** record for the specific WID and then after further confirmation will
+    delete the linked spreadsheet
+
+CheckinTasks
+    Attempts to read the information back into the database. After processing, any failures will be highlighted in the
+    spreadsheet with potentially comments attached. If successful information will Create, Update or Delete records as
+    is permissible.
+
+SubTask Actions
+---------------
+
+
+
+
+
+
