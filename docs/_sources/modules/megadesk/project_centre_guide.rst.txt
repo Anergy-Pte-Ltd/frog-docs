@@ -1,0 +1,54 @@
+.. include:: ../../shared/common.rst
+.. |main menu| image:: /img/main menu.png
+    :width: 1600px
+.. |Project Dash| image:: /img/Project Dash.JPG
+    :width: 2500px
+.. |context| image:: /img/context.png
+    :width: 2500px
+.. |search bar| image:: /img/search bar.JPG
+    :width: 2500px
+.. |doc counters| image:: /img/doc counters.png
+    :width: 2500px
+.. |settings bar| image:: /img/settings bar.JPG
+    :width: 2500px
+.. |tempsnip| image:: /img/tempsnip.png
+    :width: 2500px
+.. |colour options| image:: /img/colour options.JPG
+    :width: 2500px
+Project Centre
++++++++++++++++
+The Project Centre Module has been designed to be a central ‘Hub’ that gives useful information tailored to each unique user in a digestible format. To open Project Centre firstly open Odoo and click on the button shown below.
+
+|main menu|
+
+Once you have opened the module you will be presented with the Project Centre. This page will show you a brief overview of all projects within the organisation. Under each Job card there are counters that show some information about each project, such as the document count, number of transmissions and photos that are tagged to the project.
+
+|Project Dash|
+
+You can add a layer of context to the dashboard by clicking the ‘Ctx’ button on the top right of the page header as shown below. Scroll down the menu to select the job that you would like to contextualise your Project Centre with. This will then change the colour of your dashboard, and will automatically apply search parameters to the search panel.
+
+|context|
+
+If the colours that are displayed are anything other than the traditional Odoo purple, then you have limited search parameters as a result of having your project contextualised. You can hit the ‘x’ to remove the context from your project centre.
+
+|search bar|
+
+Clicking on any of the 4 icons shown will take you directly to the page specific to the job. For example the second icon with ‘35’ under it indicates that there are 35 documents for that project, and selecting the icon will open the documents page for T2762. The next icon to the right shows that there have been 3 transmissions relating to the project.
+
+|doc counters|
+
+The image below shows the menu items for the Project Centre Dashboard. The items shown are:
+-A setting for toggling on and off visibility of hidden job cards
+-Document approvals and reviews count
+-Personalised breakdown of the user’s hours worked on each job
+-Timesheets outstanding
+-The remaining items marked as ‘Future’ are not functional yet as they relate to Odoo modules that have not been developed yet
+
+|settings bar|
+
+To make identification of Jobs more visual, you can adjust the colour of a project. Hitting the ‘kebab’ menu will open the update colour menu, where you select a project from a palette. The same menu will also allow you to hide projects that you do not need to see on your system. Hit the ‘Toggle visibility’ button to hide any job.
+
+|tempsnip|
+
+|colour options|
+
