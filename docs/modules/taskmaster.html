@@ -2,7 +2,7 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Special Topics" href="../topics/index.html" /><link rel="prev" title="Project Dashboard" href="megadesk/project_dashboard_guide.html" />
 
     <meta name="generator" content="sphinx-4.1.1, furo 2021.07.05.beta38"/>
         <title>Project TaskMaster - Turbo-Frog Documentation</title>
@@ -120,7 +120,7 @@
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents test:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Welcome to turbo-frog-doc’s documentation!</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../project/index.html"><em>TURBO-FROG</em> Admin</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../project/kickoff.html"><em>TURBO-FROG</em> Kickoff</a></li>
@@ -167,7 +167,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index.html"><em>TURBO-FROG</em> Modules Index</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html"><em>TURBO-FROG</em> Modules Index</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="business_ids.html">Business Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assets.html">Works Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taskboard.html">App Tasks</a></li>
@@ -176,10 +176,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="project_context.html">Project Context Specification</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="megadesk/projectcentre.html">Project Centre Dashboard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="megadesk/project_dashboard.html">Project Dashboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="megadesk/project_centre_guide.html">Project Centre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="megadesk/project_centre_guide.html">Project Centre Training</a></li>
 <li class="toctree-l3"><a class="reference internal" href="megadesk/project_dashboard_guide.html">Project Dashboard</a></li>
 </ul>
 </li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Project TaskMaster</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -313,27 +314,32 @@ instead allows multiple PO’s so long as they work towards an outcome. The</p>
 <dt>Project Number Schema</dt><dd><p>A pattern used to create <em>WID</em>’s that provides any Metadata regarding the Project Number as well as the mechanism
 for determining order and next in sequence.</p>
 </dd>
-<dt>RASCI Roles</dt><dd><p>Method used to dissect the roles Teams or Team Members play in completing <em>Work</em>, <a href="#id1"><span class="problematic" id="id2">*</span></a>Task*s and <a href="#id3"><span class="problematic" id="id4">*</span></a>SubTasks*s. The
-roles are Responsible (R), Accountable/Authority (A), Support (S), Consultant (C) and Informed (I). Both the
-Responsible and Accountable roles are mandatory and be allocated to one person only. The other roles can have
-multiple people to each one.</p>
+<dt>RASCI Roles</dt><dd><p>Method used to dissect the roles Teams or Team Members play in completing <em>Work</em>, <em>Tasks</em> and <em>SubTasks</em>. The
+roles are:</p>
+<ul class="simple">
+<li><p>Responsible (R) - mandatory and only one allowed</p></li>
+<li><p>Accountable/Authority (A) - mandatory and only one allowed</p></li>
+<li><p>Support (S) - 0 or more allowed</p></li>
+<li><p>Consultant (C) - 0 or more allowed</p></li>
+<li><p>Informed (I) - 0 or more allowed</p></li>
+</ul>
 </dd>
 <dt>Scope</dt><dd><p>Any <em>Work</em> record which has no other <em>Work</em> elements as children</p>
 </dd>
 <dt>Section</dt><dd><p>Any <em>Work</em> record for which</p>
 </dd>
-<dt>Site</dt><dd><p>The Site is the property including supporting Works (such as offices, maintenance or warehousing facilities or other
+<dt>Site or Sites</dt><dd><p>The Site is the property including supporting Works (such as offices, maintenance or warehousing facilities or other
 civil works) in which the Plant is contained.</p>
 </dd>
 <dt>Site Identifier</dt><dd><p>FUTURE - This will be a three letter ‘airport’ code for each and every location in which a Plant is built or
 installed.</p>
 </dd>
-<dt>SubTask</dt><dd><p><em>SubTask</em> must be named in the same way as the parent <em>Task</em> element. All <em>SubTasks</em> of a <em>Task</em> should define the
+<dt>SubTask or SubTasks</dt><dd><p><em>SubTask</em> must be named in the same way as the parent <em>Task</em> element. All <em>SubTasks</em> of a <em>Task</em> should define the
 whole of the <em>Task</em>.</p>
 </dd>
-<dt>Task</dt><dd><p>A <em>Task</em> is a clearly defined step in completing the <em>Work</em> to which it is defined. Naming should begin with a verb
+<dt>Task or Tasks</dt><dd><p>A <em>Task</em> is a clearly defined step in completing the <em>Work</em> to which it is defined. Naming should begin with a verb
 and apply SMART (Specific, Measured, Achievable, Realistic, Timed) principles. <em>Task*s are assigned to a *Team</em>
-and are broken into <a href="#id5"><span class="problematic" id="id6">*</span></a>SubTasks*s.</p>
+and are broken into <a href="#id1"><span class="problematic" id="id2">*</span></a>SubTasks*s.</p>
 </dd>
 <dt>Work</dt><dd><p>Part of the <em>Project</em> or subpart of another <em>Work</em> element which defines part of the Work. Naming of <em>Work</em> should
 describe the object of work and not begin with a verb. eg “Process Design” as opposed to “Design the Process”</p>
@@ -360,20 +366,26 @@ more than three levels. The schema will also determine if the <em>WID</em> is a 
 <h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="all-models">
 <h3>All models<a class="headerlink" href="#all-models" title="Permalink to this headline">¶</a></h3>
-<p>All models assumed to have:
-- <strong>ID:</strong>       Primary Key, Unique, Immutable - generally a UUID type
-- <em>Foreign Keys:</em>       As appropriate but translatable to “English” ID’s</p>
+<p>All models assumed to have:</p>
+<ul class="simple">
+<li><p><strong>ID</strong>: Primary Key, Unique, Immutable - generally a UUID type</p></li>
+<li><p><strong>Foreign Keys</strong>:     As appropriate but translatable to “English” ID’s</p></li>
+<li><p><strong>Created Date</strong>: Time/Date of creation</p></li>
+<li><p><strong>Created By</strong>: Username of creator</p></li>
+<li><p><strong>Modified Date</strong>: Date of last modification</p></li>
+<li><p><strong>Modified By</strong>: User who last modified</p></li>
+</ul>
 </div>
 <div class="section" id="project">
 <h3>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h3>
 <p>This model is existing as <strong>Jobs</strong>. In many ways, the <strong>Jobs</strong> module/model is more aligned with <strong>Work</strong> which is a
 Scope. This is not a full definition but relates to the needs of this Module.</p>
-<dl class="option-list">
-<dt><kbd><span class="option">-I<var>D</var></span></kbd></dt>
-<dd><p>Primary Key, Unique, Immutable</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>ID</dt><dd><p>Primary Key, Unique, Immutable</p>
 </dd>
 </dl>
-<ul class="simple">
+</li>
 <li><dl class="simple">
 <dt>Project Number</dt><dd><p>Project Number Identifier Type</p>
 </dd>
@@ -527,9 +539,165 @@ be a Many2Many relationship.</p>
 </div>
 <div class="section" id="task">
 <h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some additional details to add here to show calculated information as well.</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>ID</dt><dd><p>Primary Key, Unique, Immutable</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Job Number</dt><dd><p>of the job for the task</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>WID</dt><dd><p>WID to which this task applies (can be change with warning)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>TaskNumber</dt><dd><p>Number of the individual task - by default next in numeric sequence but reorderable and mutable</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Responsible</dt><dd><p>Name of person or team responsible for completing the work - this person will close a task when complete (and
+thereafter requires the “Authority” to accept this)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Authority</dt><dd><p>Name of person or team who is the authority for this task - this person must accept that a task is complete</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Informed</dt><dd><p>Name of the person(s) or team(s) to be informed whenever the task status changes</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Title</dt><dd><p>Name of the task</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Description</dt><dd><p>Any additional details about the task - Probably can be a rich text field</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Requires</dt><dd><p>References to any other tasks which need completing first - can be any valid task including outside this
+project even - entry can be as a set of comma separated values - numbers only will be interpreted as having the same
+Project/WID, values with WID-tasknumber will be interpreted as having same Project otherwise need to be
+Project-WID-Tasknumber</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Start</dt><dd><p>Date of start of the task (assumed start of day)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Finish</dt><dd><p>Date of finish of the task (assumed end of day)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Duration</dt><dd><p>Calculated as Finish (or current end of day) less start</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Effort</dt><dd><p>FUTURE - Not possible to calculated currently given that Timesheets for individuals reference the Scope Work ID and
+not the Task ID.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Status</dt><dd><p>Calculated field (see below)</p>
+</dd>
+</dl>
+</li>
+<li><p>Expected Start</p></li>
+<li><p>Expected Duration</p></li>
+<li><p>Expected Finish</p></li>
+<li><p>Expected Effort</p></li>
+<li><dl class="simple">
+<dt>SubTaskCount</dt><dd><p>Number of subtasks under this task (do for each status)</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="subtask">
 <h3>SubTask<a class="headerlink" href="#subtask" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some additional details to add here to show calculated information as well.</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>ID</dt><dd><p>Primary Key, Unique, Immutable</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>TaskNumber</dt><dd><p>Reference to the Task Number (really the id)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SubTaskNumber</dt><dd><p>Number of the specific subtask (allow reordering)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Description</dt><dd><p>Description of a the task to be completed (for example expertise required etc)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Responsible</dt><dd><p>Name of person responsible for completing the work</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Authority</dt><dd><p>Name of person responsible for ensuring task is complete and accurate</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Consultant</dt><dd><p>Name of person(s) who will be providing guidance</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support</dt><dd><p>Names of persons who will support the responsible person for the work</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Informed</dt><dd><p>Names of persons who will be updated whenever the status of the task changes</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Status</dt><dd><p>Selected from FUTURE | UNDERWAY | ON HOLD | REDUNDANT | COMPLETE</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>HoldDescription</dt><dd><p>Description for a hold (along with date which is autogenerated)</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="linksheets">
 <h3>LinkSheets<a class="headerlink" href="#linksheets" title="Permalink to this headline">¶</a></h3>
@@ -539,8 +707,19 @@ be a Many2Many relationship.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="views">
-<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="views-in-a-project-context">
+<h2>Views In a Project Context<a class="headerlink" href="#views-in-a-project-context" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notes-about-context-and-use-cases">
+<h3>Notes about Context and Use Cases<a class="headerlink" href="#notes-about-context-and-use-cases" title="Permalink to this headline">¶</a></h3>
+<p>The following Use Cases are identified:</p>
+<ul class="simple">
+<li><p>Planning and estimating work for resources</p></li>
+<li><p>Getting your individual work load</p></li>
+<li><p>Performing a team review (eg daily as being done currently by</p></li>
+</ul>
+<p>The <strong>Project Context</strong> will be used generally to create and then monitor tasks.</p>
+<p>Users will most likely want to understand the tasks</p>
+</div>
 <div class="section" id="work-view">
 <h3>Work View<a class="headerlink" href="#work-view" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="work-view-tasks-tab">
@@ -565,6 +744,14 @@ be a Many2Many relationship.</p>
 <div class="section" id="task-analytics-view">
 <h3>Task Analytics View<a class="headerlink" href="#task-analytics-view" title="Permalink to this headline">¶</a></h3>
 </div>
+</div>
+<div class="section" id="views-in-a-user-context">
+<h2>Views In a User Context<a class="headerlink" href="#views-in-a-user-context" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="views-in-a-team-context">
+<h2>Views In a Team Context<a class="headerlink" href="#views-in-a-team-context" title="Permalink to this headline">¶</a></h2>
+<p>Team context has yet to be created.</p>
+<p>The concept will be to allow similar views as per the main project context</p>
 </div>
 <div class="section" id="actions">
 <h2>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h2>
@@ -605,8 +792,26 @@ is permissible.</p>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="../topics/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Special Topics</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="megadesk/project_dashboard_guide.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Project Dashboard</div>
+                
+              </div>
+            </a>
         </div>
 
         <div class="related-information">
@@ -654,7 +859,8 @@ is permissible.</p>
 <li><a class="reference internal" href="#linksheets">LinkSheets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#views">Views</a><ul>
+<li><a class="reference internal" href="#views-in-a-project-context">Views In a Project Context</a><ul>
+<li><a class="reference internal" href="#notes-about-context-and-use-cases">Notes about Context and Use Cases</a></li>
 <li><a class="reference internal" href="#work-view">Work View</a><ul>
 <li><a class="reference internal" href="#work-view-tasks-tab">Work View (Tasks Tab)</a></li>
 </ul>
@@ -667,6 +873,8 @@ is permissible.</p>
 <li><a class="reference internal" href="#task-analytics-view">Task Analytics View</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#views-in-a-user-context">Views In a User Context</a></li>
+<li><a class="reference internal" href="#views-in-a-team-context">Views In a Team Context</a></li>
 <li><a class="reference internal" href="#actions">Actions</a><ul>
 <li><a class="reference internal" href="#task-actions">Task Actions</a></li>
 <li><a class="reference internal" href="#subtask-actions">SubTask Actions</a></li>

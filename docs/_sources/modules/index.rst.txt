@@ -16,6 +16,7 @@ specification details
     wbs
     parts
     project_context
+    taskmaster
 
 
 DEVELOP

@@ -11,9 +11,9 @@ Objective
 ---------
 The primary goal of the Project Centre Dashboard is to create a centralised space of the projects which will act as a gateway into the job specific portals. Once the job contextualisation process has occurred, users will be able to access jobs they are working on through this dashboard. The Project Centre Dashboard will also provide information tailored to the user on data such as outstanding tasks, outstanding reviews/approvals of documents and hours spent on jobs and WBS.
 
-Modules Effected
+Modules Affected
 ----------------
-The following modules will be effected as a result of the implementation of the Project Centre Dashboard,
+The following modules will be affected as a result of the implementation of the Project Centre Dashboard,
 
     * Document/Transmittal Module;and
     * Current Jobs Module.

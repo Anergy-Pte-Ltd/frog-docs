@@ -1,7 +1,6 @@
 .. include:: ../shared/common.rst
-
-.. |Context| image:: /img/context.png
-    :width: 1800px
+.. |project centre diagram| image:: /img/project centre diagram.png
+    :width: 2500px
 
 Project Context Specification
 =============================
@@ -9,7 +8,7 @@ The purpose of this specification is to outline the aims and outcomes of the pro
 
 Currently the Job module is disjointed and isn't effective at transferring relevant information to the user in many cases. The development of the module will include simplified portals and dashboards that will allow the user to quickly obtain information from the Turbo server about the required job. The project will also pave the way for future developments in Turbo to be implemented that will increase efficiency of the organisation.
 
-|Context|
+|project centre diagram|
 
 Project Centre
 --------------

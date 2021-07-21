@@ -1,9 +1,9 @@
-
 .. include:: ../../shared/common.rst
-.. |project specific| image:: /img/Project Specific.JPG
-    :width: 2500px
+
+.. |project specific| image:: /img/Project specific.JPG
+    :width: 800
 .. |side menu dash| image:: /img/side menu dash.JPG
-    :width: 1500px
+    :width: 800
 
 Project Dashboard
 +++++++++++++++++++

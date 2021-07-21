@@ -126,10 +126,14 @@ Project Number Schema
     for determining order and next in sequence.
 
 RASCI Roles
-    Method used to dissect the roles Teams or Team Members play in completing *Work*, *Task*s and *SubTasks*s. The
-    roles are Responsible (R), Accountable/Authority (A), Support (S), Consultant (C) and Informed (I). Both the
-    Responsible and Accountable roles are mandatory and be allocated to one person only. The other roles can have
-    multiple people to each one.
+    Method used to dissect the roles Teams or Team Members play in completing *Work*, *Tasks* and *SubTasks*. The
+    roles are:
+
+    - Responsible (R) - mandatory and only one allowed
+    - Accountable/Authority (A) - mandatory and only one allowed
+    - Support (S) - 0 or more allowed
+    - Consultant (C) - 0 or more allowed
+    - Informed (I) - 0 or more allowed
 
 Scope
     Any *Work* record which has no other *Work* elements as children
@@ -137,7 +141,7 @@ Scope
 Section
     Any *Work* record for which
 
-Site
+Site or Sites
     The Site is the property including supporting Works (such as offices, maintenance or warehousing facilities or other
     civil works) in which the Plant is contained.
 
@@ -145,11 +149,11 @@ Site Identifier
     FUTURE - This will be a three letter 'airport' code for each and every location in which a Plant is built or
     installed.
 
-SubTask
+SubTask or SubTasks
     *SubTask* must be named in the same way as the parent *Task* element. All *SubTasks* of a *Task* should define the
     whole of the *Task*.
 
-Task
+Task or Tasks
     A *Task* is a clearly defined step in completing the *Work* to which it is defined. Naming should begin with a verb
     and apply SMART (Specific, Measured, Achievable, Realistic, Timed) principles. *Task*s are assigned to a *Team*
     and are broken into *SubTasks*s.
@@ -186,8 +190,13 @@ All models
 ----------
 
 All models assumed to have:
-- **ID:**	Primary Key, Unique, Immutable - generally a UUID type
-- *Foreign Keys:*	As appropriate but translatable to "English" ID's
+
+- **ID**: Primary Key, Unique, Immutable - generally a UUID type
+- **Foreign Keys**:	As appropriate but translatable to "English" ID's
+- **Created Date**: Time/Date of creation
+- **Created By**: Username of creator
+- **Modified Date**: Date of last modification
+- **Modified By**: User who last modified
 
 Project
 -------
@@ -195,7 +204,7 @@ Project
 This model is existing as **Jobs**. In many ways, the **Jobs** module/model is more aligned with **Work** which is a
 Scope. This is not a full definition but relates to the needs of this Module.
 
--ID
+- ID
     Primary Key, Unique, Immutable
 
 - Project Number
@@ -301,8 +310,109 @@ Calculated Fields
 Task
 ----
 
+.. NOTE:: Some additional details to add here to show calculated information as well.
+
+- ID
+    Primary Key, Unique, Immutable
+
+- Job Number
+    of the job for the task
+
+- WID
+    WID to which this task applies (can be change with warning)
+
+- TaskNumber
+    Number of the individual task - by default next in numeric sequence but reorderable and mutable
+
+- Responsible
+    Name of person or team responsible for completing the work - this person will close a task when complete (and
+    thereafter requires the "Authority" to accept this)
+
+- Authority
+    Name of person or team who is the authority for this task - this person must accept that a task is complete
+
+- Informed
+    Name of the person(s) or team(s) to be informed whenever the task status changes
+
+- Title
+    Name of the task
+
+- Description
+    Any additional details about the task - Probably can be a rich text field
+
+- Requires
+    References to any other tasks which need completing first - can be any valid task including outside this
+    project even - entry can be as a set of comma separated values - numbers only will be interpreted as having the same
+    Project/WID, values with WID-tasknumber will be interpreted as having same Project otherwise need to be
+    Project-WID-Tasknumber
+
+- Start
+    Date of start of the task (assumed start of day)
+
+- Finish
+    Date of finish of the task (assumed end of day)
+
+- Duration
+    Calculated as Finish (or current end of day) less start
+
+- Effort
+    FUTURE - Not possible to calculated currently given that Timesheets for individuals reference the Scope Work ID and
+    not the Task ID.
+
+- Status
+    Calculated field (see below)
+
+- Expected Start
+
+- Expected Duration
+
+- Expected Finish
+
+- Expected Effort
+
+- SubTaskCount
+    Number of subtasks under this task (do for each status)
+
+
+
+
 SubTask
 -------
+
+.. NOTE:: Some additional details to add here to show calculated information as well.
+
+- ID
+    Primary Key, Unique, Immutable
+
+- TaskNumber
+    Reference to the Task Number (really the id)
+
+- SubTaskNumber
+    Number of the specific subtask (allow reordering)
+
+- Description
+    Description of a the task to be completed (for example expertise required etc)
+
+- Responsible
+    Name of person responsible for completing the work
+
+- Authority
+    Name of person responsible for ensuring task is complete and accurate
+
+- Consultant
+    Name of person(s) who will be providing guidance
+
+- Support
+    Names of persons who will support the responsible person for the work
+
+- Informed
+    Names of persons who will be updated whenever the status of the task changes
+
+- Status
+    Selected from FUTURE | UNDERWAY | ON HOLD | REDUNDANT | COMPLETE
+
+- HoldDescription
+    Description for a hold (along with date which is autogenerated)
 
 LinkSheets
 ----------
@@ -312,8 +422,25 @@ LinkSheets
 -
 
 
-Views
-=====
+Views In a Project Context
+==========================
+
+Notes about Context and Use Cases
+---------------------------------
+
+The following Use Cases are identified:
+
+- Planning and estimating work for resources
+    
+
+- Getting your individual work load
+
+- Performing a team review (eg daily as being done currently by
+
+The **Project Context** will be used generally to create and then monitor tasks.
+
+Users will most likely want to understand the tasks
+
 
 Work View
 ---------
@@ -339,6 +466,15 @@ SubTask Edit
 Task Analytics View
 -------------------
 
+Views In a User Context
+==========================
+
+Views In a Team Context
+==========================
+
+Team context has yet to be created.
+
+The concept will be to allow similar views as per the main project context
 
 Actions
 =======

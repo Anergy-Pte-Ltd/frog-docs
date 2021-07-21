@@ -13,10 +13,10 @@
     :width: 2500px
 .. |tempsnip| image:: /img/tempsnip.png
     :width: 2500px
-.. |colour options| image:: /img/colour options.JPG
+.. |colour options| image:: /img/colouroptions.JPG
     :width: 2500px
-Project Centre
-+++++++++++++++
+Project Centre Training
++++++++++++++++++++++++
 The Project Centre Module has been designed to be a central ‘Hub’ that gives useful information tailored to each unique user in a digestible format. To open Project Centre firstly open Odoo and click on the button shown below.
 
 |main menu|
