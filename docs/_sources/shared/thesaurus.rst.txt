@@ -1,0 +1,50 @@
+.. include:: /shared/common.rst
+
+################
+Thesaurus
+################
+
+This page contains word searches against key words to assist with naming and semantics with regards to various modules.
+
+.. centered:: *PROJECT*
+
+.. hlist::
+    :columns: 5
+
+    - work
+    - job
+    - project
+    - operation
+    - strain
+    - effort
+    - effect
+    - deed
+    - exertion
+    - produce
+    - service
+    - businesses
+    - travail
+    - drive
+    - activity
+    - chore
+    - assignment
+    - go
+    - run
+    - perform
+    - pursuit
+
+.. centered:: *STATE*
+
+.. hlist::
+    :columns: 5
+
+    - case
+    - standing
+    - event
+    - nature
+    - circumstances
+    - character
+    - phase
+    - position
+    - situation
+    - element

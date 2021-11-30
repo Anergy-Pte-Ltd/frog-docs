@@ -6,8 +6,7 @@ Welcome to turbo-frog-doc's documentation!
 ==========================================
 
 |turbo| is the |anergy| implementation of the |odoo| platform. This platform includes a community edition
-(or the
-base components) and an enterprise edition (proprietary extra features and services).
+(or the base components) and an enterprise edition (proprietary extra features and services).
 
 - :doc:`index`
 

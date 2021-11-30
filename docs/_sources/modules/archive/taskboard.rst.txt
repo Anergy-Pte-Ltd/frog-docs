@@ -1,0 +1,56 @@
+.. include:: /shared/common.rst
+
+
+App Tasks
+*********
+
+
+Models
+========
+
+A *task*:
+
+- *belongs* to a **task phase**
+- *belongs* to a **WorkElement** using the **WorkID** as the business identifier
+- *has* a **TaskID** as the business identifier
+- *has* an *estimate duration*
+- *has* a *description*
+- *has* a *status* which is one of:
+    - NEW (default) | IN PROGRESS | COMPLETE | ON HOLD | DELETED
+- *has* a *reason* for *status* when status is either ON HOLD or DELETED
+- *has* a *created* timestamp - set on creation of task - cannot be changed
+- *has* a *started* timestamp
+    - set when task *status* is made not NEW
+    - can also be manually changed
+    - must be before a task in *completed*
+- *has* a *completed* timestamp
+    - set when task *status* is made COMPLETE
+    - can also be manually changed
+    - must be after a task has *started* but if a task is yet to start
+- *may have* one or more **notes**
+- is *assigned* or *delegated* to a **worker** or **workers**
+
+
+A **WorkID**:
+
+- *belongs* to a **project**
+- must be in the format set out by the **project**
+- will be classified as either a DIVISION, a SECTION or a SCOPE
+- must be unique to a project
+
+A **WorkElement**:
+
+- *belongs* to a **project**
+
+
+A **WorkBreakdownStructure**:
+
+
+- if it is a SECTION then there must be the corresponding DIVISION inside
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+.. include:: /shared/common.rst
+
+|odoo| Core
+==================
+
+What is actually at the core of the |odoo| system? The purpose of this section is to put the various notes and
+information found to describe the core workings within the |odoo| system.
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+    starting_odoo
+    ir.http
+    view
+

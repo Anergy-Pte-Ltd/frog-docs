@@ -1,0 +1,25 @@
+.. include:: /shared/common.rst
+
+Business Identifiers
+====================
+
+Business Identifiers are identifiers of records which are used by both machine and humans. Each identifier typically
+is further defined using a code system. Using this code system, additional information can be determined by any given
+identifier rather than merely the actual record that is being recorded.
+
+Typically encoding of identifiers follows one of three patterns:
+
+- Sequential
+- Encoded to be human readable
+- Random
+
+Only randomly given identifiers (for example UUID's) can genuinely contain no other information other than which
+resource is being identified. Even sequential identifiers can give off metadata about the record (see
+`German Tank Problem <https://en.wikipedia.org/wiki/German_tank_problem>`_ if interested).
+
+The business identifiers are all encoded form and further are typically designed allow merely the identifier not only
+to signify the resource, but the type of resource.
+
+For example:
+
+Example 1

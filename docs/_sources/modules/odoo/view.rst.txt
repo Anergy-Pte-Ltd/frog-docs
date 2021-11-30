@@ -1,0 +1,155 @@
+.. include:: /shared/common.rst
+
+*******************
+Views and Rendering
+*******************
+
+.. sidebar:: Revision Details
+
+    **Author**:   Matthew Martella
+    **Date**:   03/11/2021
+
+Rendering
+=========
+
+There's quite a chain that ``odoo`` runs through in order to render. The first steps all involve sorting out the
+template to use and the qcontext thereafter.
+
+The following diagram shows the relatively generic methodology for processing requests from the user and turning them
+into HTML, CSS and JS. Note that Odoo 15 spends far more emphasis on returning JSON as well.
+
+.. mermaid::
+
+    flowchart TB
+        USER[user agent]
+        REQ[request]
+        ROUTE[route dispatcher]
+        RESP[response]
+
+
+        USER -- GET or POST --> REQ -- request obj --> ROUTE -- template and qcontext --> RESP
+        RESP -- HTML\nCSS\nJS --> USER
+
+The incoming request is sent from the running ``odoo.service.wsgi_server`` through to the ``root`` object as previously
+shown in `<starting_odoo>`_. This process is very handy
+
+
+
+
+
+Views
+=====
+
+Views are created by the developer as an ``xml`` record. This is uploaded into the model ``ir.ui.view`` during the
+installation or upgrade of a module. The core of the view record is listed under ``<field name="arch" type="xml">``.
+This begins with a view type (see below). Conceptually ``arch`` is short for architecture. This is then pre-processed
+during the upload process to form the complete architecture for a page.
+
+.. note::
+    Does rendering (conversion of the architecture into html) occur initially at the server or by call from the client?
+
+.. code-block:: xml
+
+    <record id="MODEL_view_TYPE" model="ir.ui.view">
+      <field name="name">NAME</field>
+      <field name="model">MODEL</field>
+      <field name="arch" type="xml">
+        <VIEW_TYPE>
+          <VIEW_SPECIFICATIONS/>
+        </VIEW_TYPE>
+      </field>
+    </record>
+
+The documentation describes multiple 'types' of views:
+
+.. hlist::
+
+    - Form
+    - Search
+    - Activity
+    - Calendar
+    - Cohort
+    - Dashboard
+    - Diagram (Deprecated at v13)
+    - Gantt
+    - Graph
+    - Grid (v15 +)
+    - Kanban
+    - List
+    - Map
+    - Pivot
+    - QWeb
+
+.. seealso::
+
+    `Odoo 13 Views <https://www.odoo.com/documentation/13.0/developer/reference/addons/views.html>`_
+
+
+Inheritance modes
+-----------------
+
+- `primary` : the closest primary view is fully resolved (even if it uses a different model than this one), then this
+    view's inheritance specs (<xpath/>) are applied, and the result is used as if it were this view's actual arch.
+- `extension` : (default) the closest primary view is looked up (via inherit_id), then all views inheriting from it
+    with this view's model are applied
+
+
+
+``base.xml``
+============
+
+Located with the ``web`` module under ``static/src/xml``, this file contains what appears to be very significant
+templates used in the generation of the the final architecture of a given view.
+
+
+Page Anatomy
+============
+
+When you review the source actually sent to the client, very interestingly only the ``<HEAD>`` section is populated
+with all of the ``web.assets`` from the server. The ``<BODY>`` component in actual fact only contains the class
+``o_web_client``. It becomes obvious that the server in actual fact returns an empty body only to the client. The
+stylesheet and javascript then effectively becomes a full blow client browser based app. This then makes a request
+only at this point to the server. The response is limited to HTML used to populate the BODY tag.
+
+Now even on this point, this may be incorrect. In fact the views returned may be partially filled only causing
+another request again to fill in sub-sections. For example, the search component may be returned empty. The client
+then in order to see if this can be filled makes another request for the ``search_view`` of the relevant view.
+
+The following is a disection of a body tag once then populated.
+
+.. mermaid::
+    :caption: **Anatomy of |odoo| web page**
+
+    flowchart LR
+
+        body --> header & AM[actionManager] & loading
+        header --> navbar
+        navbar --> menuToggle & mobileMenuToggle & menuBrand & menuSections & menuSysTray
+        AM --> VC[viewController] --> CPC[cpController]
+        VC ------> content((content))
+        CPC --> CP[[controlPanel]]
+        CP --> CP1[div] & CP2[div]
+        CP1 --> breadcrumb & CPS[cpSearchView]
+        CP2 --> CPL[cpLeft] & CPR[cplRight]
+        CPL --> CPB[cpButtons] & CPSB[cpSidebar]
+        CPR --> SO[searchOptions] & pager & viewSwitcher
+
+Further to the above, the following is the anatomy of a FORM type view. These will accordingly differ from one view
+to the next.
+
+.. mermaid::
+    :caption: **Content of a Form View**
+
+    flowchart LR
+
+        C((content)) --> FV[formView]
+        FV --> FB[formSheetBg] & CH[chatter]
+        FB --> FSB[formStatusBar]
+        FB -----> FS[[formSheet]]
+        FSB --> FSBB[formStatusBarButtons] & FW[fieldWidget] & FSBS[formStatusBarStatus]
+        CH --> CHT[chatterTopBar] & MA[mailActivity] & MT[mailThread]
+
+        FS --> BB[buttonBox] & RIB[ribbon] & TIT[Title] & NB[notebook]
+        BB --> SB[statButton]
+
+        NB --> NBH[notebookHeaders] & TC[tabContent]

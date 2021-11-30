@@ -1,19 +1,34 @@
 .. include:: /shared/common.rst
 
 
-Proposed |turbo| Applications
-*****************************
+Summary
+*******
 
 
 :Purpose:   The specification has been created to to provide a high level detail for the user application interface
             for |turbo|.
 :Author:    Matthew Martella
-:Date:      13/02/2021
-:Revision:  A
+:Date:      01/11/2021
+:Revision:  B
 :topic:     Sepcification for Project |tf| for the implementation of the highest level menu in |turbo|
 
 
 Goto `Apps Collection`_ or :ref:`apps_collection` or :ref:`admin_app`
+
+
+.. admonition:: update for 01/11/2021
+
+    Key app areas
+
+    - Accounts
+    - Project & Task Management
+    - Products
+    - Customer Relationship Management
+    - Human Resources
+    - Documents
+
+
+
 
 Introduction
 ============
@@ -49,8 +64,8 @@ Apps Collection
 
 
 
-Applcations
-===========
+Applications
+============
 
 .. toctree::
     :maxdepth: 2

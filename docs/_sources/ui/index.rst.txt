@@ -1,13 +1,16 @@
 .. include:: /shared/common.rst
 
-|tf| User Interface
-===================
+Apps
+====
 
 .. toctree::
     :maxdepth: 2
     :caption: Contents:
 
     applications
+    apps_hr
+    apps_sales
+    apps_strategy
 
 
 Understanding the perspective from the User is the ultimate requirement of |turbo| and the highest priority of |tf|.

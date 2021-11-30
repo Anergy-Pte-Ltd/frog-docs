@@ -1,0 +1,188 @@
+.. include:: /shared/common.rst
+
+#######################
+Project Module - Review
+#######################
+
+.. sidebar:: Revision Details
+
+    **Author**:     Matthew Martella
+    **Date**:       23/11/2021
+
+
+What is a Project?
+------------------
+
+Semantically, the objective of the ``Project`` module has been very difficult to consistently define. The core
+modules use the terms
+``project.project`` and ``project.task``. It is the implied meanings of the terms *project* and *task* which create
+ambiguity. These have differences in meaning at the business than those implied by |odoo|. The definitions in the
+glossary are the business terms. These count from a user perspective and in general the implementation of models,
+views, controllers, actions and reports need to either avoid using these business terms or alternatively be at pains
+to carefully avoid ambiguity to the user whilst keeping clear the implementation intent.
+
+So taking the word **project**. |odoo| has already grabbed this word and applied it to naming modules, models and
+views. At the business level however, **project** has a meaning restricted to a non-repeating enterprise to achieve a
+specific outcome. PMI (Project Management Institute) defines this as "any temporary endeavour with a definite
+beginning and end". OK, so far no real problems.
+
+However the business needs move further with several other use cases.
+
+Firstly, in order to make large and complex projects far more manageable, we break the work down into a series of
+sub-projects. These are split down further and further. This of course forms the
+**work breakdown structure** or **WBS**. PMI gives some key concepts that create a successful **WBS** [#]_ being:
+
+1. The WBS is "deliverable orientated"
+2. A WBS is a "hierarchical decomposition of the work"
+3. The WBS must be 100% of the work (ie captures ALL deliverables --internal, external and interim)
+4. Children must also comply with the 100% rule (rule 3) of all parents
+
+Secondly, the business has some work which doesn't quite comply within the definition of a **project**. These are
+endeavours which may actually be repeating and without a defined outcome albeit with a specific outcome. These are
+more **operational** types of **work**. Examples include the work by the Administration team, works maintaining or
+operating assets etc.
+
+A Third distinction is with work being done which is *meta* to a **project**. This is either a **quote** phase or a
+**study** phase type work. In these cases the work being done is to prepare the necessary instruments (for example WBS)
+of a project which is yet to become active. These actually *do meet* the criteria set out by the definition of a
+**project** but pose other issues within the context of the deliverables. In this case the formation of a **project**
+in |turbo| *IS THE* deliverable.
+
+The final distinction comes from the value proposition of the **project** to the business. Most **projects** will be
+typified by their income potential, being done for a customer and thereafter the costs that the business incurs. In
+fact this is a concept share by all work being performed. However, there are cases where the project is an
+expenditure of the business to deliver additional internal outcomes to the business. These 'internal' projects carry
+with them all of the required discipline of an external customer facing project but are subject to internal criteria
+which obviously will not be profit based. The value comes from achieving other objectives.
+
+
+Work not projects
+-----------------
+
+Abstracting the **project** concept to meet the additional business needs moves us quite beyond the original
+definition of a project. Given the above, a 'project' as a 'container' of 'tasks' and other information which the
+business needs to manage and control moves well passed the word. At the business level the word **Project** is
+restricted to be work which:
+
+- has a client and external stakeholders
+- is deliverable focussed
+- is temporary (generally contemporary)
+- has a beginning, middle and end
+- requires control and management
+- requires division using a WBS
+- has a specific and defined outcome
+
+The other use cases as mentioned above have other names.
+
+- internal project
+- cost centers
+- operations
+- quotations
+- pre-build work (eg studies or testing)
+
+The abstraction name in the business for all of these is the simple word **work**. In this case, **work** is
+presented as a noun and not a verb. The **work** can be a **project**, an *operation*, an *internal project*, a
+*quotation*, a *study* or actually any part of these. All of these sit under an abstract root which for all intense
+purposes in ... "the business itself".
+
+When overlaying this concept now to all the previous use cases, this now fits.
+
+There is a problem however that remains. |odoo| uses the word **project** is equivalent to the business concept of
+**work**. Semantically therefore going forwards:
+
+- The word **project** shall be limited to the business definition
+- The word **work** shall have the business meaning as given above
+- The term ``project.project`` shall mean the model of |odoo| and to be inherited by |turbo|
+- The term Project Module shall mean the module of |odoo| and the companion modules developed for |turbo|
+- The proposed model shall provide the link between the |odoo| concepts and the business concepts
+
+
+What are Tasks?
+---------------
+
+The other word used by |odoo| is that of the :term:`task`. Going to the wikipedia quote for a task:
+
+    ... a **task** is an *activity* that needs to be accomplished within a defined period of time or by a deadline to
+    work towards work-related goals. ...
+
+Further:
+
+    ... tasks may suffer two major drawbacks:
+
+    - task :term:`dependency`: which is normal as most tasks rely on others to get done.
+    - unclear understanding of the term *complete*
+
+One of the papers [#]_ about scheduling states that there is no real difference between *tasks*, *activities* and
+*steps*, terms used interchangeably by scheduling software. Dependency is an issue that is discussed later. Tasks can
+be naturally sub-tasked. You can go down multiple levels if required.
+
+How do **tasks** come together with the **work** level? Logically that depends on the nature of
+the **work** under which you are sitting. If you consider rule 2 and 3 of the **work breakdown structure**, where
+the work is decomposed further, the decomposition must add to 100% of the higher level. As such, to allocate tasks to
+such work parents would render this inconsistent. Instead, **tasks** CAN ONLY BE ALLOCATED to **work** where such
+a **work** has no such decomposition!
+
+So are **tasks** merely further decompositions of **work**? Why create a distinction at all. The following table
+attempts to highlight the key differences to assist here.
+
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Concept                     | Work                                      | Task                                   |
++=============================+===========================================+========================================+
+| Can have children?          | Yes                                       | Yes                                    |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Has a work parent?          | Yes unless the root work (only one)       | Always                                 |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Has subwork?                | Possible                                  | No                                     |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Has tasks?                  | Only if no subwork                        | No                                     |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Has subtasks?               | No                                        | Possible                               |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Duration?                   | No (as summary)                           | Yes                                    |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| 100% rule                   | Always                                    | Optional                               |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| On Timesheets               | No                                        | Yes                                    |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Create?                     | Restricted                                | Anyone                                 |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Update?                     | Restricted                                | Anyone                                 |
++-----------------------------+-------------------------------------------+----------------------------------------+
+| Delete?                     | No (but can be archived)                  | (but can be archived)                  |
++-----------------------------+-------------------------------------------+----------------------------------------+
+|                             |                                           |                                        |
++-----------------------------+-------------------------------------------+----------------------------------------+
+|                             |                                           |                                        |
++-----------------------------+-------------------------------------------+----------------------------------------+
+
+
+
+|odoo| model suitability
+--------------------------------
+
+.. epigraph::
+
+    Organize projects around your own processes. Work on tasks and issues using the
+    kanban view, schedule tasks using the gantt chart and control deadlines in the
+    calendar view. Every project may have it's own stages allowing teams to
+    optimize their job.
+
+    -- odoo project self documentation
+
+The basic Project Module by |odoo| can be summarised in the diagram below. There are effectively two models
+``project.project`` and ``project.task``. Each of these also has an ability to be self referencable.
+
+.. mermaid::
+
+    flowchart TB
+        subgraph PROJ[project]
+            direction TB
+            p1(project.project)
+            p2(project.task)
+            p1 --> p1
+            p1 --> p2
+            p2 --> p2
+        end
+
+In terms of applying the rules given in the above sections, generally the model is conceptually capable of storing
+the appropriate hierarchical model of **projects** and **tasks**.

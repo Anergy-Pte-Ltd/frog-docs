@@ -1,7 +1,7 @@
 .. include:: /shared/common.rst
 
-|tf| Modules Index
-==================
+Modules
+=======
 
 The modules section provides for specifications to build or modify individual components within |turbo|. Each
 specification details
@@ -10,26 +10,13 @@ specification details
     :maxdepth: 2
     :caption: Contents:
 
-    business_ids
-    assets
-    taskboard
-    wbs
-    parts
-    project_context
-    taskmaster
+    base
+    scheme
+    project
+    account
+    product
+    odoo/index
+    archive/index
 
 
-DEVELOP
--------
-
-IMPLEMENT
----------
-
-ALPHA TEST
-
-BETA TEST
-
-PRODUCTION
-
-FIXES
 

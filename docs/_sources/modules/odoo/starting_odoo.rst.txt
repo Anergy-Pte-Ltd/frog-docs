@@ -1,0 +1,178 @@
+******************
+Starting Odoo
+******************
+
+1st November 2021
+
+When ``odoo`` starts up what goes on?
+
+.. mermaid::
+
+    flowchart TB
+    subgraph API[odoo.api]
+        ENV(Environment)
+    end
+
+    subgraph HTTP[odoo.http]
+        subgraph CROOT[Root]
+            direction TB
+            __init__\nload_addons\nsetup_session\nsetup_lang\nget_request\nget_response\ndispatch
+        end
+        ROOT[root] ==> CROOT[Root]
+    end
+
+    subgraph SERVICE[odoo.service.server]
+        START[start]
+        RUN[ThreadedServer.run]
+    end
+
+    subgraph WSGI[odoo.service.wsgi_server]
+        APP[application]
+    end
+
+    subgraph CLI[odoo.cli]
+        CLIS[server.main]
+    end
+
+    subgraph SUP[start up]
+        OBIN[odoo_bin] -.->  IMP[all imports] -.-> CFG[odoo.tools.config] -.-> OBIN
+    end
+
+    OBIN --> CLIS --> START --> RUN
+
+    START -.-> APP -.-> ROOT & ENV
+
+
+
+``odoo-bin``
+
+.. code-block:: python
+    :linenos:
+
+    import odoo
+
+From ``odoo.__init__.py`` the following is performed:
+
+- path management
+- python version checks
+- gevent hack
+- UTC hack
+- pdf2 hack
+- shortcuts
+- odoo engine build as follows:
+
+.. code-block:: python
+
+    #----------------------------------------------------------
+    # Imports
+    #----------------------------------------------------------
+    from . import upgrade  # this namespace must be imported first
+    from . import addons
+    from . import conf
+    from . import loglevels
+    from . import modules
+    from . import netsvc
+    from . import osv
+    from . import release
+    from . import service
+    from . import sql_db
+    from . import tools
+
+    #----------------------------------------------------------
+    # Model classes, fields, api decorators, and translations
+    #----------------------------------------------------------
+    from . import models
+    from . import fields
+    from . import api
+    from odoo.tools.translate import _, _lt
+
+    #----------------------------------------------------------
+    # Other imports, which may require stuff from above
+    #----------------------------------------------------------
+    from . import cli
+    from . import http
+
+Going through each of these (and being tedious about it) the ``import`` has the following effects:
+
+``odoo.upgrade``
+    Path maintenance ... maybe this is purely for when special upgrade work is required
+
+``odoo.addons``
+    Path maintenance
+
+``odoo.conf``
+    Looks like this got removed and added under ``odoo.tools.config``
+
+``odoo.loglevels``
+    Adds constants for logging
+
+``odoo.modules``
+    This is made up of multiple additional packages and also adds various subpackage functions available in the ``odoo.module``
+    namespace.
+
+``odoo.modules.db`` - nil
+``odoo.modules.graph`` - nil (contains Graph and Node classes) but also imports ``odoo.tools`` for first time
+``odoo.modules.loading`` - nil
+``odoo.modules.migration`` - nil
+
+``odoo.modules.module``
+    some constants and classes ``AddonsHook``, ``OdooHook``, ``UpgradeHook``, ``OdooTestResult``,``OdooTestRunner``
+
+``odoo.modules.registry`` - Registry and DummyRLock classes
+
+``odoo.tools.__init__.py`` imports the following:
+
+    Tools contains significant code (I think)
+
+    .. code-block:: python
+
+        from . import pycompat
+        from . import win32
+        from . import appdirs
+        from . import pdf
+        from . import cloc
+        from .config import config
+        from .misc import *
+        from .translate import *
+        from .graph import graph
+        from .image import *
+        from .sql import *
+        from .float_utils import *
+        from .mail import *
+        from .func import *
+        from .debugger import *
+        from .xml_utils import *
+        from .date_utils import *
+        from .convert import *
+        from .template_inheritance import *
+
+The most of important of these is ``odoo.tools.config`` which creates the variable ``config`` and populates this.
+
+``odoo.netsvc``
+    Seems to be the logging engine?
+
+``odoo.osv``
+    Backwards compatability for older version of ORM
+
+``odoo.release``
+    Version constants for odoo
+
+``odoo.service``
+    RPC services (includes ``.common``, ``.db``, ``.model``, ``.wsgi_server``, ``.server``)
+
+``odoo.sql_db``
+    The main interface with the database including classes ``Cursor``, ``TextCursor``
+
+
+
+``odoo.http``
+    Creates the ``root`` variable which IS the WSGI (Web Server Gateway Interface) Application.
+
+
+OK so the defining point when it starts is:
+
+``odoo.service.server.start``
+
+
+
+

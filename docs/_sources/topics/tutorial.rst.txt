@@ -1,0 +1,341 @@
+.. include:: /shared/common.rst
+
+###############
+Tutorial Work
+###############
+
+This section is dedicated to be a journal/working of interesting notes from MCM's tutorial. The tutorial implemented
+is from [Odoo 14 Development Cookbook 2020]_.
+
+OVERVIEW
+========
+
+.. list-table:: Book Chapters
+    :widths: 20, 65, 5, 5, 5
+    :header-rows: 1
+    :align: center
+
+    *   - Chapter
+        - Title
+        - First Reading
+        - Second Reading
+        - Third Reading
+    *   - CHAPTER 1
+        - Installing the Odoo Development Environment
+        - 🗸
+        - 🗸
+        - ⨯
+    *   - CHAPTER 2
+        - Managing Odoo Server Instances
+        - 🗸
+        - ⨯
+        - ⨯
+    *   - `CHAPTER 3`_
+        - Creating Odoo Add-On Modules
+        - 🗸
+        - 🗸
+        - o
+    *   - `CHAPTER 4`_
+        - **Application Models**
+        - 🗸
+        - 🗸
+        - o
+    *   - `CHAPTER 5`_
+        - Basic Server Side Development
+        - 🗸
+        - 
+        - 
+    *   - `CHAPTER 6`_
+        - Managing Module Data
+        - 
+        - 
+        - 
+    *   - CHAPTER 7
+        - Debugging Modules
+        - 
+        - 
+        - 
+    *   - CHAPTER 8
+        - Advanced Server-Side Development Techniques
+        - 
+        - 
+        - 
+    *   - `CHAPTER 9`_
+        - **Backend Views**
+        - 
+        - 
+        - 
+    *   - CHAPTER 10
+        - Security Access
+        - 
+        - 
+        - 
+    *   - *CHAPTER 11*
+        - *Internationalization*
+        - 
+        - 
+        - 
+    *   - CHAPTER 12
+        - Automation, Workflows, Emails and Printing
+        - 
+        - 
+        - 
+    *   - CHAPTER 13
+        - Web Server Development
+        - 
+        - 
+        - 
+    *   - CHAPTER 14
+        - CMS Website Development
+        - 
+        - 
+        - 
+    *   - CHAPTER 15
+        - Web Client Development
+        - 
+        - 
+        - 
+    *   - *CHAPTER 16*
+        - *The Odoo Web Library (OWL)*
+        - 
+        - 
+        - 
+    *   - *CHAPTER 17*
+        - *In-App Purchasing with Odoo*
+        - 
+        - 
+        - 
+    *   - CHAPTER 18
+        - Automated Test Cases
+        - 
+        - 
+        - 
+    *   - *CHAPTER 19*
+        - *Managing, Deploying and Testing with Odoo.sh*
+        - 
+        - 
+        - 
+    *   - CHAPTER 20
+        - Remote Procedure Calls in Odoo
+        - 
+        - 
+        - 
+    *   - *CHAPTER 21*
+        - *Performance Optimization*
+        - 
+        - 
+        - 
+    *   - *CHAPTER 22*
+        - *Point of Sale*
+        - 
+        - 
+        - 
+    *   - *CHAPTER 23*
+        - *Managing Emails in Odoo*
+        - 
+        - 
+        - 
+    *   - *CHAPTER 24*
+        - *Manging the IoT Box*
+        - 
+        - 
+        - 
+
+
+
+
+
+.. [Odoo 14 Development Cookbook 2020] Odoo 14 Development Cookbook, Gajjar P. et al, Fourth Edition, Pakt
+    Publishing, 2020
+
+CHAPTER 1
+=========
+
+- Activating Odoo developer tools 54
+
+CHAPTER 3
+=========
+
+Module covers the simplest elements for putting together a module. The module in question is ``my_library``, a basic
+book repository type system. Contents and comments:
+
+- Creating and installing 83
+- Manifest 86
+- Organizing the add-on 89
+    - use the correct file structure
+- Models 92
+    - good notes on :term:`ORM` 94
+- Menu items and views 95
+    - The user interface is defined by records (convention in ``views\`` subdirectory)
+    - Interesting point about what window actions are for ... is this a missing link in my knowledge?
+    - ``<menuitem>`` is a shortcut tag for ``<record model='ir.ui.menu'>``
+    - recommended to make ``name`` attribute of views human readable albeit that |odoo| does not
+- Access security 101
+    - Create new security groups by adding records to ``res.groups``
+    - Set the permissions using ``csv`` file
+    - NOTE: order in manifest is important for security otherwise strange behaviour!
+- Scaffold 103
+    - all good
+
+CHAPTER 4
+=========
+
+This chapter covers more detailed exploration of models and of course updating views etc to suit.
+
+- Model representation and order 108
+    - ``_order`` attribute is like an SQL order clause
+    - ``display_name`` is a computed field based on method ``name_get()`` which can be overridden to achieve custom names
+    - actually this ``name_get()`` method is used be the title in breadcrumbs and elsewhere ... **important**
+- Data fields 112
+    - types of fields include:
+        - ``Char`` <- strings
+        - ``Text`` <- multiline string values
+        - ``Selection`` <- value/description pairs
+        - ``Html`` <- rich text in an HTML format
+        - ``Binary`` <- as written
+        - ``Date`` <- python date objects
+        - ``Datetime`` <- python datetime objects
+        - ``Integer`` / ``Float`` / ``Monetary`` <- as described
+    - various attributes discussed throughout this section
+    - Float field 119
+        - interesting that you can indirectly refer to another record for decimal precision
+        - this is under the model ``decimal.precision``
+    - Monetary field 120
+        - requires a complementary currency field to store the amount
+        - model for currency is ``res.currency``
+- Relational field 122
+    - types of relations include one-to-many, many-to-one and many-to-many with attributes:
+        - ``ondelete`` can be ``set null`` (default), ``restrict`` or ``cascade``
+        - ``context`` adds variables to client context (eg set default values)
+        - ``domain`` is a search filter (restricts selectable)
+    - many-to-one (many of this model to one of the other model)
+        - ``autojoin`` (for many-to-one) for SQL level control - recommend avoid
+    - one-to-many (one of this model to many of the other model)
+        - additional attributes``comodel_name``, ``inverse_name``, ``limit``
+    - many-to-many (many of this model to many of the other model)
+        - has special 63 field name character limit that may create problems 126
+        - additional attributes ``comodel_name``, ``relation``, ``column1``, ``column2``
+    - **many-to-one** is actually the 'normal' database join method. The others are programmed in to make life much
+      easier to the developer and they will automatically take care of what's what to make it happen. You add the opposite
+      to the other model to make life super easy!
+    - Hierarchy 127
+        - simply put these are self relationships
+        - there is special support possible for hierarchies (not good for dynamic lists)
+        - utility method ``_check_recursion()``
+        - *ERROR* - could not get the ``_parent_store`` (special support) working
+        - *FIX* - reset of Postgres server fixed problems caused by local locks!
+- Other field issues
+    - Constraint validations 129
+        - data level constraints (``_sql_constraints``) vs model level constraints (``@api.constrains('field_name')``)
+        - *ERROR* Could only get model level constraints working
+    - Computed fields 132
+        - compute, invert and search are possibilities to add to a field
+        - compute calls a function to then assign the correct value
+        - inverse calls a function to assign based on a compute field being set to a value
+        - search calls a function to return the correct method of assesing the search
+        - all computations can be stored if required (and are not recomputed unless ``@api.depends()`` field changes)
+        - ``compute_sudo=True`` if elevated privileges are required
+        - ``@api.depends_context`` is useful if there are different contexts for calculation
+    - Exposing related fields 137
+        - shortcut for a computed field being a field exposed from a related record
+    - Dynamic relations 138
+        - ``fields.Reference`` are soft links to other models though use wisely as does not have best performance
+- Inheritance 140, 142, 144, 147
+    - Three types of inheritance **extension**, **prototype** or **delegation**
+        - ``_inherit`` another model without renaming to *extend* and add more fields
+        - ``_inherit`` and add ``_name`` field to copy (*prototype*) the original model
+        - ``_inherits`` and add ``_name`` to create a *delegate*
+    - Delegation inheritance 144
+        - ``_inherits`` requires key-value pairs being models and a key field to link the two models
+        - Creating a new record of a delegated model will also create a record in the original table with the linked
+          field being common
+        - *NOTE:* delegation inheritance only works for fields not methods
+    - Abstract models 147
+        - Simple ability to add functionality and incorporate
+
+.. caution:: Upgrading Fields in Existing Modules
+
+    Not sure if this is a bug but if you want to update a field in an existing module, you need to restart the server.
+    This kind of makes sense (as the model needs to be re-imported) but I'd expected that the |odoo| interface would
+    have sorted that.
+
+.. admonition:: Question
+
+    Can you update fields by setting mode to Developer then going ``Settings`` > ``Technical`` >
+    ``Models`` or ``Fields``?
+
+    Turns out the answer is **NO**. The record only allows the Model Description to be edited and nothing else.
+
+.. note::
+
+    In this process, did find grouping attributes (fields) and methods helped to separate the code into
+    understandable chunks. Came up with the following groupings:
+
+    - Identifying fields
+    - Objective fields - typically cannot change and describe the record
+    - Situational fields - will change with state and status over the records lifetime
+    - Financial fields - deal with specifically that side
+    - Computed fields - what gets deduced by this model
+    - Related fields - what is related to this model
+    - Constraints
+    - Overridden methods
+    - Computing methods
+
+That ends a big chapter.
+
+CHAPTER 5
+=========
+
+**BASIC SERVER-SIDE DEVELOPMENT 152**
+
+- More character to business intelligence
+    - API decorators 152
+        - Methods in models work on ``recordsets`` unless ``@api.model`` used (then working on model level)
+        - *ERROR*: Selection field not working properly?
+        - *FIX*: Error is that value is false - How to *FXI* This?
+        - *NOTE*: Doesn't look like other views I've seen!
+    - Reporting errors 156
+        - Extension of above to add ``UserError`` messages
+    - Get different model empty recordset 158
+        - Introduction to the ``Environment`` class and the ``env`` instance
+        - ``env`` has dictionary of registered models
+        - ``env`` attributes include ``cr`` (cursor), ``user`` and ``context``
+- Records
+    - Creating 160
+        - use the ``create()`` method of the recordset
+        - *Reminder*: ``self`` represents the recordset of a model unless decorated with ``@api.model``
+    - Updating 164
+        - ``ensure_one()`` method useful
+        - to update can iterate through recordset, call ``update()`` method (also iterate), or call ``write()`` method
+        - Codes given to updating for relational fields 166
+    - Searching 166
+        - Use domains and contexts to create recordsets of searches
+        - Can search other models by starting with empty recordset
+        - ``Active==True`` is implied and context may come into it (ref Chapter 8)
+    - Combining 169
+        - Python operators can be used
+    - Filtering 171
+        - create then apply a predicate function (can be a ``lambda`` function)
+        - this function then filters the recordset accordingly (``filter()``)
+    - Traversing Relations 172
+        - relational models may need traversing
+        - can use ``mapped()`` method with function or attribute dot string
+        - will return either a recordset or a python list
+    - Sorting 174
+        - can use ``sorted()`` method to return
+- Models
+    - extending business logic 176
+    - extending ``write()`` and ``create()`` 179
+    - customising search 182
+    - Fetching groups ``read_group()`` 186
+
+
+
+
+CHAPTER 6
+=========
+
+
+CHAPTER 9
+=========
+

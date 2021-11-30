@@ -1,0 +1,477 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="TURBO-FROG Modules - Archive" href="../archive/index.html" /><link rel="prev" title="ir.http Model" href="ir.http.html" />
+
+    <link rel="shortcut icon" href="../../_static/logo_72.png"/><meta name="generator" content="sphinx-4.1.1, furo 2021.07.05.beta38"/>
+        <title>Views and Rendering - Turbo-Frog</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css" />
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+</style><link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
+  
+  <link rel="manifest" href="manifest.json">
+</head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Turbo-Frog</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo_96.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Turbo-Frog</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents test:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Welcome to turbo-frog-doc’s documentation!</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../turbo-frog/index.html">Admin</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/kickoff.html"><em>TURBO-FROG</em> Kickoff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/setup.html"><strong>TURBO</strong> Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/setup.html#access-to-the-project-docs">Access to the Project Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/setup.html#getting-involved">Getting Involved</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../turbo-frog/breakdown.html"><em>TURBO-FROG</em> Work Breakdown Structure</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/A.html">A - Project Management &amp; Administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/B.html">B - Platforms &amp; Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/C.html">C - Financial Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/D.html">D - HR, OHSE &amp; Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/F.html">F - Supply Chain Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/G.html">G - Marketing &amp; Sales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/H.html">H - Project Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/J.html">J - Technical Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../turbo-frog/wbs/M.html">M - Strategic Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/pwa.html">Progressive Web App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../turbo-frog/dlc.html"><em>TURBO-FROG</em> Development Lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ui/index.html">Apps</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ui/applications.html">Summary</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/admin/apps.html">Administration and General Apps</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/finance/apps.html">Financial Apps</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/projects/apps.html">Project Apps</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/apps_sales.html">Sales &amp; Marketing</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/apps_hr.html">HR Apps</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ui/apps_strategy.html">Strategic Management Apps</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ui/apps_hr.html">HR Apps</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ui/apps_sales.html">Sales &amp; Marketing</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ui/apps_strategy.html">Strategic Management Apps</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../base.html">Base Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheme.html">Scheme Module</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../project.html">Project Module</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../project_review.html">Project Module - Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../project_default.html">Project Module - Out-of-the-box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../account.html">Accounts Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../product.html">Products Module</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html"><em>Odoo</em> Core</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label for="toctree-checkbox-16"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="starting_odoo.html">Starting Odoo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ir.http.html">ir.http Model</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Views and Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../archive/index.html"><em>TURBO-FROG</em> Modules - Archive</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label for="toctree-checkbox-17"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../archive/business_ids.html">Business Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/assets.html">Works Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/taskboard.html">App Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/taskmaster.html">Project TaskMaster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/wbs.html">Work Breakdown Structure Module</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../archive/project_context.html">Project Context Specification</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label for="toctree-checkbox-18"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../archive/megadesk/projectcentre.html">Project Centre Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../archive/megadesk/project_dashboard.html">Project Dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/megadesk/projectcentre.html">Project Centre Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../archive/megadesk/project_dashboard.html">Project Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label for="toctree-checkbox-19"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics/pm/pm101.html"><strong>Anergy</strong> Project Management</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../topics/reST/index.html">Help on <em>reStructuredText</em></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label for="toctree-checkbox-20"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/quickstart.html">A ReStructuredText Primer</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../topics/reST/cheatsheet.html">Restructured Text (reST) and Sphinx CheatSheet</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label for="toctree-checkbox-21"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/directives.html">reStructuredText Directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../topics/reST/text_roles.html">reStructuredText Interpreted Text Roles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics/tutorial.html">Tutorial Work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared/thesaurus.html">Thesaurus</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <section id="views-and-rendering">
+<h1>Views and Rendering<a class="headerlink" href="#views-and-rendering" title="Permalink to this headline">¶</a></h1>
+<aside class="sidebar">
+<p class="sidebar-title">Revision Details</p>
+<p><strong>Author</strong>:   Matthew Martella
+<strong>Date</strong>:   03/11/2021</p>
+</aside>
+<section id="rendering">
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
+<p>There’s quite a chain that <code class="docutils literal notranslate"><span class="pre">odoo</span></code> runs through in order to render. The first steps all involve sorting out the
+template to use and the qcontext thereafter.</p>
+<p>The following diagram shows the relatively generic methodology for processing requests from the user and turning them
+into HTML, CSS and JS. Note that Odoo 15 spends far more emphasis on returning JSON as well.</p>
+<div class="mermaid">
+            flowchart TB
+    USER[user agent]
+    REQ[request]
+    ROUTE[route dispatcher]
+    RESP[response]
+
+
+    USER -- GET or POST --&gt; REQ -- request obj --&gt; ROUTE -- template and qcontext --&gt; RESP
+    RESP -- HTML\nCSS\nJS --&gt; USER
+        </div><p>The incoming request is sent from the running <code class="docutils literal notranslate"><span class="pre">odoo.service.wsgi_server</span></code> through to the <code class="docutils literal notranslate"><span class="pre">root</span></code> object as previously
+shown in <a class="reference external" href="starting_odoo">starting_odoo</a>. This process is very handy</p>
+</section>
+<section id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>Views are created by the developer as an <code class="docutils literal notranslate"><span class="pre">xml</span></code> record. This is uploaded into the model <code class="docutils literal notranslate"><span class="pre">ir.ui.view</span></code> during the
+installation or upgrade of a module. The core of the view record is listed under <code class="docutils literal notranslate"><span class="pre">&lt;field</span> <span class="pre">name="arch"</span> <span class="pre">type="xml"&gt;</span></code>.
+This begins with a view type (see below). Conceptually <code class="docutils literal notranslate"><span class="pre">arch</span></code> is short for architecture. This is then pre-processed
+during the upload process to form the complete architecture for a page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Does rendering (conversion of the architecture into html) occur initially at the server or by call from the client?</p>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">"MODEL_view_TYPE"</span> <span class="na">model=</span><span class="s">"ir.ui.view"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>NAME<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"model"</span><span class="nt">&gt;</span>MODEL<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"arch"</span> <span class="na">type=</span><span class="s">"xml"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;VIEW_TYPE&gt;</span>
+      <span class="nt">&lt;VIEW_SPECIFICATIONS/&gt;</span>
+    <span class="nt">&lt;/VIEW_TYPE&gt;</span>
+  <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+<p>The documentation describes multiple ‘types’ of views:</p>
+<div class="table-wrapper"><table class="hlist"><tr><td><ul class="simple">
+<li><p>Form</p></li>
+<li><p>Search</p></li>
+<li><p>Activity</p></li>
+<li><p>Calendar</p></li>
+<li><p>Cohort</p></li>
+<li><p>Dashboard</p></li>
+<li><p>Diagram (Deprecated at v13)</p></li>
+<li><p>Gantt</p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p>Graph</p></li>
+<li><p>Grid (v15 +)</p></li>
+<li><p>Kanban</p></li>
+<li><p>List</p></li>
+<li><p>Map</p></li>
+<li><p>Pivot</p></li>
+<li><p>QWeb</p></li>
+</ul>
+</td></tr></table></div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.odoo.com/documentation/13.0/developer/reference/addons/views.html">Odoo 13 Views</a></p>
+</div>
+<section id="inheritance-modes">
+<h3>Inheritance modes<a class="headerlink" href="#inheritance-modes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>primary</cite><span class="classifier">the closest primary view is fully resolved (even if it uses a different model than this one), then this</span></dt><dd><p>view’s inheritance specs (&lt;xpath/&gt;) are applied, and the result is used as if it were this view’s actual arch.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>extension</cite><span class="classifier">(default) the closest primary view is looked up (via inherit_id), then all views inheriting from it</span></dt><dd><p>with this view’s model are applied</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+<section id="base-xml">
+<h2><code class="docutils literal notranslate"><span class="pre">base.xml</span></code><a class="headerlink" href="#base-xml" title="Permalink to this headline">¶</a></h2>
+<p>Located with the <code class="docutils literal notranslate"><span class="pre">web</span></code> module under <code class="docutils literal notranslate"><span class="pre">static/src/xml</span></code>, this file contains what appears to be very significant
+templates used in the generation of the the final architecture of a given view.</p>
+</section>
+<section id="page-anatomy">
+<h2>Page Anatomy<a class="headerlink" href="#page-anatomy" title="Permalink to this headline">¶</a></h2>
+<p>When you review the source actually sent to the client, very interestingly only the <code class="docutils literal notranslate"><span class="pre">&lt;HEAD&gt;</span></code> section is populated
+with all of the <code class="docutils literal notranslate"><span class="pre">web.assets</span></code> from the server. The <code class="docutils literal notranslate"><span class="pre">&lt;BODY&gt;</span></code> component in actual fact only contains the class
+<code class="docutils literal notranslate"><span class="pre">o_web_client</span></code>. It becomes obvious that the server in actual fact returns an empty body only to the client. The
+stylesheet and javascript then effectively becomes a full blow client browser based app. This then makes a request
+only at this point to the server. The response is limited to HTML used to populate the BODY tag.</p>
+<p>Now even on this point, this may be incorrect. In fact the views returned may be partially filled only causing
+another request again to fill in sub-sections. For example, the search component may be returned empty. The client
+then in order to see if this can be filled makes another request for the <code class="docutils literal notranslate"><span class="pre">search_view</span></code> of the relevant view.</p>
+<p>The following is a disection of a body tag once then populated.</p>
+<figure class="align-default" id="id1">
+<div class="mermaid">
+            flowchart LR
+
+    body --&gt; header &amp; AM[actionManager] &amp; loading
+    header --&gt; navbar
+    navbar --&gt; menuToggle &amp; mobileMenuToggle &amp; menuBrand &amp; menuSections &amp; menuSysTray
+    AM --&gt; VC[viewController] --&gt; CPC[cpController]
+    VC ------&gt; content((content))
+    CPC --&gt; CP[[controlPanel]]
+    CP --&gt; CP1[div] &amp; CP2[div]
+    CP1 --&gt; breadcrumb &amp; CPS[cpSearchView]
+    CP2 --&gt; CPL[cpLeft] &amp; CPR[cplRight]
+    CPL --&gt; CPB[cpButtons] &amp; CPSB[cpSidebar]
+    CPR --&gt; SO[searchOptions] &amp; pager &amp; viewSwitcher
+        </div><figcaption>
+<p><span class="caption-text"><strong>Anatomy of |odoo| web page</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Further to the above, the following is the anatomy of a FORM type view. These will accordingly differ from one view
+to the next.</p>
+<figure class="align-default" id="id2">
+<div class="mermaid">
+            flowchart LR
+
+    C((content)) --&gt; FV[formView]
+    FV --&gt; FB[formSheetBg] &amp; CH[chatter]
+    FB --&gt; FSB[formStatusBar]
+    FB -----&gt; FS[[formSheet]]
+    FSB --&gt; FSBB[formStatusBarButtons] &amp; FW[fieldWidget] &amp; FSBS[formStatusBarStatus]
+    CH --&gt; CHT[chatterTopBar] &amp; MA[mailActivity] &amp; MT[mailThread]
+
+    FS --&gt; BB[buttonBox] &amp; RIB[ribbon] &amp; TIT[Title] &amp; NB[notebook]
+    BB --&gt; SB[statButton]
+
+    NB --&gt; NBH[notebookHeaders] &amp; TC[tabContent]
+        </div><figcaption>
+<p><span class="caption-text"><strong>Content of a Form View</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../archive/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><em>TURBO-FROG</em> Modules - Archive</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="ir.http.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">ir.http Model</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Anergy
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../_sources/modules/odoo/view.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Views and Rendering</a><ul>
+<li><a class="reference internal" href="#rendering">Rendering</a></li>
+<li><a class="reference internal" href="#views">Views</a><ul>
+<li><a class="reference internal" href="#inheritance-modes">Inheritance modes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#base-xml"><code class="docutils literal notranslate"><span class="pre">base.xml</span></code></a></li>
+<li><a class="reference internal" href="#page-anatomy">Page Anatomy</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/main.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+  <script src="_static/app.js"></script>
+</body>
+</html>

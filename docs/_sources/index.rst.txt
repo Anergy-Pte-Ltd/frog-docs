@@ -13,9 +13,11 @@
    :caption: Contents test:
 
    home
-   project/index
+   turbo-frog/index
    ui/index
    modules/index
    topics/index
+   shared/glossary
+   shared/thesaurus
 
 .. .. epigraph:: Last Updated |date|

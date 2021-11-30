@@ -1,4 +1,4 @@
-ff..  Common substitutions being used by all files
+..  Common substitutions being used by all files
 
 .. |rest| replace:: *reStructuredText*
 .. |rst| replace:: |rest|
@@ -8,8 +8,8 @@ ff..  Common substitutions being used by all files
 .. |tf| replace:: *TURBO-FROG*
 .. |turbo_frog| replace:: |tf|
 .. |turbo-frog| replace:: |tf|
-.. |tfbreakdown| replace::
-        :doc:`/project/breakdown`
+.. not sure why there is a problem with this specific line
+.. |tfbreakdown| replace:: break it down ``breakdown</project/breakdown>``
 
 ..  Common images being used by all files
 

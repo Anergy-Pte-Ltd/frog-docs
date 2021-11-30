@@ -19,18 +19,19 @@ The Project Management Triangle
 
 Before going any further it is important to raise the ever important triangle of project management.
 
-.. graphviz::
-    :align: center
+.. mermaid::
 
-    digraph g {
-        size="8,6";
-        node[fontsize=18,fontname="roboto",shape=plaintext];
-        scope[label="SCOPE"];
-        { rank = same; time[label="TIME"]; cost[label="COST"]; }
-        scope -> time -> cost;
-        cost -> time -> scope;
-        cost -> scope -> cost;
-    }
+    flowchart TB
+
+    scope
+    time
+    cost
+
+    scope <--> time
+    time <--> cost
+    cost <--> scope
+
+
 
 There will be constant and ever present tension between the time, cost, scope forces in a Project. So much so that
 the common phrase is *"you can have it fast, cheap or complete but you can't have all three"*. In essence, the
@@ -67,20 +68,12 @@ A project itself is made up of many parts. The simplest and most intuitive break
 view of *who* performs the works. For the building of Fixed Plant, this means the tendancy to look at it from the
 following perspective:
 
-.. graphviz::
-    :align: center
+.. mermaid::
 
-    digraph project_steps {
-        size="8,6";
-        node[fontsize=18,fontname="roboto",shape=box];
-        subgraph pm {
-            node [style=filled, color=white];
-            style=filled;
-            color=lightgrey;
-            Design -> Procurement -> Construction -> Commissioning;
-            label="Project Management";
-        }
-    }
+    flowchart LR
+        Need to sort things out?
+
+
 
 The problem however here is that the **object** of what needs to be produced needs to be transferred to each
 **subject**. By this, let's take an example of a pump. A pump needs to be first defined, then specified and designed,

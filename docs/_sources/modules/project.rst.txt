@@ -1,0 +1,91 @@
+.. include:: /shared/common.rst
+
+###############
+Project Module
+###############
+
+.. sidebar:: Revision Details
+
+    **Author**:   Matthew Martella
+    **Updated**:   23/11/2021
+
+Objective
+=========
+
+    Modify and enhance the original project module from the community and enterprise editions to:
+
+        - Cover all types of work by Anergy
+        - Provide an effective interface to the work as required
+
+
+
+Proposed Model
+==============
+
+Basic Model
+------------
+
+
+
+
+
+project (*module level*)
+    At the module/model level shall mean the collection and hierarchy of work objects as defined by this list of
+    definitions
+
+
+
+
+work
+    Work is the past, present and future discharge of all tasks, costs and potential obligations within the business.
+    Work is arranged in a tree hierarchy such that:
+    --parent elements are completely defined by **all** child elements
+    --only childless elements can have **tasks** or **costs** attached
+    --all elements have unique identifiers (**WID**) for their level
+    --the identifiers of all elements belong to a specific **scheme** which can add additional meta-data
+
+AllWork
+    HeadWork
+        WorkPart
+            Task
+                SubTask
+
+
+
+
+
+.. mermaid::
+
+    flowchart LR
+        ROOT[Root]
+        subgraph TSG[project.task]
+            TASKS -. Task\nSubTask .-> TASKS
+        end
+        subgraph PSG[project.project]
+            PROJ[Project] --> PW[Project Work] -. Division\nSection\nScope .-> PW ----> TASKS
+            QUOTE[Quotations] --> QW[Quote Work] -. TBA .-> QW ----> TASKS
+            OPS[Operations] --> OW[Operations Work] -. TBA .-> OW ----> TASKS
+            COST[Cost Centres] --> CW[Cost Work] -. TBA .-> CW ----> TASKS
+            SPEC[SpecialProjects] --> SW[Spec Project Work] -. TBA .-> SW ----> TASKS
+        end
+        ROOT --> PROJ & QUOTE & OPS & COST & SPEC
+
+
+:term:`AllWork`
+
+
+See Also
+========
+
+.. toctree::
+    :maxdepth: 1
+
+    project_review
+    project_default
+
+
+References
+==========
+
+.. [#] `Applying the work breakdown structure to the project management lifecycle <https://www.pmi.org/learning/library/applying-work-breakdown-structure-project-lifecycle-6979>`_
+.. [#] `Scheduling 101--the basic of best practices <https://www.pmi.org/learning/library/schedule-101-basic-best-practices-6701>`_

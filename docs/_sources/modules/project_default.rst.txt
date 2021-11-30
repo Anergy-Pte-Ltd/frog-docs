@@ -1,0 +1,222 @@
+.. include:: /shared/common.rst
+
+###############################
+Project Module - Out-of-the-box
+###############################
+
+.. topic:: Project Module Review
+
+    This document has been written up to describe the ``project.project`` module as it comes 'out-of-the-box' from
+    |odoo|. The module is initiated in the community edition and then extended by the Enterprise edition.
+
+Odoo implements a series of modules and models for their Projects App.
+
+Addon Modules:
+
+- base Odoo
+    - ``project``
+- enterprise Odoo
+    - ``project_enterprise``
+
+.. mermaid::
+    :caption: **Proposed pattern**
+
+    flowchart LR
+        ALL[All Work] --> HEAD[Head Work] --> WORK[Work Part] --> TASK[Task]
+        WORK --> WORK
+        TASK --> TASK
+
+Community Edition
+=================
+
+- Models
+    - ``project.project`` "Project" <- core model (see below)
+    - ``project.task`` "Task" <- core model for tasks associated with projects
+    - ``report.project.task.user`` "Task Analysis" <- ???
+    - ``project.task.type`` "Task Stage" <- (New, Basic, Advanced, To Do, In Progress, Done, Cancelled)
+    - ``project.tags`` "Project Tags" <- (Need Assistance, Bug, New Feature, Experiment, Usability)
+    - also modifies:
+        - ``digest.digest`` <- don't know what this model is for
+        - ``account.analytic.account`` <- code linking to accounts
+        - ``res.config.settings`` <- add the additional settings for module
+        - ``res.partner`` <- attaching people to a project
+- Views
+    -
+
+.. list-table:: **Dependencies List**
+    :align: left
+    :widths: 15 50
+    :header-rows: 1
+
+    *   - Module
+        - Description
+    *   - ``analytic``
+        - ??
+    *   - ``base_setup``
+        - Initial setup tools for installation of a new database
+    *   - ``digest``
+        - Send KPI Digests periodically
+    *   - ``mail``
+        - Chat, mail gateway and private channels
+    *   - ``portal``
+        - fully integrated customer portal
+    *   - ``rating``
+        - Customer Rating
+    *   - ``resource``
+        - Resource management calendars for scheduling
+    *   - ``web``
+        - Core Odoo web client
+    *   - ``web_tour``
+        - Odoo Web tours
+
+.. mermaid::
+    :caption: **Inter-module Dependencies**
+
+    flowchart TD
+
+        BASE[base]
+        BSP[base_setup]
+        UOM[uom]
+        BASE -.-> UOM & BSP
+
+        ANL[analytic]
+        BASE & UOM -.-> ANL
+
+        WEB[web]
+        HTTP[http_routing]
+        WEBT[web_tour]
+        RES[resource]
+        WEBE[web_editor]
+        BASE -.-> WEB -.-> HTTP & WEBT & RES & WEBE
+
+        IMB[bus IM]
+        BASE & WEB -.-> IMB
+
+        AUTH[Signup]
+        BSP & MAIL & WEB -.-> AUTH
+
+        MAIL[mail]
+        RAT[rating]
+        BASE & BSP & IMB & WEBT -.-> MAIL -.-> RAT
+
+        PORT[portal]
+        AUTH & HTTP & MAIL & WEBE -.-> PORT
+
+        DIG[digest]
+        MAIL & PORT & RES -.-> DIG
+
+        subgraph PROJ[project]
+            direction TB
+            p1(project.project)
+            p2(project.task)
+            p1 --> p1
+            p1 --> p2
+            p2 --> p2
+        end
+
+        ANL & BSP & DIG & MAIL & PORT & RAT & RES & WEB & WEBT --> PROJ
+
+        PROJ --> DP[documents_project] & HRT[Timesheets] & PE[project_enterprise] & PF[project_forecast] & WFP[website_form_project]
+
+
+.. mermaid::
+    :caption: **Model Relationships**
+
+    classDiagram
+        direction TB
+        project_project --> project_task : project tasks
+        project_project ..> project_project : sub projects
+
+        project_task <-- project_task_type : stage
+
+        project_task <--> project_tags : task tags
+        project_task ..> project_task : sub tasks
+
+        project_task --> ir_attachment : Main attachments
+
+        res_company --> project_project : owner
+        res_partner --> project_project : customer
+
+        account_analytic_account --> project_project : ** unknown**
+
+        res_users <--> project_project : members
+        res_users --> project_project : project manager
+        res_users --> project_task : assignment
+
+        resource_calendar --> res_company : I think?
+
+
+The basic model is OK in that the modelled information is not that far off what is required. However it comes down to
+the ever contextual words **Project** and **Task**.
+
+
+Enterprise Edition
+==================
+
+The enterprise edition includes several extensions which rely upon the original ``Project`` module. These include:
+
+- ``project_enterprise``: Bridge module for project and enterprise
+    - additional dependencies ``web_gantt`` and ``web_map``
+    - modifies models ``project.task`` and ``project.task.type``
+    - modifies report ``report.project.task.user``
+
+
+Fields
+==========================
+
+``project.project`` model
+-------------------------
+
+Includes all of the fields from the original `Project` Modules as well as those immediately inherited from
+``mail.alias``, ``mail.activity.mixin``, ``mail.alias.mixin``, ``mail.thread``, ``portal.mixin``,
+``rating.parent.mixin``, ``utm.mixin``
+
+::
+
+    ADMINISTRATIVE FIELDS
+    Rs   name:                           char
+
+    OBJECTIVE FIELDS
+     s   subtask_project_id:             many2one: project.project (Sub-task Project)
+     sd  user_id:                        many2one: res.users (Project Manager)
+
+    SITUATIONAL FIELDS
+     sd  active:                         boolean
+     s   date:                           date (Due Date)
+     s   date_start:                     date (Start Date)
+
+    FINANCIAL FIELDS
+    Rs   analytic_account_id:            many2one: account.analytic.account
+
+    COMPUTED FIELDS
+       c doc_count:                      integer (Number of documents attached)
+       c is_favorite:                    boolean (Show Project on dashboard)
+       c task_count:                     integer
+
+    RELATED FIELDS
+    rsd  company_id:                     many2one: res.company
+     sd  favorite_user_ids:              many2many: res.users (Members)
+     s   partner_id:                     many2one: res.partner (Customer)
+     sd  resource_calendar_id:           many2one: resource.calendar (Working Time)
+     s   task_ids:                       one2many: project.task (Tasks)
+     s   tasks:                          one2many: project.task (Task Activities)
+     s   type_ids:                       many2many: project.task.type (Tasks Stages)
+
+    UI FIELDS
+     s   color:                          integer (Color Index)
+     sd  sequence:                       integer
+     s   portal_show_rating:             boolean (Rating visible publicly)
+    rsd  privacy_visibility:             selection (Visibility)
+     s c rating_request_deadline:        datetime
+    rsd  rating_status:                  selection (Customer(s) Ratings)
+     s   rating_status_period:           selection (Rating Frequency)
+
+    OTHER / UNKNOWN
+     sd  label_tasks:                    char (Use Tasks as)
+
+
+
+
+
+
+

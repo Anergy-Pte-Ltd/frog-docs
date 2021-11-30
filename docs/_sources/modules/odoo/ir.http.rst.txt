@@ -1,0 +1,101 @@
+******************
+ir.http Model
+******************
+
+What is this strange model about and why does it get *modified* numerous times.
+
+.. code-block:: shell
+
+    ir.http (abstract)
+    HTTP Routing
+    portal: C:\Users\matth\PycharmProjects\turbo\odoo\addons\portal\models\ir_http.py:7
+    calendar: C:\Users\matth\PycharmProjects\turbo\odoo\addons\calendar\models\ir_http.py:12
+    auth_signup: C:\Users\matth\PycharmProjects\turbo\odoo\addons\auth_signup\models\ir_http.py:8
+    mail: C:\Users\matth\PycharmProjects\turbo\odoo\addons\mail\models\ir_http.py:8
+    web_tour: C:\Users\matth\PycharmProjects\turbo\odoo\addons\web_tour\models\ir_http.py:8
+    web_editor: C:\Users\matth\PycharmProjects\turbo\odoo\addons\web_editor\models\ir_http.py:8
+    base_setup: C:\Users\matth\PycharmProjects\turbo\odoo\addons\base_setup\models\ir_http.py:7
+    web: C:\Users\matth\PycharmProjects\turbo\odoo\addons\web\models\ir_http.py:15
+    base: C:\Users\matth\PycharmProjects\turbo\odoo\odoo\addons\base\models\ir_http.py:77
+
+.. code-block::
+
+    IrHttp
+        _get_converters
+        _match
+        _auth_method_user
+        _auth_method_none
+        _auth_method_public
+        _authenticate
+        _handle_debug
+        _serve_attachment
+        _serve_fallback
+        _handle_exception
+        _dispatch
+        _postprocess_args
+        _generate_routing_rules
+        routing_map
+        _clear_routing_map
+        _xmlid_to_obj
+        _get_record_and_check
+        _binary_ir_attachment_redirect_content
+        _binary_record_content
+        _binary_set_headers
+        binary_content
+        _response_by_status
+        _description
+        _name
+        _rewrite_len
+        _routing_map
+
+
+The home route is located in :code:``web.controllers.main.Home```.
+
+Cannot quite understand how the next part works. Here's the code ...
+
+.. code-block:: python
+    :linenos:
+
+    class Home(http.Controller):
+
+        @http.route('/', type='http', auth="none")
+        def index(self, s_action=None, db=None, **kw):
+            return http.local_redirect('/web', query=request.params, keep_hash=True)
+
+        # ideally, this route should be ``auth="user"`` but that don't work in non-monodb mode.
+        @http.route('/web', type='http', auth="none")
+        def web_client(self, s_action=None, **kw):
+            ensure_db()
+            if not request.session.uid:
+                return werkzeug.utils.redirect('/web/login', 303)
+            if kw.get('redirect'):
+                return werkzeug.utils.redirect(kw.get('redirect'), 303)
+
+            request.uid = request.session.uid
+            try:
+                context = request.env['ir.http'].webclient_rendering_context()
+                response = request.render('web.webclient_bootstrap', qcontext=context)
+                response.headers['X-Frame-Options'] = 'DENY'
+                return response
+            except AccessError:
+                return werkzeug.utils.redirect('/web/login?error=access')
+
+Looking at the above, the session id is gained to understand who is asking for what. The response is to then get a
+context abd render this context.
+
+Now the Request object comes from the ``http.py`` package. The ``route`` wrapper and the ``Controller`` Class both make a
+big difference here. Need to reread these.
+
+
+
+``Response`` Class in http.py
+==============================
+
+Inherits ``werkzueg.wrappers.Response``
+
+During the ``__init__`` the ``template`` and ``qcontext`` are set. ``render`` method calls the template from the model ``ir.ui
+.view`` and uses ``qcontext``. Great - now that makes sense.
+
+There's also a ``set_default`` method. Though not really sure what this does separate to the ``__init__`` method.
+
+

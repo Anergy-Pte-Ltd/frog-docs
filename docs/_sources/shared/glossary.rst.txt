@@ -1,0 +1,85 @@
+.. include:: /shared/common.rst
+
+################
+Glossary
+################
+
+.. glossary::
+
+    AllWork
+        The root element
+
+    HeadWork
+        Elements of the work hierarchy which have no *parent*. These are top level work elements
+        and  principally divide the business into 'understandable' sections. The head elements can be further classified
+        into a hierarchy for the purposes of filtering based on the properties of the identifiers or
+
+    WorkPart
+        Elements of the work hierarchy which have a *parent* which is a HeadWork.
+
+    RecurringWorkPart
+        (extends WorkPart)
+        WorkParts where the work along with associated tasks and costs repeat over a time-period until a time point is
+        reached.
+
+    projectWork
+        (implements WorkPart)
+        Is a **work breakdown structure** (WBS) for the project
+        Is a multi-level hierarchy such that:
+        - the *parent* **must** be either a *projectActivity* or a *project*
+        - if the *parent* is a *project* this is a **division**
+        - any *childless* is a **scope**
+        - anything that is *not* a *division* or a *scope* is a **section**
+
+    quoteWork
+        (implements WorkPart)
+        Same as for *projectActivity* except the ultimate parent is a *quote*
+
+    costWork
+        (implements WorkPart)
+        Not quite the same. Most (if not all)
+
+    operationWork
+        (implements WorkPart)
+        Repeatable Work
+
+
+    Deliverable
+        Any unique and verifiable product, result, capability to perform a service that must be produced to complete a
+        process, phase or project.
+
+    Decomposition
+        a planning technique that subdivides the project scope and project deliverables into smaller, more manageable
+        components, until the project work associated with accomplishing the project scope and deliverables is defined
+        in sufficient detail to support executing, monitoring, and controlling the work.
+
+    Dependency
+        Logical relationship between any two of activities, tasks or milestones. Typically these are classified as
+        Finish-to-start (FS), finish to finish (FF), start to start (SS) and start to finish (SF). So for example:
+
+        - Foundations dug to finish before Concrete poured (FS)
+        - Last chapter written to finish before entire book written (FF)
+        - Project work to start before project management activities start (SS)
+        - New shift started before previous shift finished (SF)
+
+        It is possible to consider three kinds of dependencies.
+
+        *Causal Dependencies*
+            It is not possible to do otherwise (order dependent)
+
+        *Resource Constraints*
+            It is just not possible to do all tasks using resources simultaneously (order independent but not possible)
+
+        *Discretionary Constraints*
+            A preferred order for the occurrence of work.
+
+    task
+        [Lots to write here!]
+
+    ORM
+        Object Relational Mapping (ORM) is an abstraction over the SQL data layer accesible inside of
+        the python interface. Standard attributes and methods include:
+
+        - ``_name`` : unique internal identifier
+        - fields : all attributes of a model
+        - ``create()`` and ``write()``

@@ -1,0 +1,61 @@
+.. include:: /shared/common.rst
+
+.. |Context| image:: /img/context.png
+    :width: 1800px
+
+Project Context Specification
+=============================
+The purpose of this specification is to outline the aims and outcomes of the project and to define milestones appropriately so they can be tracked and then tested. The aim is to give more project sensitive context to the user in an effective manner.
+
+Currently the Job module is disjointed and isn't effective at transferring relevant information to the user in many cases. The development of the module will include simplified portals and dashboards that will allow the user to quickly obtain information from the Turbo server about the required job. The project will also pave the way for future developments in Turbo to be implemented that will increase efficiency of the organisation.
+
+|Context|
+
+Project Centre
+--------------
+One component of the project contextualisation is the implementation of a user portal. The user will have access to a Project Centre Portal which will act as a gateway to access specific job  portals. The idea behind this portal is to create a unique user-modified dashboard which will display data selected by the user. By implementing the similar tile-card system already being used in Turbo, cards can be added and removed as user preferred.
+
+The portal shall contain options to display information on these cards such as,
+
+    * Favourited job cards which can then take the user to the job specific portal;
+    * Documents which are waiting for approval and review across all projects, the user is able to tell what documents are waiting for approval and review and which project they belong to;and
+    * Hours spent across all projects which can be broken down into specific jobs. Further to this hours can be broken down into specific WBS booked hours.
+
+This addition of the “Job Portal” will create a framework for further Turbo project implementation works such as including WBS, Tasks, etc to the portal dashboard.  While the portal acts as an information dashboard to the user, the primary function of the portal is to provide a path for the user to select specific jobs.
+
+Specific Job Portal
+-------------------
+From the “My Job Portal”, the user is able to select a job specific card which will take the user to the specific job
+portal. This portal will act as the HUB for project specific works. The front page of this portal will display
+information selected by the user specific for the job. This portal will also integrate with the previous Turbo Transmittal project by allowing users to access documents, transmittal's and collections related to the job through the portal. By integrating this functionality through the portal, the concept of “All Documents, Transmittal's & Collection's” will be eliminated, now being job specific.
+
+Project Centre2
++++++++++++++++
+
+Project Members such as Engineers require different information from the system than Project Managers do, so a tailored and customisable platform that distinguishes their use cases is preferred. Members should have access to information such as,
+
+    * Future Turbo Projects (WBS,Tasks,TQ's,etc.);
+    * Documents Waiting for Review/Approval;
+    * Collections belonging to a job code;and
+    * Transmissions belonging to a job code.
+
+Project Assistant
++++++++++++++++++
+
+Project Managers have a different need for the Job module in many cases. They will primarily be concerned with financial information and time management tasks while overseeing a project. Managers should have access to information such as,
+
+    * As above as project members;
+    * Future Turbo Projects (WBS, Tasks, TQ's, Variations, PO's, NCR's, Invoice Totals,etc.);
+    * Contract Value;
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Design Modules
+
+   megadesk/projectcentre
+   megadesk/project_dashboard
+
+Testing
+-------
+
+At the end of the Alpha  phase there should be testing to discover any bugs found in the software. Once the Alpha testing has been accepted by the development team there will be a transition to Beta testing with real use from within the organisation. Beta testing will verify that all specified features are functional or close to being functional before the platform can be released for production.

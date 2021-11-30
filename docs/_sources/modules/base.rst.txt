@@ -1,0 +1,197 @@
+.. include:: /shared/common.rst
+
+###############
+Base Module
+###############
+
+Overview
+========
+
+The ``base`` module is the root for all other modules. It even lives in a separate part of the |odoo| directory
+structure. The description for the module is:
+
+    ``The kernel of Odoo, needed for all installations``.
+
+Probably the more interesting question when reviewing this module is what does it actually feed into the other
+modules. This is useful for building a picture of how |turbo| can take the greatest advantage of |odoo|.
+
+The Models
+===========
+
+The following lists are close but not quite all of the models implemented in ``base``. An attempt has been made to
+categorise these to give assist in what they do.
+
+Core Application Models
+-----------------------
+
+.. hlist::
+    :columns: 3
+
+    - ``_unknown``
+    - ``base``
+    - ``decimal.precision``
+    - ``ir.cron``
+
+Modules, Models and Data
+------------------------
+
+.. hlist::
+    :columns: 3
+
+    - ``base.module.uninstall``
+    - ``base.module.update``
+    - ``base.module.upgrade``
+    - ``ir.demo``
+    - ``ir.demo_failure``
+    - ``ir.demo_failure.wizard``
+    - ``ir.attachment``
+    - ``ir.exports``
+    - ``ir.exports.line``
+    - ``ir.model``
+    - ``ir.model.access``
+    - ``ir.model.constraint``
+    - ``ir.model.data``
+    - ``ir.model.fields``
+    - ``ir.model.fields.selection``
+    - ``ir.model.relation``
+    - ``ir.module.category``
+    - ``ir.module.module``
+    - ``ir.module.module.dependency``
+    - ``ir.module.module.exclusion``
+
+
+Authentication and Authorisation
+--------------------------------
+
+.. hlist::
+    :columns: 3
+
+    - ``change.password.user``
+    - ``change.password.wizard``
+    - ``ir.rule``
+    - ``res.groups``
+    - ``res.config``
+    - ``res.config.installer``
+    - ``res.config.settings``
+    - ``res.users``
+    - ``res.users.log``
+
+Menus and Actions
+-----------------
+
+.. hlist::
+    :columns: 3
+
+    - ``ir.actions.act_url``
+    - ``ir.actions.act_window``
+    - ``ir.actions.act_window.view``
+    - ``ir.actions.act_window_close``
+    - ``ir.actions.actions``
+    - ``ir.actions.client``
+    - ``ir.actions.report``
+    - ``ir.actions.server``
+    - ``ir.actions.todo``
+    - ``ir.ui.menu``
+    - ``wizard.ir.model.menu.create``
+
+
+Views and Reports
+-----------------
+
+.. hlist::
+    :columns: 3
+
+    - ``ir.filters``
+    - ``ir.ui.view``
+    - ``ir.ui.view.custom``
+    - ``report.base.report_irmodulereference``
+    - ``report.layout``
+    - ``report.paperformat``
+    - ``reset.view.arch.wizard``
+
+Translations
+------------
+
+.. hlist::
+    :columns: 3
+
+    - ``base.language.export``
+    - ``base.language.import``
+    - ``base.language.install``
+    - ``base.update.translations``
+
+
+Qweb Information
+----------------
+
+.. hlist::
+    :columns: 3
+
+    - ``base.document.layout (check)``
+    - ``ir.qweb``
+    - ``ir.qweb.field,``
+    - ``ir.qweb.field.barcode``
+    - ``ir.qweb.field.contact``
+    - ``ir.qweb.field.date``
+    - ``ir.qweb.field.datetime``
+    - ``ir.qweb.field.duration``
+    - ``ir.qweb.field.float``
+    - ``ir.qweb.field.float_time``
+    - ``ir.qweb.field.html``
+    - ``ir.qweb.field.image``
+    - ``ir.qweb.field.integer``
+    - ``ir.qweb.field.many2many``
+    - ``ir.qweb.field.many2one``
+    - ``ir.qweb.field.monetary``
+    - ``ir.qweb.field.qweb``
+    - ``ir.qweb.field.relative``
+    - ``ir.qweb.field.selection``
+    - ``ir.qweb.field.text``
+
+Contacts and Partners
+---------------------
+
+.. hlist::
+    :columns: 3
+
+    - ``base.partner.merge.automatic.wizard``
+    - ``base.partner.merge.line``
+    - ``format.address.mixin``
+    - ``res.bank``
+    - ``res.company``
+    - ``res.country``
+    - ``res.country.group``
+    - ``res.country.state``
+    - ``res.partner``
+    - ``res.partner.bank``
+    - ``res.partner.category``
+    - ``res.partner.industry``
+    - ``res.partner.title``
+
+Other
+---------------------
+
+.. hlist::
+    :columns: 3
+
+
+
+    - ``image.mixin``
+    - ``ir.autovacuum``
+    - ``ir.config_parameter``
+    - ``ir.default``
+    - ``ir.fields.converter``
+    - ``ir.http``
+    - ``ir.logging``
+    - ``ir.mail_server``
+    - ``ir.property``
+
+    - ``ir.sequence``
+    - ``ir.sequence.date_range``
+    - ``ir.server.object.lines``
+    - ``ir.translation``
+    - ``res.currency``
+    - ``res.currency.rate``
+
+    - ``res.lang``
+
