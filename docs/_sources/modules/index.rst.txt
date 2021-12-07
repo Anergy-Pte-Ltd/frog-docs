@@ -12,6 +12,7 @@ specification details
 
     base
     scheme
+    scheme_ref
     project
     account
     product

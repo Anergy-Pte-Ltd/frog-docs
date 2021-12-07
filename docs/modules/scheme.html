@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Project Module" href="project.html" /><link rel="prev" title="Base Module" href="base.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Scheme Module Reference" href="scheme_ref.html" /><link rel="prev" title="Base Module" href="base.html" />
 
     <link rel="shortcut icon" href="../_static/logo_72.png"/><meta name="generator" content="sphinx-4.1.1, furo 2021.07.05.beta38"/>
-        <title>Scheme Module - Turbo-Frog</title>
+        <title>Scheme Module Overview - Turbo-Frog</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -182,7 +182,8 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="base.html">Base Module</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Scheme Module</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Scheme Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheme_ref.html">Scheme Module Reference</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="project.html">Project Module</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="project_review.html">Project Module - Review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_default.html">Project Module - Out-of-the-box</a></li>
@@ -243,224 +244,107 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="scheme-module">
-<h1>Scheme Module<a class="headerlink" href="#scheme-module" title="Permalink to this headline">¶</a></h1>
-<p>Creates and maintains schemes for providing, verifying and ordering business identifiers (or schemes) for projects,
-products or assets.</p>
-<section id="models">
-<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
-<section id="scheme-base">
-<h3><code class="docutils literal notranslate"><span class="pre">scheme.base</span></code><a class="headerlink" href="#scheme-base" title="Permalink to this headline">¶</a></h3>
-<p>Base model for all schemes to derive from. This is <em>not</em> an <em>abstract model</em> but to be inherited to delegates.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADMINISTRATIVE</span> <span class="n">FIELDS</span>
-    <span class="n">name</span><span class="p">:</span>                               <span class="n">char</span> <span class="p">(</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">scheme</span><span class="p">)</span>
-
-<span class="n">OBJECTIVE</span> <span class="n">FIELDS</span>
-    <span class="n">description</span><span class="p">:</span>                        <span class="n">char</span> <span class="p">(</span><span class="n">full</span> <span class="n">description</span> <span class="n">of</span> <span class="n">the</span> <span class="n">scheme</span><span class="p">)</span>
-    <span class="n">targeted_users</span><span class="p">:</span>                     <span class="n">char</span> <span class="p">(</span><span class="n">target</span> <span class="n">of</span> <span class="n">the</span> <span class="n">party</span> <span class="n">using</span> <span class="n">the</span> <span class="n">scheme</span><span class="p">)</span>
-    <span class="n">group</span><span class="p">:</span>                              <span class="n">One2Many</span> <span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">group</span><span class="p">)</span>
-    <span class="n">id_fields</span><span class="p">:</span>                          <span class="n">Many2One</span> <span class="p">(</span><span class="n">related</span> <span class="n">fields</span> <span class="ow">in</span> <span class="n">models</span> <span class="n">which</span> <span class="n">comply</span> <span class="n">to</span> <span class="n">this</span> <span class="n">scheme</span><span class="p">)</span>
-    <span class="n">regex</span><span class="p">:</span>                              <span class="n">char</span> <span class="p">(</span><span class="n">regular</span> <span class="n">expression</span> <span class="k">for</span> <span class="n">code</span><span class="p">)</span>
-    <span class="n">sequenced</span><span class="p">:</span>                          <span class="n">boolean</span> <span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">scheme</span> <span class="n">has</span> <span class="n">a</span> <span class="n">sequence</span><span class="p">)</span>
-    <span class="n">sequence_regex</span><span class="p">:</span>                     <span class="n">char</span> <span class="p">(</span><span class="n">regular</span> <span class="n">expression</span> <span class="k">for</span> <span class="n">the</span> <span class="n">alphanumeric</span> <span class="n">sequence</span><span class="p">)</span>
-    <span class="n">sequence_char_order</span><span class="p">:</span>                <span class="n">char</span> <span class="p">(</span><span class="n">order</span> <span class="k">if</span> <span class="k">for</span> <span class="n">the</span> <span class="n">alphanumeric</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sequence</span> <span class="k">with</span> <span class="n">default</span> <span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z</span><span class="p">)</span>
-    <span class="n">sequence_min_length</span><span class="p">:</span>                <span class="nb">int</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">characters</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">sequence</span><span class="p">)</span>
-    <span class="n">sequence_initial_value</span><span class="p">:</span>             <span class="n">char</span> <span class="p">(</span><span class="n">value</span> <span class="n">initial</span> <span class="n">sequence</span>
-
-<span class="n">SITUATIONAL</span> <span class="n">FIELDS</span>
-    <span class="n">status</span><span class="p">:</span>                             <span class="n">Selection</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="n">dormant</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-    <span class="n">usage_start_date</span><span class="p">:</span>                   <span class="n">date</span> <span class="p">(</span><span class="n">when</span> <span class="n">was</span> <span class="n">this</span> <span class="n">started</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span><span class="p">)</span>
-    <span class="n">usage_end_date</span><span class="p">:</span>                     <span class="n">date</span> <span class="p">(</span><span class="n">when</span> <span class="n">was</span> <span class="n">this</span> <span class="n">closed</span><span class="p">)</span>
-    <span class="n">active</span><span class="p">:</span>                             <span class="n">boolean</span>
-
-<span class="n">COMPUTED</span> <span class="n">FIELDS</span>
-    <span class="n">models</span><span class="p">:</span>                             <span class="nb">list</span> <span class="p">(</span><span class="n">based</span> <span class="n">on</span> <span class="n">id_fields</span> <span class="ow">and</span> <span class="n">separated</span> <span class="k">with</span> <span class="n">commas</span><span class="p">)</span>
-    <span class="n">count</span><span class="p">:</span>                              <span class="n">integer</span> <span class="p">(</span><span class="n">count</span> <span class="n">of</span> <span class="n">records</span> <span class="n">which</span> <span class="n">use</span> <span class="n">this</span> <span class="n">scheme</span><span class="p">)</span>
-
-<span class="n">UI</span> <span class="n">FIELDS</span>
-    <span class="n">kanban_sequence</span><span class="p">:</span>                    <span class="n">integer</span> <span class="p">(</span><span class="n">value</span> <span class="k">for</span> <span class="n">the</span> <span class="n">kanban</span> <span class="n">view</span><span class="p">)</span>
-
-<span class="n">RELATED</span> <span class="n">FIELDS</span>
-
-<span class="n">OVERRIDDEN</span> <span class="n">METHODS</span>
-
-<span class="n">COMPUTE</span> <span class="n">METHODS</span>
-
-<span class="n">CHANGE</span><span class="p">,</span> <span class="n">CREATE</span> <span class="n">AND</span> <span class="n">UPDATE</span> <span class="n">METHODS</span>
-    <span class="n">set_as_default</span><span class="p">:</span>                     <span class="n">Set</span> <span class="n">one</span> <span class="n">record</span> <span class="k">as</span> <span class="n">the</span> <span class="n">default</span> <span class="n">scheme</span> <span class="ow">in</span> <span class="n">group</span>
-    <span class="n">set_closed</span><span class="p">:</span>
-    <span class="n">close_scheme</span><span class="p">:</span>                       <span class="p">(</span><span class="n">Close</span> <span class="n">a</span> <span class="n">scheme</span> <span class="n">down</span><span class="p">)</span>
-    <span class="n">write</span><span class="p">:</span>                              <span class="n">Override</span> <span class="n">to</span> <span class="n">include</span> <span class="n">updating</span> <span class="n">order_codes</span> <span class="k">if</span> <span class="n">coding</span> <span class="n">changed</span>
-
-    <span class="n">next_code</span><span class="p">:</span>                          <span class="n">Generate</span> <span class="nb">next</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">sequence</span> <span class="k">if</span> <span class="n">sequenced</span>
-    <span class="n">verify</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>                       <span class="n">Boolean</span> <span class="p">(</span><span class="k">return</span> <span class="k">if</span> <span class="n">code</span> <span class="ow">is</span> <span class="n">valid</span> <span class="n">to</span> <span class="n">scheme</span><span class="p">)</span>
-    <span class="n">search</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>                       <span class="n">Return</span> <span class="n">recordset</span> <span class="n">of</span> <span class="n">matches</span> <span class="ow">in</span> <span class="n">aligned</span> <span class="n">models</span> <span class="p">(</span><span class="k">with</span> <span class="n">option</span> <span class="n">of</span> <span class="n">part</span> <span class="n">matches</span><span class="p">)</span>
-    <span class="n">get_order_code</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>               <span class="n">Provide</span> <span class="n">the</span> <span class="n">order</span><span class="o">-</span><span class="n">able</span> <span class="n">code</span> <span class="n">value</span>
-    <span class="n">update_order_codes</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>           <span class="n">Update</span> <span class="nb">all</span> <span class="n">records</span> <span class="n">of</span> <span class="n">models</span> <span class="k">with</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">order</span> <span class="n">codes</span>
-    <span class="n">match</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>                        <span class="n">Return</span> <span class="nb">list</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">matches</span> <span class="kn">from</span> <span class="nn">regex</span>
-    <span class="n">parse</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>                      <span class="n">Find</span> <span class="nb">any</span> <span class="n">possible</span> <span class="n">codes</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">string</span> <span class="n">matching</span> <span class="n">the</span> <span class="n">scheme</span>
-    <span class="n">exists</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>                       <span class="n">Checks</span> <span class="n">allied</span> <span class="nb">id</span><span class="s1">'s of this scheme</span>
-    <span class="n">get_all_codes</span><span class="p">:</span>                      <span class="n">Returns</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">all</span> <span class="nb">id</span><span class="s1">'s managed with this scheme</span>
-    <span class="n">get_all</span><span class="p">:</span>                            <span class="n">Returns</span> <span class="n">recordset</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">records</span> <span class="k">with</span> <span class="n">codes</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">this</span> <span class="n">scheme</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Status modes include:</p>
+        <section id="scheme-module-overview">
+<h1>Scheme Module Overview<a class="headerlink" href="#scheme-module-overview" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This is a <strong>NEW</strong> module. The module is intended to provide an ability to create coding schemes for business object
+identifiers for example:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">current</span></code> - the scheme can be selected and applied (will appear in selection lists)</p></li>
+<li><p>Project Numbers</p></li>
+<li><p>Quotation Numbers</p></li>
+<li><p>Work Number (or Work ID)</p></li>
+<li><p>Document Numbers</p></li>
+<li><p>Plant Tag Numbers</p></li>
+<li><p>Part Numbers</p></li>
+<li><p>Product Codes</p></li>
+</ul>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="mermaid">
+            flowchart LR
+    subgraph AM[model]
+        SM[scheme.mixin]
+    end
+    SB[scheme.base]
+    SG[scheme.group]
+    SG --&gt; SB ----&gt; SM
+    SG -. module level .-&gt; SM
+        </div><p>Each of the business object identifiers form groups (<code class="docutils literal notranslate"><span class="pre">scheme.group</span></code>). For each of these groups, there can be a number
+of different schemes that can apply given that this changes with time (<code class="docutils literal notranslate"><span class="pre">scheme.base</span></code>). An individual record for a
+specific model will belong then to a scheme (<code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code>). This will allow that scheme to supply a code to the
+record (field <code class="docutils literal notranslate"><span class="pre">code</span></code>).</p>
+</section>
+<section id="scheme-scheme-base">
+<h2>Scheme : <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code><a class="headerlink" href="#scheme-scheme-base" title="Permalink to this headline">¶</a></h2>
+<section id="basic-fields">
+<h3>Basic Fields<a class="headerlink" href="#basic-fields" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_users</span></code> fields are used to provide appropriate descriptors for a given
+scheme. <code class="docutils literal notranslate"><span class="pre">name</span></code> is mandatory should be a simple shorthand method of describing a scheme. <code class="docutils literal notranslate"><span class="pre">description</span></code> can provide
+more details about the intended scope and nature of the scheme. Finally, <code class="docutils literal notranslate"><span class="pre">targeted_users</span></code> provides the historical
+context without adding cruft to the <code class="docutils literal notranslate"><span class="pre">description</span></code> and should name the company/situation in which the scheme was
+intended for.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">regex</span></code> field of <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> defines what a code can be. This is mandatory.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please do not create schemes which utilises spaces in any way. It is anticipated that such schemes may result in
+problems when perform <code class="docutils literal notranslate"><span class="pre">parsing</span></code> or <code class="docutils literal notranslate"><span class="pre">search</span></code> type operations as well as for prefixed schemes.</p>
+</div>
+</section>
+<section id="scheme-status">
+<h3>Scheme Status<a class="headerlink" href="#scheme-status" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">status</span></code> is one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">future</span></code> - not yet used but being considered for use</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current</span></code> - the scheme can be selected and applied</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> - any new record relying upon the scheme</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dormant</span></code> - allowed to be used in new records but not made a ‘normal’ option to users</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">closed</span></code> - not to be used in any new records</p></li>
 </ul>
-</div>
+<p>When a scheme is created, the <code class="docutils literal notranslate"><span class="pre">status</span></code> is set to <code class="docutils literal notranslate"><span class="pre">future</span></code>. Use <code class="docutils literal notranslate"><span class="pre">set_current()</span></code> method to switch the scheme on
+and to set the <code class="docutils literal notranslate"><span class="pre">usage_start_date</span></code>. Historical schemes which are loaded by XML records can of course bypass this.
+Use the method <code class="docutils literal notranslate"><span class="pre">set_closed()</span></code> to finally close the scheme. This will also set the <code class="docutils literal notranslate"><span class="pre">usage_end_date</span></code>. A <code class="docutils literal notranslate"><span class="pre">default</span></code>
+scheme is deemed to be <code class="docutils literal notranslate"><span class="pre">current</span></code> however it may affect the setting of the <code class="docutils literal notranslate"><span class="pre">code</span></code> in the inherited
+<code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code> model.</p>
+<p>If a selection list is provided to a user, only <code class="docutils literal notranslate"><span class="pre">current</span></code> or <code class="docutils literal notranslate"><span class="pre">default</span></code> should be shown. <code class="docutils literal notranslate"><span class="pre">dormant</span></code> should really
+require some other intervention. <code class="docutils literal notranslate"><span class="pre">closed</span></code> and <code class="docutils literal notranslate"><span class="pre">future</span></code> should be not permitted to be added.</p>
 </section>
-<section id="scheme-mixin">
-<h3><code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code><a class="headerlink" href="#scheme-mixin" title="Permalink to this headline">¶</a></h3>
-<p>To be added to models which will use a scheme for their codes. This is a <em>model.abstract</em> class.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADMINISTRATIVE</span> <span class="n">FIELDS</span>
-    <span class="n">code</span><span class="p">:</span>                               <span class="n">Char</span> <span class="p">(</span><span class="n">In</span> <span class="n">addition</span> <span class="n">to</span> <span class="n">the</span> <span class="n">name</span> <span class="n">field</span><span class="p">)</span>
-    <span class="n">scheme</span><span class="p">:</span>                             <span class="n">One2Many</span>
-
-<span class="n">COMPUTE</span> <span class="n">FIELDS</span>
-    <span class="n">_code</span><span class="p">:</span>                              <span class="n">Char</span> <span class="p">(</span><span class="n">code</span> <span class="n">after</span> <span class="n">being</span> <span class="n">ordered</span> <span class="o">-</span> <span class="n">stored</span><span class="p">)</span>
-    <span class="n">_alias_codes</span><span class="p">:</span>                       <span class="n">Char</span> <span class="p">(</span><span class="n">comma</span> <span class="n">separated</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">previous</span> <span class="n">codes</span><span class="p">)</span>
-
-<span class="n">OVERRIDDEN</span> <span class="n">METHODS</span>
-    <span class="n">get_name</span><span class="p">():</span>                         <span class="n">Return</span> <span class="n">code</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">together</span>
-
-<span class="n">METHODS</span>
-    <span class="n">set_code</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>                   <span class="n">Will</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">scheme</span> <span class="ow">and</span> <span class="n">code</span> <span class="p">(</span><span class="k">if</span> <span class="ow">not</span> <span class="n">yet</span> <span class="nb">set</span><span class="p">)</span>
-    <span class="n">change_scheme</span><span class="p">(</span><span class="n">newScheme</span><span class="p">):</span>           <span class="n">Changes</span> <span class="n">the</span> <span class="n">scheme</span> <span class="n">by</span> <span class="n">either</span> <span class="n">reuse</span> <span class="n">_alias_code</span> <span class="ow">and</span> <span class="n">put</span> <span class="n">existing</span> <span class="n">code</span> <span class="ow">in</span>
-                                        <span class="n">_alias_codes</span>
-</pre></div>
-</div>
+<section id="scheme-order">
+<h3>Scheme Order<a class="headerlink" href="#scheme-order" title="Permalink to this headline">¶</a></h3>
+<p>Human interpretation of the order of codes may not directly correspond with machine order. For example, is code T101
+or T1000 greater? To be able to correctly order the two, a second field is computed and stored with the record.</p>
 </section>
-<section id="scheme-group">
-<h3><code class="docutils literal notranslate"><span class="pre">scheme.group</span></code><a class="headerlink" href="#scheme-group" title="Permalink to this headline">¶</a></h3>
-<p>Model for grouping the schemes together logically. Serves to provide ability for creating cascading groups of codes.
-For example, document numbering which is extensible in multiple ways.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADMINISTRATIVE</span> <span class="n">FIELDS</span>
-    <span class="n">name</span><span class="p">:</span>                               <span class="n">Char</span> <span class="p">(</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">group</span><span class="p">)</span>
-
-<span class="n">OBJECTIVE</span> <span class="n">FIELDS</span>
-    <span class="n">description</span><span class="p">:</span>                        <span class="n">Complete</span> <span class="n">description</span> <span class="n">of</span> <span class="n">the</span> <span class="n">group</span>
-    <span class="n">subgroups</span><span class="p">:</span>                          <span class="n">Many2One</span>
-        <span class="o">...</span> <span class="n">add</span> <span class="n">parent</span> <span class="n">support</span>
-
-<span class="n">COMPUTE</span> <span class="n">FIELDS</span>
-    <span class="n">count_subgroups</span><span class="p">:</span>                    <span class="n">Integer</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">subgroups</span> <span class="n">under</span> <span class="n">this</span><span class="p">)</span>
-    <span class="n">count_schemes</span><span class="p">:</span>                      <span class="n">Integer</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">non</span><span class="o">-</span><span class="n">closed</span> <span class="n">schemes</span> <span class="n">under</span> <span class="n">this</span> <span class="n">group</span> <span class="n">including</span> <span class="n">sub</span><span class="o">-</span><span class="n">groups</span><span class="p">)</span>
-    <span class="n">count_records</span><span class="p">:</span>                      <span class="n">Integer</span> <span class="p">(</span><span class="n">total</span> <span class="n">records</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">group</span> <span class="n">including</span> <span class="n">sub</span><span class="o">-</span><span class="n">groups</span><span class="p">)</span>
-
-<span class="n">METHODS</span>
-    <span class="n">get_group_schemes</span><span class="p">:</span>                  <span class="n">Recordset</span> <span class="n">of</span> <span class="n">the</span> <span class="n">schemes</span> <span class="n">belonging</span> <span class="n">to</span> <span class="n">group</span>
-    <span class="n">get_group_default</span><span class="p">:</span>                  <span class="n">Find</span> <span class="n">which</span> <span class="n">record</span> <span class="ow">is</span> <span class="n">currently</span> <span class="nb">set</span> <span class="k">as</span> <span class="n">the</span> <span class="n">default</span>
-</pre></div>
-</div>
+<section id="sequenced-schemes">
+<h3>Sequenced Schemes<a class="headerlink" href="#sequenced-schemes" title="Permalink to this headline">¶</a></h3>
+<p>Most schemes have a logical numbering and therefore ordering. If the <code class="docutils literal notranslate"><span class="pre">sequenced</span></code> field of <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> is such
+then this scheme is sequenced.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code> will also set the default order to <code class="docutils literal notranslate"><span class="pre">_code</span></code>. This is a version of the code which is modified for
+the purposes of ordering in the business logical manner. Hence when records are shown, the <code class="docutils literal notranslate"><span class="pre">_code</span></code> field will sort
+correctly and determinately.</p>
 </section>
+<section id="prefixed-schemes">
+<h3>Prefixed Schemes<a class="headerlink" href="#prefixed-schemes" title="Permalink to this headline">¶</a></h3>
+<p>Some schemes actually rely upon another scheme being a prefix to the code. Should a scheme have a prefixing scheme,
+this is set using the <code class="docutils literal notranslate"><span class="pre">prefix_scheme</span></code> field and choosing another scheme. A check shall be completed to prevent
+circular references (using the utility method <code class="docutils literal notranslate"><span class="pre">_check_recursion()</span></code>). Use the <code class="docutils literal notranslate"><span class="pre">prefix_separator</span></code> to define the
+separator between the two (or ‘’ if there is no separator). If it is mandatory for the scheme to have at all times
+the prefix then set the field <code class="docutils literal notranslate"><span class="pre">prefix_mandatory</span></code> to True.</p>
 </section>
-<section id="security">
-<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">SchemeViewers</span></code> can read and view <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> and <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> records</p>
-<p><code class="docutils literal notranslate"><span class="pre">SchemeManagers</span></code> can also create and update <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> and <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> records</p>
+<section id="timed-schemes">
+<h3>Timed Schemes<a class="headerlink" href="#timed-schemes" title="Permalink to this headline">¶</a></h3>
+<p>Some schemes generate codes with an element which is time oriented. An example of this is the (at the time of
+writing) part number scheme. This uses the form <code class="docutils literal notranslate"><span class="pre">1qq-nnnn</span></code> where <code class="docutils literal notranslate"><span class="pre">qq</span></code> is the quarter number. For the purposes</p>
 </section>
-<section id="actions-and-menus">
-<h2>Actions and Menus<a class="headerlink" href="#actions-and-menus" title="Permalink to this headline">¶</a></h2>
-<p>Menu items for this are to be accessible through the settings app.</p>
-<p>Window Actions:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">scheme_view_all</span></code>: View of all schemes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scheme_groups_view_all</span></code>: View of all scheme groups</p></li>
-</ul>
-<p>Server Actions</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">reorder_scheme</span></code>: updates the <code class="docutils literal notranslate"><span class="pre">_code</span></code> field for that particular scheme</p></li>
-</ul>
-</section>
-<section id="views">
-<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Kanban on <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> based on group - ordered by status and user requirements</dt><dd><ul>
-<li><p>Kanban cards to show group, name and count</p></li>
-</ul>
+<section id="search-functions">
+<h3>Search Functions<a class="headerlink" href="#search-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">search(code,</span> <span class="pre">strict=True)</span></code></dt><dd><p><strong>returns</strong> None or a record or a recordset depending the number of codes found to exactly (if strict) or partially
+(if not) match an item in the list from <code class="docutils literal notranslate"><span class="pre">get_all_codes</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">parse</span></code></dt><dd><p>Individual text can be parsed to determine if the text contains any instances which fit the scheme. A mo</p>
 </dd>
 </dl>
-</li>
-<li><p>Form view of an individual scheme also showing linked records</p></li>
-</ul>
-</section>
-<section id="migrations">
-<h2>Migrations<a class="headerlink" href="#migrations" title="Permalink to this headline">¶</a></h2>
-<p>Some affected modules may use their codes as part of the names or titles. Data will need to be migrated to move all
-codes into the <code class="docutils literal notranslate"><span class="pre">code</span></code> field.</p>
-</section>
-<section id="initial-data">
-<h2>Initial Data<a class="headerlink" href="#initial-data" title="Permalink to this headline">¶</a></h2>
-<section id="legacy-jobs">
-<h3>Legacy Jobs<a class="headerlink" href="#legacy-jobs" title="Permalink to this headline">¶</a></h3>
-<p>The following group of records needs to be uploaded as records in the new database.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GROUP</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">project</span>
-
-<span class="n">Order</span>   <span class="n">Name</span>    <span class="n">Description</span>                         <span class="n">Target</span>                                  <span class="n">Start</span>       <span class="n">End</span>
-<span class="mi">1</span>       <span class="n">Znnnn</span>   <span class="n">Original</span> <span class="n">C</span> <span class="n">Jobs</span> <span class="p">(</span><span class="n">pre</span> <span class="mi">2001</span><span class="p">)</span>          <span class="n">All</span> <span class="n">Ansac</span> <span class="n">Work</span>                          <span class="mi">1995</span>        <span class="mi">2001</span>
-<span class="mi">2</span>       <span class="n">Knnn</span>    <span class="n">Kiln</span> <span class="n">jobs</span>                           <span class="n">Kiln</span> <span class="n">Work</span>                               <span class="mi">2001</span>        <span class="mi">2010</span>
-<span class="mi">3</span>       <span class="n">Tnnnn</span>   <span class="n">Thermal</span> <span class="n">Processing</span>                  <span class="n">Thermal</span> <span class="n">Processing</span> <span class="n">Work</span>                 <span class="mi">2010</span>        <span class="mi">2021</span>
-<span class="mi">4</span>       <span class="n">aaannn</span>  <span class="n">Anergy</span> <span class="n">UK</span> <span class="n">Jobs</span>                      <span class="n">Anergy</span> <span class="n">UK</span> <span class="n">Jobs</span>                          <span class="mi">2011</span>        <span class="mi">2013</span>
-<span class="mi">5</span>       <span class="n">Mnnn</span>    <span class="n">Mechanical</span> <span class="n">jobs</span>                     <span class="n">Mech</span> <span class="n">Fab</span> <span class="n">Work</span> <span class="p">(</span><span class="n">dormant</span><span class="p">)</span>                 <span class="mi">2001</span>        <span class="mi">2019</span>
-<span class="mi">6</span>       <span class="n">Vnnnn</span>   <span class="n">Valve</span> <span class="n">jobs</span>                          <span class="n">Valve</span> <span class="n">work</span>                              <span class="mi">2001</span>        <span class="mi">2010</span>
-<span class="mi">7</span>       <span class="n">Snnnnn</span>  <span class="n">Spares</span> <span class="n">jobs</span>                         <span class="n">Spares</span> <span class="n">work</span>                             <span class="mi">2001</span>        <span class="mi">2021</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> testing</p>
-<ul class="simple">
-<li><p>ability to create and update group</p></li>
-<li><p>create hierarchy of groups</p></li>
-<li><p>perform a group led search function at both root, group and sub-group level</p></li>
-<li><p>perform security group checking on view functions</p></li>
-</ul>
-<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> testing</p>
-<ul class="simple">
-<li><p>create and update working</p></li>
-<li><p>perform a migration of existing data in the test database to the <code class="docutils literal notranslate"><span class="pre">code</span></code> field</p></li>
-<li><p>correctly verify a range of potential codes against multiple schemes</p></li>
-<li><p>determine the next in a code scheme sequence</p></li>
-<li><p>view, create and update a schema through correct menus</p></li>
-<li><p>reorder codes in a recordset</p></li>
-<li><p>search for a record in a recordset</p></li>
-<li><p>parse text to find potential codes</p></li>
-</ul>
-<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code> testing</p>
-<ul class="simple">
-<li><p>Add the <code class="docutils literal notranslate"><span class="pre">mixin</span></code> to a code</p></li>
-<li><p>Check that the <code class="docutils literal notranslate"><span class="pre">code</span></code> is correctly added to a model</p></li>
-<li><p>Work out how the <code class="docutils literal notranslate"><span class="pre">create()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code> work to sort out codes</p></li>
-</ul>
-</section>
-<section id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
-<section id="pre-implementation">
-<h3>Pre-implementation<a class="headerlink" href="#pre-implementation" title="Permalink to this headline">¶</a></h3>
-</section>
-<section id="during-implementation">
-<h3>During Implementation<a class="headerlink" href="#during-implementation" title="Permalink to this headline">¶</a></h3>
-</section>
-<section id="post-implementation">
-<h3>Post Implementation<a class="headerlink" href="#post-implementation" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is expected that the <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> will require extending if the basic regular expression model does not
-work well for newer models. For example, the current model possibly does not fully tackle all document numbering
-possibilities into the future.</p>
-<p>Also, there is still the need to garner specific metadata from the coding of any particular scheme. For example
-in the case of WBS metadata. On this last point, this may actually need to be written into the models into which
-this data will end up.</p>
-</div>
 </section>
 </section>
 </section>
@@ -469,12 +353,12 @@ this data will end up.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="project.html">
+          <a class="next-page" href="scheme_ref.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Project Module</div>
+                <div class="title">Scheme Module Reference</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -519,26 +403,17 @@ this data will end up.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Scheme Module</a><ul>
-<li><a class="reference internal" href="#models">Models</a><ul>
-<li><a class="reference internal" href="#scheme-base"><code class="docutils literal notranslate"><span class="pre">scheme.base</span></code></a></li>
-<li><a class="reference internal" href="#scheme-mixin"><code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code></a></li>
-<li><a class="reference internal" href="#scheme-group"><code class="docutils literal notranslate"><span class="pre">scheme.group</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#security">Security</a></li>
-<li><a class="reference internal" href="#actions-and-menus">Actions and Menus</a></li>
-<li><a class="reference internal" href="#views">Views</a></li>
-<li><a class="reference internal" href="#migrations">Migrations</a></li>
-<li><a class="reference internal" href="#initial-data">Initial Data</a><ul>
-<li><a class="reference internal" href="#legacy-jobs">Legacy Jobs</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#testing">Testing</a></li>
-<li><a class="reference internal" href="#additional-notes">Additional Notes</a><ul>
-<li><a class="reference internal" href="#pre-implementation">Pre-implementation</a></li>
-<li><a class="reference internal" href="#during-implementation">During Implementation</a></li>
-<li><a class="reference internal" href="#post-implementation">Post Implementation</a></li>
+<li><a class="reference internal" href="#">Scheme Module Overview</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#scheme-scheme-base">Scheme : <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code></a><ul>
+<li><a class="reference internal" href="#basic-fields">Basic Fields</a></li>
+<li><a class="reference internal" href="#scheme-status">Scheme Status</a></li>
+<li><a class="reference internal" href="#scheme-order">Scheme Order</a></li>
+<li><a class="reference internal" href="#sequenced-schemes">Sequenced Schemes</a></li>
+<li><a class="reference internal" href="#prefixed-schemes">Prefixed Schemes</a></li>
+<li><a class="reference internal" href="#timed-schemes">Timed Schemes</a></li>
+<li><a class="reference internal" href="#search-functions">Search Functions</a></li>
 </ul>
 </li>
 </ul>

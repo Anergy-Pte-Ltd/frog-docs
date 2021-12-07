@@ -1,0 +1,593 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Project Module" href="project.html" /><link rel="prev" title="Scheme Module Overview" href="scheme.html" />
+
+    <link rel="shortcut icon" href="../_static/logo_72.png"/><meta name="generator" content="sphinx-4.1.1, furo 2021.07.05.beta38"/>
+        <title>Scheme Module Reference - Turbo-Frog</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css" />
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #7C4DFF;
+  --color-brand-content: #7C4DFF;
+  
+  }
+</style><link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+  
+  <link rel="manifest" href="manifest.json">
+</head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Turbo-Frog</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/logo_96.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Turbo-Frog</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents test:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Welcome to turbo-frog-doc’s documentation!</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../turbo-frog/index.html">Admin</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/kickoff.html"><em>TURBO-FROG</em> Kickoff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/setup.html"><strong>TURBO</strong> Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/setup.html#access-to-the-project-docs">Access to the Project Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/setup.html#getting-involved">Getting Involved</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../turbo-frog/breakdown.html"><em>TURBO-FROG</em> Work Breakdown Structure</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/A.html">A - Project Management &amp; Administration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/B.html">B - Platforms &amp; Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/C.html">C - Financial Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/D.html">D - HR, OHSE &amp; Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/F.html">F - Supply Chain Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/G.html">G - Marketing &amp; Sales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/H.html">H - Project Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/J.html">J - Technical Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../turbo-frog/wbs/M.html">M - Strategic Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/pwa.html">Progressive Web App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../turbo-frog/dlc.html"><em>TURBO-FROG</em> Development Lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ui/index.html">Apps</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ui/applications.html">Summary</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label for="toctree-checkbox-4"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/admin/apps.html">Administration and General Apps</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label for="toctree-checkbox-5"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/finance/apps.html">Financial Apps</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label for="toctree-checkbox-6"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/projects/apps.html">Project Apps</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label for="toctree-checkbox-7"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/apps_sales.html">Sales &amp; Marketing</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label for="toctree-checkbox-8"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/apps_hr.html">HR Apps</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label for="toctree-checkbox-9"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ui/apps_strategy.html">Strategic Management Apps</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label for="toctree-checkbox-10"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ui/apps_hr.html">HR Apps</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ui/apps_sales.html">Sales &amp; Marketing</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ui/apps_strategy.html">Strategic Management Apps</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label for="toctree-checkbox-13"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label for="toctree-checkbox-14"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="base.html">Base Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheme.html">Scheme Module Overview</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Scheme Module Reference</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="project.html">Project Module</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label for="toctree-checkbox-15"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="project_review.html">Project Module - Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_default.html">Project Module - Out-of-the-box</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="account.html">Accounts Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product.html">Products Module</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="odoo/index.html"><em>Odoo</em> Core</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label for="toctree-checkbox-16"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="odoo/starting_odoo.html">Starting Odoo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odoo/ir.http.html">ir.http Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odoo/view.html">Views and Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="archive/index.html"><em>TURBO-FROG</em> Modules - Archive</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label for="toctree-checkbox-17"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="archive/business_ids.html">Business Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archive/assets.html">Works Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archive/taskboard.html">App Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archive/taskmaster.html">Project TaskMaster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archive/wbs.html">Work Breakdown Structure Module</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="archive/project_context.html">Project Context Specification</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label for="toctree-checkbox-18"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="archive/megadesk/projectcentre.html">Project Centre Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="archive/megadesk/project_dashboard.html">Project Dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="archive/megadesk/projectcentre.html">Project Centre Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="archive/megadesk/project_dashboard.html">Project Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics/index.html">Special Topics</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label for="toctree-checkbox-19"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topics/pm/pm101.html"><strong>Anergy</strong> Project Management</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../topics/reST/index.html">Help on <em>reStructuredText</em></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label for="toctree-checkbox-20"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/reST/quickstart.html">A ReStructuredText Primer</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../topics/reST/cheatsheet.html">Restructured Text (reST) and Sphinx CheatSheet</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label for="toctree-checkbox-21"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/reST/directives.html">reStructuredText Directives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/reST/text_roles.html">reStructuredText Interpreted Text Roles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/tutorial.html">Tutorial Work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shared/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared/thesaurus.html">Thesaurus</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <section id="scheme-module-reference">
+<h1>Scheme Module Reference<a class="headerlink" href="#scheme-module-reference" title="Permalink to this headline">¶</a></h1>
+<section id="manifest">
+<h2>Manifest<a class="headerlink" href="#manifest" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>name</dt><dd><p>Scheme Module</p>
+</dd>
+<dt>depends</dt><dd><p><code class="docutils literal notranslate"><span class="pre">base</span></code></p>
+</dd>
+<dt>author</dt><dd><p>Anergy</p>
+</dd>
+<dt>category</dt><dd><p>utility</p>
+</dd>
+<dt>description</dt><dd><p>Creates and maintains schemes for providing, verifying and ordering business identifiers (or schemes) for projects,
+products or assets.</p>
+</dd>
+</dl>
+</section>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<section id="scheme-base">
+<h3><code class="docutils literal notranslate"><span class="pre">scheme.base</span></code><a class="headerlink" href="#scheme-base" title="Permalink to this headline">¶</a></h3>
+<p>Base model for all schemes to derive from. This is <em>not</em> an <em>abstract model</em> but to be inherited to delegates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ADMINISTRATIVE FIELDS
+    name:                               char (name of the scheme)
+
+OBJECTIVE FIELDS
+    description:                        char (full description of the scheme)
+    targeted_users:                     char (target of the party using the scheme)
+    group:                              Many2One (scheme.group)
+    regex:                              char (regular expression for code)
+    sequenced:                          boolean (True if the scheme has a sequence)
+    sequence_regex:                     char (regular expression for the alphanumeric sequence)
+    sequence_char_order:                char (order if for the alphanumeric values in sequence with default 0-9A-Za-z)
+    sequence_min_length:                int (number of characters in the sequence)
+    sequence_initial_value:             char (value initial sequence
+    prefix_mandatory:                   boolean (True if must be prefixed)
+    prefix_separator:                   char (default='-', character used to separate prefix from code)
+    prefix_scheme:                      scheme.base (check for circular expression)
+
+SITUATIONAL FIELDS
+    status:                             Selection (default, current, dormant, closed)
+    usage_start_date:                   date (when was this started to be used)
+    usage_end_date:                     date (when was this closed)
+    active:                             boolean
+
+COMPUTED FIELDS
+    models:                             list (based on id_fields and separated with commas)
+    count:                              integer (count of records which use this scheme)
+
+UI FIELDS
+    kanban_sequence:                    integer (value for the kanban view - and ordering for searches?)
+
+RELATED FIELDS
+
+OVERRIDDEN METHODS
+
+COMPUTE METHODS
+    -- FUTURE --                        Method naming scheme to assist if need change to updates etc.
+
+CHANGE, CREATE AND UPDATE METHODS
+    set_as_default:                     Set one record as the default scheme in group
+    set_closed:
+    close_scheme:                       (Close a scheme down)
+    write:                              Override to include updating order_codes if coding changed
+
+    next_code:                          Generate next code in sequence if sequenced
+    verify(code):                       Boolean (return if code is valid to scheme)
+    search(code):                       Return recordset of matches in aligned models (with option of part matches)
+    get_order_code(code):               Provide the order-able code value
+    update_order_codes(code):           Update all records of models with the correct order codes
+    match(code):                        Return list with all matches from regex
+    parse(string):                      Find any possible codes inside the string matching the scheme
+    exists(code):                       Checks allied id's of this scheme
+    get_all_codes:                      Returns list of all id's managed with this scheme
+    get_all:                            Returns recordset of all records with codes managed by this scheme
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Status modes include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">current</span></code> - the scheme can be selected and applied (will appear in selection lists)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> - any new record relying upon the scheme</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dormant</span></code> - allowed to be used in new records but not made a ‘normal’ option to users</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">closed</span></code> - not to be used in any new records</p></li>
+</ul>
+</div>
+</section>
+<section id="scheme-group">
+<h3><code class="docutils literal notranslate"><span class="pre">scheme.group</span></code><a class="headerlink" href="#scheme-group" title="Permalink to this headline">¶</a></h3>
+<p>Model for grouping the schemes together logically. Serves to provide ability for creating cascading groups of codes.
+For example, document numbering which is extensible in multiple ways.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ADMINISTRATIVE FIELDS
+    name:                               Char (name of the group)
+
+OBJECTIVE FIELDS
+    description:                        Complete description of the group
+    type:                               Used in determining methods by scheme.base [FUTURE]
+    models:                             One2Many (any model which relates to the group via ``scheme.mixin``)
+    parent_group:                       Many2One (also add parent support)
+        ... add parent support
+
+COMPUTE FIELDS
+    count_subgroups:                    Integer (number of subgroups under this)
+    count_schemes:                      Integer (number of non-closed schemes under this group including sub-groups)
+    count_records:                      Integer (total records in this group including sub-groups)
+
+METHODS
+    get_group_schemes:                  Recordset of the schemes belonging to group
+    get_group_default:                  Find which record is currently set as the default
+</pre></div>
+</div>
+</section>
+<section id="scheme-mixin">
+<h3><code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code><a class="headerlink" href="#scheme-mixin" title="Permalink to this headline">¶</a></h3>
+<p>To be added to models which will use a scheme for their codes. This is a <em>model.abstract</em> class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADMINISTRATIVE</span> <span class="n">FIELDS</span>
+    <span class="n">code</span><span class="p">:</span>                               <span class="n">Char</span> <span class="p">(</span><span class="n">In</span> <span class="n">addition</span> <span class="n">to</span> <span class="n">the</span> <span class="n">name</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">scheme</span><span class="p">:</span>                             <span class="n">Many2One</span> <span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+<span class="nd">@api</span><span class="o">.</span><span class="n">model</span>
+    <span class="n">scheme_group</span><span class="p">:</span>                       <span class="n">Many2One</span> <span class="p">(</span><span class="n">which</span> <span class="n">group</span> <span class="n">does</span> <span class="n">the</span> <span class="n">model</span> <span class="n">belong</span> <span class="n">to</span><span class="p">)</span>
+
+<span class="n">COMPUTE</span> <span class="n">FIELDS</span>
+    <span class="n">_code</span><span class="p">:</span>                              <span class="n">Char</span> <span class="p">(</span><span class="n">code</span> <span class="n">after</span> <span class="n">being</span> <span class="n">ordered</span> <span class="o">-</span> <span class="n">stored</span><span class="p">)</span>
+    <span class="n">_alias_codes</span><span class="p">:</span>                       <span class="n">Char</span> <span class="p">(</span><span class="n">comma</span> <span class="n">separated</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">previous</span> <span class="n">codes</span><span class="p">)</span>
+
+<span class="n">OVERRIDDEN</span> <span class="n">METHODS</span>
+    <span class="n">get_name</span><span class="p">():</span>                         <span class="n">Return</span> <span class="n">code</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">together</span>
+
+<span class="n">METHODS</span>
+    <span class="n">set_code</span><span class="p">(</span><span class="n">scheme</span><span class="p">):</span>                   <span class="n">Will</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">scheme</span> <span class="ow">and</span> <span class="n">code</span> <span class="p">(</span><span class="k">if</span> <span class="ow">not</span> <span class="n">yet</span> <span class="nb">set</span><span class="p">)</span>
+    <span class="n">change_scheme</span><span class="p">(</span><span class="n">newScheme</span><span class="p">):</span>           <span class="n">Changes</span> <span class="n">the</span> <span class="n">scheme</span> <span class="n">by</span> <span class="n">either</span> <span class="n">reuse</span> <span class="n">_alias_code</span> <span class="ow">and</span> <span class="n">put</span> <span class="n">existing</span> <span class="n">code</span> <span class="ow">in</span>
+                                        <span class="n">_alias_codes</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SchemeViewers</span></code> can read and view <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> and <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> records</p>
+<p><code class="docutils literal notranslate"><span class="pre">SchemeManagers</span></code> can also create and update <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> and <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> records</p>
+</section>
+<section id="actions-and-menus">
+<h2>Actions and Menus<a class="headerlink" href="#actions-and-menus" title="Permalink to this headline">¶</a></h2>
+<p>Menu items for this are to be accessible through the settings app.</p>
+<p>Window Actions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scheme_view_all</span></code>: View of all schemes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheme_groups_view_all</span></code>: View of all scheme groups</p></li>
+</ul>
+<p>Server Actions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reorder_scheme</span></code>: updates the <code class="docutils literal notranslate"><span class="pre">_code</span></code> field for that particular scheme</p></li>
+</ul>
+</section>
+<section id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Kanban on <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> based on group - ordered by status and user requirements</dt><dd><ul>
+<li><p>Kanban cards to show group, name and count</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Form view of an individual scheme also showing linked records</p></li>
+</ul>
+</section>
+<section id="migrations">
+<h2>Migrations<a class="headerlink" href="#migrations" title="Permalink to this headline">¶</a></h2>
+<p>Some affected modules may use their codes as part of the names or titles. Data will need to be migrated to move all
+codes into the <code class="docutils literal notranslate"><span class="pre">code</span></code> field.</p>
+</section>
+<section id="initial-data">
+<h2>Initial Data<a class="headerlink" href="#initial-data" title="Permalink to this headline">¶</a></h2>
+<section id="legacy-jobs">
+<h3>Legacy Jobs<a class="headerlink" href="#legacy-jobs" title="Permalink to this headline">¶</a></h3>
+<p>The following group of records needs to be uploaded as records in the new database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GROUP</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">project</span>
+
+<span class="n">Order</span>   <span class="n">Name</span>    <span class="n">Description</span>                         <span class="n">Target</span>                                  <span class="n">Start</span>       <span class="n">End</span>
+<span class="mi">1</span>       <span class="n">Znnnn</span>   <span class="n">Original</span> <span class="n">C</span> <span class="n">Jobs</span> <span class="p">(</span><span class="n">pre</span> <span class="mi">2001</span><span class="p">)</span>          <span class="n">All</span> <span class="n">Ansac</span> <span class="n">Work</span>                          <span class="mi">1995</span>        <span class="mi">2001</span>
+<span class="mi">2</span>       <span class="n">Knnn</span>    <span class="n">Kiln</span> <span class="n">jobs</span>                           <span class="n">Kiln</span> <span class="n">Work</span>                               <span class="mi">2001</span>        <span class="mi">2010</span>
+<span class="mi">3</span>       <span class="n">Tnnnn</span>   <span class="n">Thermal</span> <span class="n">Processing</span>                  <span class="n">Thermal</span> <span class="n">Processing</span> <span class="n">Work</span>                 <span class="mi">2010</span>        <span class="mi">2021</span>
+<span class="mi">4</span>       <span class="n">aaannn</span>  <span class="n">Anergy</span> <span class="n">UK</span> <span class="n">Jobs</span>                      <span class="n">Anergy</span> <span class="n">UK</span> <span class="n">Jobs</span>                          <span class="mi">2011</span>        <span class="mi">2013</span>
+<span class="mi">5</span>       <span class="n">Mnnn</span>    <span class="n">Mechanical</span> <span class="n">jobs</span>                     <span class="n">Mech</span> <span class="n">Fab</span> <span class="n">Work</span> <span class="p">(</span><span class="n">dormant</span><span class="p">)</span>                 <span class="mi">2001</span>        <span class="mi">2019</span>
+<span class="mi">6</span>       <span class="n">Vnnnn</span>   <span class="n">Valve</span> <span class="n">jobs</span>                          <span class="n">Valve</span> <span class="n">work</span>                              <span class="mi">2001</span>        <span class="mi">2010</span>
+<span class="mi">7</span>       <span class="n">Snnnnn</span>  <span class="n">Spares</span> <span class="n">jobs</span>                         <span class="n">Spares</span> <span class="n">work</span>                             <span class="mi">2001</span>        <span class="mi">2021</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.group</span></code> testing</p>
+<ul class="simple">
+<li><p>ability to create and update group</p></li>
+<li><p>create hierarchy of groups</p></li>
+<li><p>perform a group led search function at both root, group and sub-group level</p></li>
+<li><p>perform security group checking on view functions</p></li>
+</ul>
+<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> testing</p>
+<ul class="simple">
+<li><p>create and update working</p></li>
+<li><p>perform a migration of existing data in the test database to the <code class="docutils literal notranslate"><span class="pre">code</span></code> field</p></li>
+<li><p>correctly verify a range of potential codes against multiple schemes</p></li>
+<li><p>determine the next in a code scheme sequence</p></li>
+<li><p>view, create and update a schema through correct menus</p></li>
+<li><p>reorder codes in a recordset</p></li>
+<li><p>search for a record in a recordset</p></li>
+<li><p>parse text to find potential codes</p></li>
+</ul>
+<p>Model <code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code> testing</p>
+<ul class="simple">
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">mixin</span></code> to a code</p></li>
+<li><p>Check that the <code class="docutils literal notranslate"><span class="pre">code</span></code> is correctly added to a model</p></li>
+<li><p>Work out how the <code class="docutils literal notranslate"><span class="pre">create()</span></code> and <code class="docutils literal notranslate"><span class="pre">write()</span></code> work to sort out codes</p></li>
+</ul>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
+<section id="pre-implementation">
+<h3>Pre-implementation<a class="headerlink" href="#pre-implementation" title="Permalink to this headline">¶</a></h3>
+<p>The implementation phase is will not add <code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code> as yet to any existing modules. This will be performed in a
+separate module Before
+- work id’s</p>
+</section>
+<section id="during-implementation">
+<h3>During Implementation<a class="headerlink" href="#during-implementation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="post-implementation">
+<h3>Post Implementation<a class="headerlink" href="#post-implementation" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is expected that the <code class="docutils literal notranslate"><span class="pre">scheme.base</span></code> will require extending if the basic regular expression model does not
+work well for newer models. For example, the current model possibly does not fully tackle all document numbering
+possibilities into the future.</p>
+<p>Also, there is still the need to garner specific metadata from the coding of any particular scheme. For example
+in the case of WBS metadata. On this last point, this may actually need to be written into the models into which
+this data will end up.</p>
+</div>
+</section>
+</section>
+</section>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="project.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Project Module</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="scheme.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Scheme Module Overview</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Anergy
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../_sources/modules/scheme_ref.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Scheme Module Reference</a><ul>
+<li><a class="reference internal" href="#manifest">Manifest</a></li>
+<li><a class="reference internal" href="#models">Models</a><ul>
+<li><a class="reference internal" href="#scheme-base"><code class="docutils literal notranslate"><span class="pre">scheme.base</span></code></a></li>
+<li><a class="reference internal" href="#scheme-group"><code class="docutils literal notranslate"><span class="pre">scheme.group</span></code></a></li>
+<li><a class="reference internal" href="#scheme-mixin"><code class="docutils literal notranslate"><span class="pre">scheme.mixin</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#actions-and-menus">Actions and Menus</a></li>
+<li><a class="reference internal" href="#views">Views</a></li>
+<li><a class="reference internal" href="#migrations">Migrations</a></li>
+<li><a class="reference internal" href="#initial-data">Initial Data</a><ul>
+<li><a class="reference internal" href="#legacy-jobs">Legacy Jobs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#additional-notes">Additional Notes</a><ul>
+<li><a class="reference internal" href="#pre-implementation">Pre-implementation</a></li>
+<li><a class="reference internal" href="#during-implementation">During Implementation</a></li>
+<li><a class="reference internal" href="#post-implementation">Post Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+  <script src="_static/app.js"></script>
+</body>
+</html>

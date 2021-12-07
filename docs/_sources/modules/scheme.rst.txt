@@ -1,235 +1,123 @@
 .. include:: /shared/common.rst
 
-###############
-Scheme Module
-###############
+######################
+Scheme Module Overview
+######################
 
-Creates and maintains schemes for providing, verifying and ordering business identifiers (or schemes) for projects,
-products or assets.
-
-Models
-======
-
-``scheme.base``
----------------
-
-Base model for all schemes to derive from. This is *not* an *abstract model* but to be inherited to delegates.
-
-::
-
-    ADMINISTRATIVE FIELDS
-        name:                               char (name of the scheme)
-
-    OBJECTIVE FIELDS
-        description:                        char (full description of the scheme)
-        targeted_users:                     char (target of the party using the scheme)
-        group:                              One2Many (scheme.group)
-        id_fields:                          Many2One (related fields in models which comply to this scheme)
-        regex:                              char (regular expression for code)
-        sequenced:                          boolean (True if the scheme has a sequence)
-        sequence_regex:                     char (regular expression for the alphanumeric sequence)
-        sequence_char_order:                char (order if for the alphanumeric values in sequence with default 0-9A-Za-z)
-        sequence_min_length:                int (number of characters in the sequence)
-        sequence_initial_value:             char (value initial sequence
-
-    SITUATIONAL FIELDS
-        status:                             Selection (default, current, dormant, closed)
-        usage_start_date:                   date (when was this started to be used)
-        usage_end_date:                     date (when was this closed)
-        active:                             boolean
-
-    COMPUTED FIELDS
-        models:                             list (based on id_fields and separated with commas)
-        count:                              integer (count of records which use this scheme)
-
-    UI FIELDS
-        kanban_sequence:                    integer (value for the kanban view)
-
-    RELATED FIELDS
-
-    OVERRIDDEN METHODS
-
-    COMPUTE METHODS
-
-    CHANGE, CREATE AND UPDATE METHODS
-        set_as_default:                     Set one record as the default scheme in group
-        set_closed:
-        close_scheme:                       (Close a scheme down)
-        write:                              Override to include updating order_codes if coding changed
-
-        next_code:                          Generate next code in sequence if sequenced
-        verify(code):                       Boolean (return if code is valid to scheme)
-        search(code):                       Return recordset of matches in aligned models (with option of part matches)
-        get_order_code(code):               Provide the order-able code value
-        update_order_codes(code):           Update all records of models with the correct order codes
-        match(code):                        Return list with all matches from regex
-        parse(string):                      Find any possible codes inside the string matching the scheme
-        exists(code):                       Checks allied id's of this scheme
-        get_all_codes:                      Returns list of all id's managed with this scheme
-        get_all:                            Returns recordset of all records with codes managed by this scheme
-
-.. note::
-
-    Status modes include:
-
-    - ``current`` - the scheme can be selected and applied (will appear in selection lists)
-    - ``default`` - any new record relying upon the scheme
-    - ``dormant`` - allowed to be used in new records but not made a 'normal' option to users
-    - ``closed`` - not to be used in any new records
-
-
-``scheme.mixin``
-----------------
-
-To be added to models which will use a scheme for their codes. This is a *model.abstract* class.
-
-::
-
-    ADMINISTRATIVE FIELDS
-        code:                               Char (In addition to the name field)
-        scheme:                             One2Many
-
-    COMPUTE FIELDS
-        _code:                              Char (code after being ordered - stored)
-        _alias_codes:                       Char (comma separated list of previous codes)
-
-    OVERRIDDEN METHODS
-        get_name():                         Return code and name together
-
-    METHODS
-        set_code(scheme):                   Will set the scheme and code (if not yet set)
-        change_scheme(newScheme):           Changes the scheme by either reuse _alias_code and put existing code in
-                                            _alias_codes
-
-``scheme.group``
-----------------
-
-Model for grouping the schemes together logically. Serves to provide ability for creating cascading groups of codes.
-For example, document numbering which is extensible in multiple ways.
-
-::
-
-    ADMINISTRATIVE FIELDS
-        name:                               Char (name of the group)
-
-    OBJECTIVE FIELDS
-        description:                        Complete description of the group
-        subgroups:                          Many2One
-            ... add parent support
-
-    COMPUTE FIELDS
-        count_subgroups:                    Integer (number of subgroups under this)
-        count_schemes:                      Integer (number of non-closed schemes under this group including sub-groups)
-        count_records:                      Integer (total records in this group including sub-groups)
-
-    METHODS
-        get_group_schemes:                  Recordset of the schemes belonging to group
-        get_group_default:                  Find which record is currently set as the default
-
-Security
-========
-
-``SchemeViewers`` can read and view ``scheme.base`` and ``scheme.group`` records
-
-``SchemeManagers`` can also create and update ``scheme.base`` and ``scheme.group`` records
-
-
-Actions and Menus
-=================
-
-Menu items for this are to be accessible through the settings app.
-
-Window Actions:
-
-- ``scheme_view_all``: View of all schemes
-- ``scheme_groups_view_all``: View of all scheme groups
-
-Server Actions
-
-- ``reorder_scheme``: updates the ``_code`` field for that particular scheme
-
-Views
-=====
-
-- Kanban on ``scheme.base`` based on group - ordered by status and user requirements
-    - Kanban cards to show group, name and count
-- Form view of an individual scheme also showing linked records
-
-Migrations
-==========
-
-Some affected modules may use their codes as part of the names or titles. Data will need to be migrated to move all
-codes into the ``code`` field.
-
-Initial Data
+Introduction
 ============
 
-Legacy Jobs
------------
+This is a **NEW** module. The module is intended to provide an ability to create coding schemes for business object
+identifiers for example:
 
-The following group of records needs to be uploaded as records in the new database.
+- Project Numbers
+- Quotation Numbers
+- Work Number (or Work ID)
+- Document Numbers
+- Plant Tag Numbers
+- Part Numbers
+- Product Codes
 
-::
+Overview
+========
 
-    GROUP = project.project
+.. mermaid::
 
-    Order   Name    Description                         Target                                  Start       End
-    1       Znnnn   Original C Jobs (pre 2001)          All Ansac Work                          1995        2001
-    2       Knnn    Kiln jobs                           Kiln Work                               2001        2010
-    3       Tnnnn   Thermal Processing                  Thermal Processing Work                 2010        2021
-    4       aaannn  Anergy UK Jobs                      Anergy UK Jobs                          2011        2013
-    5       Mnnn    Mechanical jobs                     Mech Fab Work (dormant)                 2001        2019
-    6       Vnnnn   Valve jobs                          Valve work                              2001        2010
-    7       Snnnnn  Spares jobs                         Spares work                             2001        2021
+    flowchart LR
+        subgraph AM[model]
+            SM[scheme.mixin]
+        end
+        SB[scheme.base]
+        SG[scheme.group]
+        SG --> SB ----> SM
+        SG -. module level .-> SM
+
+Each of the business object identifiers form groups (``scheme.group``). For each of these groups, there can be a number
+of different schemes that can apply given that this changes with time (``scheme.base``). An individual record for a
+specific model will belong then to a scheme (``scheme.mixin``). This will allow that scheme to supply a code to the
+record (field ``code``).
+
+Scheme : ``scheme.base``
+========================
+
+Basic Fields
+------------
+
+The ``name``, ``description`` and ``targeted_users`` fields are used to provide appropriate descriptors for a given
+scheme. ``name`` is mandatory should be a simple shorthand method of describing a scheme. ``description`` can provide
+more details about the intended scope and nature of the scheme. Finally, ``targeted_users`` provides the historical
+context without adding cruft to the ``description`` and should name the company/situation in which the scheme was
+intended for.
+
+The ``regex`` field of ``scheme.base`` defines what a code can be. This is mandatory.
+
+.. warning::
+
+    Please do not create schemes which utilises spaces in any way. It is anticipated that such schemes may result in
+    problems when perform ``parsing`` or ``search`` type operations as well as for prefixed schemes.
+
+Scheme Status
+-------------
+
+``status`` is one of the following:
+
+- ``future`` - not yet used but being considered for use
+- ``current`` - the scheme can be selected and applied
+- ``default`` - any new record relying upon the scheme
+- ``dormant`` - allowed to be used in new records but not made a 'normal' option to users
+- ``closed`` - not to be used in any new records
+
+When a scheme is created, the ``status`` is set to ``future``. Use ``set_current()`` method to switch the scheme on
+and to set the ``usage_start_date``. Historical schemes which are loaded by XML records can of course bypass this.
+Use the method ``set_closed()`` to finally close the scheme. This will also set the ``usage_end_date``. A ``default``
+scheme is deemed to be ``current`` however it may affect the setting of the ``code`` in the inherited
+``scheme.mixin`` model.
+
+If a selection list is provided to a user, only ``current`` or ``default`` should be shown. ``dormant`` should really
+require some other intervention. ``closed`` and ``future`` should be not permitted to be added.
+
+Scheme Order
+------------
+
+Human interpretation of the order of codes may not directly correspond with machine order. For example, is code T101
+or T1000 greater? To be able to correctly order the two, a second field is computed and stored with the record.
 
 
+Sequenced Schemes
+-----------------
 
-Testing
-=======
+Most schemes have a logical numbering and therefore ordering. If the ``sequenced`` field of ``scheme.base`` is such
+then this scheme is sequenced.
 
-Model ``scheme.group`` testing
+``scheme.mixin`` will also set the default order to ``_code``. This is a version of the code which is modified for
+the purposes of ordering in the business logical manner. Hence when records are shown, the ``_code`` field will sort
+correctly and determinately.
 
-- ability to create and update group
-- create hierarchy of groups
-- perform a group led search function at both root, group and sub-group level
-- perform security group checking on view functions
+Prefixed Schemes
+----------------
 
-Model ``scheme.base`` testing
-
-- create and update working
-- perform a migration of existing data in the test database to the ``code`` field
-- correctly verify a range of potential codes against multiple schemes
-- determine the next in a code scheme sequence
-- view, create and update a schema through correct menus
-- reorder codes in a recordset
-- search for a record in a recordset
-- parse text to find potential codes
-
-Model ``scheme.mixin`` testing
-
-- Add the ``mixin`` to a code
-- Check that the ``code`` is correctly added to a model
-- Work out how the ``create()`` and ``write()`` work to sort out codes
+Some schemes actually rely upon another scheme being a prefix to the code. Should a scheme have a prefixing scheme,
+this is set using the ``prefix_scheme`` field and choosing another scheme. A check shall be completed to prevent
+circular references (using the utility method ``_check_recursion()``). Use the ``prefix_separator`` to define the
+separator between the two (or '' if there is no separator). If it is mandatory for the scheme to have at all times
+the prefix then set the field ``prefix_mandatory`` to True.
 
 
-Additional Notes
-================
+Timed Schemes
+-------------
 
-Pre-implementation
-------------------
+Some schemes generate codes with an element which is time oriented. An example of this is the (at the time of
+writing) part number scheme. This uses the form ``1qq-nnnn`` where ``qq`` is the quarter number. For the purposes
 
-During Implementation
----------------------
 
-Post Implementation
--------------------
+Search Functions
+----------------
 
-.. note::
+``search(code, strict=True)``
+    **returns** None or a record or a recordset depending the number of codes found to exactly (if strict) or partially
+    (if not) match an item in the list from ``get_all_codes``
 
-    It is expected that the ``scheme.base`` will require extending if the basic regular expression model does not
-    work well for newer models. For example, the current model possibly does not fully tackle all document numbering
-    possibilities into the future.
+``parse``
+    Individual text can be parsed to determine if the text contains any instances which fit the scheme. A mo
 
-    Also, there is still the need to garner specific metadata from the coding of any particular scheme. For example
-    in the case of WBS metadata. On this last point, this may actually need to be written into the models into which
-    this data will end up.
+
